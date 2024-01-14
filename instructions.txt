@@ -1,0 +1,24 @@
+Structure:
+    - main identifies which website_scrapers to run
+    - website_scrapers:
+        - extract the info for processing
+        - return a dictionary of title/heading/content
+    - gptProcessing:
+        - connect API key
+        - run the website_scrapers output
+        - format for JSON file inclusion
+    - main loads and saves the JSON
+
+Folder:
+    - website_scrapers: files of individual website website_scrapers
+    - all return:{
+        release_date:'',
+        title:'',
+        content:[],
+        images:[]
+    }
+
+website_scrapers notes:
+    - rbc_weekly.py
+        - keep in mind the "week ahead data watch" heading
+    
