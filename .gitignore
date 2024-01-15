@@ -1,0 +1,6 @@
+# Default ignored files
+.idea
+.pytest_cache
+processing/gpt_api_key.py
+.env
+.conda

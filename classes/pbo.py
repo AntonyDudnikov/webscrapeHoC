@@ -20,6 +20,7 @@ class Pbo(Source):
         self.output['release_date'] = release_date
         self.output['institution'] = 'Parliamentary Budget Officer'
         self.output['title'] = title
+        self.output['p_first'] = True
 
 
     def _table_extraction(self, table) -> dict:
@@ -52,12 +53,14 @@ class Pbo(Source):
 
         if self.report:
 
+            #----- Highlights -----
             highlights = self.driver.find_elements(By.XPATH, "//*[@id='pb-hlt']/ul/*")
             self.output['highlights'] = []
             for item in highlights:
                 self.output['highlights'].append(item.text)
+
                 
-        else:
+        else: #legislative costing note
             #----- Summary -----
             self.output['summary'] = self.driver.find_element(By.XPATH, "//div[@id='pb-abs']").text #sumamry of the costing note
         
