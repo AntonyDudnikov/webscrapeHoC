@@ -33,12 +33,24 @@ class Statcan(Source):
         release_date = re.search(r'\d{4}-\d{2}-\d{2}', release_date).group() #extract it
         self.output['release_date'] = datetime.strptime(release_date, "%Y-%m-%d").strftime("%d/%m/%Y") #convert it
         #section_content = driver.find_element(By.XPATH, '/html/body/main/section') #overall html section path
-        #----- Content -----
+        
         elements = self.driver.find_elements(By.XPATH, '/html/body/main/section/*') #all the children
         headings = []
         content = []
         aggregate = False
-        self.output['p_first'] = elements[2].tag_name == 'p' #  bool to correctly display the webpage content
+        #----- p_first -----
+        done = False
+        i = 2
+        while not done:
+            if elements[i].tag_name == 'p':
+                print()
+                self.output['p_first'] = True
+                done = True
+            elif elements[i].tag_name == 'h2':
+                self.output['p_first'] = False
+                done = True
+            i += 1
+        #----- Content -----
         for element in elements[2::]: #iterate all values past the release date on webpage
             if element.tag_name == 'p':
                 if aggregate: #consecutive <p>, so concatenate text to last item in content

@@ -5,7 +5,6 @@ import unittest
 
 
 
-#TODO: complete statscan tests
 
 """
 things to check:

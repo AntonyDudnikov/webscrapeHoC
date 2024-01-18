@@ -1,15 +1,13 @@
 
 from selenium.webdriver.chrome.service import Service
+from processing import gpt_processing
 from selenium import webdriver
-from classes import rbc
 from classes import statcan
+from classes import rbc
 from classes import pbo
 from classes import boc
 from classes import source
 import pprint
-"""
-ADD CMHC MEDIA RELEASES
-"""
 
 
 # Press the green button in the gutter to run the script.
@@ -37,14 +35,19 @@ if __name__ == '__main__':
                 if x >= 1:
                     print(output['headings'][x-1])                
                 print(output['content'][x])
-                
-    
+
+    stat1 = statcan.Statcan(url="https://www150.statcan.gc.ca/n1/daily-quotidien/240117/dq240117a-eng.htm", release_date='11/01/2024', driver=driver)
+    stat1.statcan_scrape()
+    print(stat1)
+    print(gpt_processing.print_result(stat1.output))
+    print(gpt_processing.statcan_processing(stat1.output))
+
 
     driver.quit()
 """
 TODO: include a parser that seperates the <p> and <ul> with the same format as BoC
 TODO: standardize the scraping output for all scrapers
-TODO: learn and create tests
+
 """
 
 """
