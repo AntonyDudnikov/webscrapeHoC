@@ -23,7 +23,7 @@ if __name__ == '__main__':
     def print_result(output):
         if not output['p_first']:
             for x in range(len(output['headings'])):
-                print('__________________________')
+                print('__________________________') 
                 print(output['headings'][x])
                 print(output['content'][x])
         else:
@@ -33,12 +33,11 @@ if __name__ == '__main__':
                     print(output['headings'][x-1])                
                 print(output['content'][x])
 
-    #stat1 = statcan.Statcan(url="https://www150.statcan.gc.ca/n1/daily-quotidien/240117/dq240117a-eng.htm", release_date='11/01/2024', driver=driver)
-    #stat1.statcan_scrape()
-    #print(stat1)
-    #print(gpt_processing.print_result(stat1.output))
-    #print(gpt_processing.statcan_processing(stat1.output))
-    send_email.send_email()
+    stat1 = statcan.Statcan(url="https://www150.statcan.gc.ca/n1/daily-quotidien/240117/dq240117a-eng.htm", release_date='11/01/2024', driver=driver)
+    stat1.statcan_scrape()
+    print(stat1)
+    gpt_output = gpt_processing.statcan_processing(stat1.output)
+    send_email.send_email(gpt_output, stat1.output['title'])
 
 
     driver.quit()

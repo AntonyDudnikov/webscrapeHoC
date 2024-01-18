@@ -4,5 +4,5 @@
 processing/gpt_api_key.py
 .env
 .conda
-.credentials
-.token
+credentials.json
+token.json
