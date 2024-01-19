@@ -74,7 +74,7 @@ def statcan_processing(output) -> str:
     )
     return response.choices[0].message.content
 
-def pbo_processing():
+def pbo_processing(output):
     """
     GPT API request for parliamentary budget office reports
     Input: dictionary of release metadata and content

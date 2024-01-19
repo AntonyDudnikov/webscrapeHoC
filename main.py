@@ -45,7 +45,8 @@ if __name__ == '__main__':
     driver.quit()
 """
 TODO: include a parser that seperates the <p> and <ul> with the same format as BoC
-TODO: standardize the scraping output for all scrapers
+TODO: classify the corresponsing release for file
+TODO: start monitoring stage
 
 """
 

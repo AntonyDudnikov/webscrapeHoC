@@ -11,7 +11,7 @@ load_dotenv()
 
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv('APP_PASSWORD')
-email_receiver = 'antony.dudnikov@parl.gc.ca'
+email_receiver = 'david.murray@parl.gc.ca'
 
 def send_email(text, title):
     text = re.sub("```html", f"Today Statistics Canada released: {title}", text)

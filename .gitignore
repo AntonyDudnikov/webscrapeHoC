@@ -6,3 +6,7 @@ processing/gpt_api_key.py
 .conda
 credentials.json
 token.json
+__pycache__
+classes/__pycache__
+gmail/__pycache__
+processing/__pycache__
