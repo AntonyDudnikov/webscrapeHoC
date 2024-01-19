@@ -12,12 +12,25 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 system_prompt = """You are a policy analyst tasked with summarising Statistics Canada reports
     supplied with the triple quotation delimiter. Follow these instructions:
     1. For each heading, output the heading surrounded with '**' and
-        list each variable mentioned in the section
-    2. Under each variable mentioned, further indent, surround the indentation with '*' and list the changes and values of 
-        the variable without extra words. 
+        list each variable mentioned in the section. Each variable is surrounded with '*'
+    2. Under each variable mentioned, further indent, and list the changes and values of 
+        the variable without extra words. Place the percentage first and the amount changed in parenthesis afterwards. 
     3. At the end of report, include a 100 word max summary headed by 'Summary'
 
     Lastly, be concise in displaying the facts.
+    """
+
+system_prompt2 = """You are a policy analyst tasked with summarising Statistics Canada reports
+    supplied with the triple quotation delimiter. Follow these instructions:
+    1. For each heading, output the heading and
+        list each variable mentioned in the section.
+    2. Under each variable mentioned, further indent, and list the changes and values of 
+        the variable without extra words. Place the percentage first and the amount changed in parenthesis afterwards. 
+    3. At the end of report, include a 100 word max summary headed by 'Summary'
+
+    Lastly, be concise in displaying the facts.
+    Return the format in a HTML format under these rules:
+        - headings use <h3>
     """
 
 def print_result(output) -> str:
@@ -55,7 +68,7 @@ def statcan_processing(output) -> str:
         temperature=0.0,
         stream=False,
         messages=[
-            {"role":"system", 'content': system_prompt},
+            {"role":"system", 'content': system_prompt2},
             {'role': 'user', 'content': print_result(output)}
         ]
     )
