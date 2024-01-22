@@ -25,13 +25,13 @@ class Statcan(Source):
         self.output['release_date'] = release_date
 
     def statcan_scrape(self):
-        self.driver.get(self.output['url'])
+        #self.driver.get(self.output['url'])
 
         #----- Meta Data -----
         self.output['title'] = self.driver.find_element(By.XPATH, '//*[@id="wb-cont"]').text #title
-        release_date = self.driver.find_element(By.XPATH, "//p[@class='sd-release-date']").text #get release date
-        release_date = re.search(r'\d{4}-\d{2}-\d{2}', release_date).group() #extract it
-        self.output['release_date'] = datetime.strptime(release_date, "%Y-%m-%d").strftime("%d/%m/%Y") #convert it
+        # release_date = self.driver.find_element(By.XPATH, "//p[@class='sd-release-date']").text #get release date
+        # release_date = re.search(r'\d{4}-\d{2}-\d{2}', release_date).group() #extract it
+        # self.output['release_date'] = datetime.strptime(release_date, "%Y-%m-%d").strftime("%d/%m/%Y") #convert it
         #section_content = driver.find_element(By.XPATH, '/html/body/main/section') #overall html section path
         
         elements = self.driver.find_elements(By.XPATH, '/html/body/main/section/*') #all the children

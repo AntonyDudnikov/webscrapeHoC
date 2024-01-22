@@ -7,8 +7,7 @@ import json
 class Source:
     
     def __init__(self) -> None:
-        self.output = {'date_retrieved': datetime.date.today().strftime("%d/%m/%Y"),
-                       'release_date': datetime.date.today().strftime("%d/%m/%Y")}
+        self.output = {'date_retrieved': datetime.date.today().strftime("%d/%m/%Y")}
 
     def __str__(self) -> str:
         return pprint.pformat(self.output, indent=2, width=90, compact=True, depth=1)

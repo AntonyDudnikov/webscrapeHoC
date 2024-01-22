@@ -29,6 +29,7 @@ system_prompt2 = """You are a policy analyst tasked with summarising Statistics 
     3. At the end of report, include a 100 word max summary headed by 'Summary'
 
     Lastly, be concise in displaying the facts.
+    Format the structure with the Summary at the top and the statistics below it.
     Return the format in a HTML format under these rules:
         - headings use <h3>
     """

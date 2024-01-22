@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from processing import gpt_processing
 from selenium import webdriver
 from classes import statcan, rbc, pbo, boc, source
+from monitoring import statscan_mon
 from gmail import send_email
 import pprint
 
@@ -17,7 +18,7 @@ if __name__ == '__main__':
     #rbc.rbc_website(url='https://thoughtleadership.rbc.com/rbc-consumer-spending-tracker/')
     service = Service(executable_path="C:\Program Files (x86)\chromedriver.exe")
     options= webdriver.ChromeOptions()
-    options.add_argument('headless')
+    #options.add_argument('headless')
     driver = webdriver.Chrome(options=options, service=service)
 
     def print_result(output):
@@ -32,19 +33,20 @@ if __name__ == '__main__':
                 if x >= 1:
                     print(output['headings'][x-1])                
                 print(output['content'][x])
+    #statscan_mon._upload_statcan_mon_file()
+    statscan_mon.statcan_monitor(statscan_mon.load_statcan_mon_file(), driver)
 
-    stat1 = statcan.Statcan(url="https://www150.statcan.gc.ca/n1/daily-quotidien/240119/dq240119b-eng.htm", release_date='19/01/2024', driver=driver)
-    stat1.statcan_scrape()
-    print(stat1)
-    gpt_output = gpt_processing.statcan_processing(stat1.output)
-    print(gpt_output)
-    send_email.send_email(gpt_output, stat1.output['title'])
+    #stat1 = statcan.Statcan(url="https://www150.statcan.gc.ca/n1/daily-quotidien/240122/dq240122a-eng.htm", release_date='22/01/2024', driver=driver)
+    #stat1.statcan_scrape()
+    #print(stat1)
+    #gpt_output = gpt_processing.statcan_processing(stat1.output)
+    #print(gpt_output)
+    #send_email.send_email(gpt_output, stat1.output['title'])
 
 
 
     driver.quit()
 """
-TODO: include a parser that seperates the <p> and <ul> with the same format as BoC
 TODO: classify the corresponsing release for file
 TODO: start monitoring stage
 
