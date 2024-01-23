@@ -1,4 +1,5 @@
 import os
+import re
 import openai
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -33,6 +34,73 @@ system_prompt2 = """You are a policy analyst tasked with summarising Statistics 
     Return the format in a HTML format under these rules:
         - headings use <h3>
     """
+
+summary_prompt = """You are a policy analyst tasked with summarising reports
+    supplied with the triple quotation delimiter. Please provide a 100 words max summary.
+"""
+
+classifying_prompt = """You are given a title of a report and you must classify them into 1 or 2 corresponding policy files.
+    Return just the file names, with no dashes, seperated by ";".
+    Here are the possible files:
+    - Digital Government
+    - Agriculture, Agri-Food and Food Security
+    - Canadian Heritage
+    - Crown-indigenous Relations
+    - Finance and Middle Class Prosperity
+    - Employment, Future Workforce Development and Disability inclusion
+    - Environment and Climate Change
+    - Families, Children and Social Development
+    - Federal Economic Development Agency for Eastern, Central and Southern Ontario
+    - Fisheries, Oceans and the Canadian Coast Guard
+    - Foreign Affairs
+    - Health
+    - Housing and Diversity and Inclusion
+    - Immigration, Refugees and Citizenship
+    - Federal Economic Development Agency for Northern Ontario
+    - Innovation, Science and Industry 
+    - International Development 
+    - International Trade
+    - Supply Chain Issues
+    - Small Business Recovery and Growth 
+    - Red Tape Reduction
+    - Justice and Attorney General of Canada 
+    - Mental Health and Suicide Prevention 
+    - Addictions
+    - Northern Affairs and Artic Sovereignty; Canadian Northern Economic Development Agency
+    - Prairie Economic Development (Advisor to the Leader, Economy)
+    - Pacific Economic Development 
+    - Sport; Economic Development Agency of Canada for the Regions of Quebec
+    - National Defence 
+    - National Revenue 
+    - Natural Resources 
+    - Official Languages 
+    - Atlantic Canada Opportunities Agency 
+    - Public Safety 
+    - Public Services and Procurement 
+    - Emergency Preparedness 
+    - Rural Economic Development & Connectivity
+    - Seniors
+    - Tourism
+    - Transport
+    - Treasury Board 
+    - Veterans Affairs
+    - Women and Gender Equality and Youth 
+    - Ethics and Accountable Government
+    - Infrastructure and Communities 
+    - Labour
+    - Indigenous Services 
+    - Pan-Canadian Trade and Competition
+    - Hunting, Fishing and Conservation
+    - Democratic Reform
+    """
+
+def summary_gpt_extraction(gpt_output) -> str:
+    try:
+        matches = re.findall(re.compile(r'<p>(.*?)</p>', re.DOTALL), gpt_output)
+        return matches[0]
+    except:
+        print("NOT AVAILABLE")
+
 
 def print_result(output) -> str:
     #TODO create  before gpt processing
@@ -75,7 +143,28 @@ def statcan_processing(output) -> str:
     )
     return response.choices[0].message.content
 
-def pbo_processing(output):
+def classify_file(title) -> str:
+    """
+    GPT API request to classify a release title by a corresponding file.
+    INPUT: title name of release
+    OUTPUT: max of 2 corresponding files
+    """
+    response = client.chat.completions.create(
+        model = 'gpt-4-1106-preview',
+        #model="gpt-3.5-turbo-1106",
+        temperature=0.2,
+        stream=False,
+        messages=[
+            {"role":"system", 'content': classifying_prompt},
+            {'role': 'user', 'content': title}
+        ]
+    )
+    reply = response.choices[0].message.content
+    reply = re.sub('\n', '', reply)
+    reply = reply.split(';')
+    return reply
+
+def summary_processing(output):
     """
     GPT API request for parliamentary budget office reports
     Input: dictionary of release metadata and content
@@ -84,10 +173,10 @@ def pbo_processing(output):
     response = client.chat.completions.create(
         model = 'gpt-4-1106-preview',
         #model="gpt-3.5-turbo-1106",
-        temperature=0.0,
+        temperature=0.2,
         stream=False,
         messages=[
-            {"role":"system", 'content': system_prompt},
+            {"role":"system", 'content': summary_prompt},
             {'role': 'user', 'content': print_result(output)}
         ]
     )

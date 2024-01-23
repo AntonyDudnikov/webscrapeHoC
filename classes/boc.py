@@ -112,7 +112,7 @@ class Boc(Source):
             self.output['p_first'], self.output['headings'], self.output['content'] = self._content_scrape(body[1:-2])
             self.output['charts'] = False
             
-        elif self.output['type'] == 'Summary of Deliberations': # if its a Summary of Deliberations
+        elif self.output['type'] == 'Summary of deliberations': # if its a Summary of Deliberations
             content = self.driver.find_elements(By.XPATH, "//main[@id='main-content']/div/div/div/*")
 
             #_______title & date_______

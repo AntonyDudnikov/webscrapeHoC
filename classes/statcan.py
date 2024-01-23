@@ -2,6 +2,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
 from classes.source import Source
 from selenium import webdriver
 from datetime import datetime
@@ -25,7 +26,7 @@ class Statcan(Source):
         self.output['release_date'] = release_date
 
     def statcan_scrape(self):
-        #self.driver.get(self.output['url'])
+        self.driver.get(self.output['url'])
 
         #----- Meta Data -----
         self.output['title'] = self.driver.find_element(By.XPATH, '//*[@id="wb-cont"]').text #title
@@ -72,19 +73,23 @@ class Statcan(Source):
         self.output['content'] = content
         
         #----- Data Tables -----
-        buttons =self.driver.find_element(By.CLASS_NAME, 'release_nav').find_elements(By.XPATH, './*')
-        tables = buttons[1].click()
-        time.sleep(random.randint(2,5))
-        release_list = self.driver.find_elements(By.XPATH, '//*[@id="release-list"]/tbody/*')
-        self.output['data_tables'] = {}
-        for table in release_list:
-            raw_title = table.find_element(By.TAG_NAME, 'h3').text
-            title = re.sub(re.compile(r'\([^)]*\)'), '', raw_title)
-            unit = re.findall(r'\([^)]*\)', raw_title)[0].replace(")", '').replace("(", '')
-            self.output['data_tables'][title] = {
-                'unit': unit, #quaterly/annual
-                'url': table.find_element(By.TAG_NAME, 'a').get_attribute('href') #reference url
-            }
+        try:
+            buttons =self.driver.find_element(By.CLASS_NAME, 'release_nav').find_elements(By.XPATH, './*')
+            tables = buttons[1].click()
+            time.sleep(random.randint(2,5))
+            release_list = self.driver.find_elements(By.XPATH, '//*[@id="release-list"]/tbody/*')
+            self.output['data_tables'] = {}
+            for table in release_list:
+                raw_title = table.find_element(By.TAG_NAME, 'h3').text
+                title = re.sub(re.compile(r'\([^)]*\)'), '', raw_title)
+                unit = re.findall(r'\([^)]*\)', raw_title)[0].replace(")", '').replace("(", '')
+                self.output['data_tables'][title] = {
+                    'unit': unit, #quaterly/annual
+                    'url': table.find_element(By.TAG_NAME, 'a').get_attribute('href') #reference url
+                }
+        except NoSuchElementException:
+            print("No tables.")
+
 
 
 

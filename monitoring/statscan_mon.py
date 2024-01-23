@@ -9,21 +9,13 @@ from classes import statcan
 from selenium import webdriver
 from datetime import datetime
 import pandas as pd
-import random
-import time
 import re
 
-#create a csv file to keep track of viewed releases
+#create a csv file to keep track of viewed releasesdrive
+
 #load and upload csv file in file directory
 statcan_file = pd.DataFrame()
 
-def load_statcan_mon_file():
-    statcan_file = pd.read_csv("statscan_mon_file.csv")
-    return statcan_file
-
-def _upload_statcan_mon_file(statcan_file):
-    #statcan_file = pd.DataFrame({'release_date':[], 'title':[], 'url': [], 'date_retrieved':[]})
-    statcan_file.to_csv('statscan_mon_file.csv', encoding='utf-8', index=False)
 
 def statcan_monitor(statcan_file, driver):
     """
@@ -32,8 +24,6 @@ def statcan_monitor(statcan_file, driver):
     OUTPUT: list of urls of new releases
     """
     driver.get("https://www150.statcan.gc.ca/n1/dai-quo/ssi/homepage/rel-com/all_subjects-eng.htm")
-    #window_handles = driver.window_handles
-    #parent_window = window_handles[0]
 
     table = driver.find_elements(By.XPATH, "//table[@id='release-list']/tbody/*")
 
@@ -41,6 +31,10 @@ def statcan_monitor(statcan_file, driver):
     titles = []
     urls = []
     dates_retrieved = []
+    summary = []
+    gpt_outputs = []
+    files = []
+    institution = []
 
     for item in table:
         """
@@ -51,8 +45,7 @@ def statcan_monitor(statcan_file, driver):
         """
         print('_______________NEW ITEM_________________')
         url = item.find_element(By.XPATH, './td/a').get_attribute('href')
-
-        if url not in statcan_file['url']:
+        if url not in statcan_file['url'].values:
             release_date = item.find_element(By.XPATH, "./td/a/p[@class='text-img-list keynext']").text
             release_date = re.search( r'(\d{4}-\d{2}-\d{2})', release_date).group()
             release_date = datetime.strptime(release_date, "%Y-%m-%d").strftime("%d/%m/%Y")
@@ -66,20 +59,34 @@ def statcan_monitor(statcan_file, driver):
             titles.append(stat.output['title'])
             urls.append(stat.output['url'])
             dates_retrieved.append(stat.output['date_retrieved'])
+            institution.append('statistics canada')
+            driver.back()
             driver.back()
             driver.back()
            
             #Processing
-            #gpt_output = gpt_processing.statcan_processing(stat.output)
+            gpt_output = gpt_processing.statcan_processing(stat.output)
+            gpt_outputs.append(gpt_output)
+            summary.append(gpt_processing.summary_gpt_extraction(gpt_output))
+            files.append(gpt_processing.classify_file(stat.output['title']))
 
-            #send email
-            #send_email.send_email(gpt_output, stat1.output['title'])
-    df_extended = pd.DataFrame(zip(release_dates, titles, urls, dates_retrieved), columns=["release_date", 'title', 'url', 'date_retrieved'])
-    statcan_file = pd.concat([statcan_file, df_extended], ignore_index=True)      
-    # statcan_file.append({'release_date': stat.output['release_date'],
-    #                              'title': stat.output['title'],
-    #                              'url': stat.output['url'],
-    #                              'date_retrieved': stat.output['date_retrieved']})
-            
-    _upload_statcan_mon_file(statcan_file)
+    if titles:
+        df_extended = pd.DataFrame(zip(release_dates, titles, urls, dates_retrieved, summary, files), columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'files'])
+        statcan_file = pd.concat([df_extended, statcan_file], ignore_index=True)                  
+        statcan_file.to_csv('temp_database.csv', encoding='utf-8', index=False)
+
+        #sending email
+        keep_asking = True
+        while keep_asking:
+            email_number = input(f"""
+                Do you wish to send an email about any of these titles?
+                {titles}
+                If so, then input the corresponding position in the list,
+                or reply with "no".
+                """)
+            if type(email_number) == int and 0<=email_number<=len(titles)-1:
+                send_email.send_email(gpt_outputs[email_number], titles[email_number])
+                keep_asking = False
+            elif type(email_number) == str and email_number == 'no':
+                keep_asking = False
         
