@@ -1,10 +1,6 @@
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from processing import gpt_processing
 from gmail import send_email
-from classes.source import Source
 from classes import statcan
 from selenium import webdriver
 from datetime import datetime
@@ -45,6 +41,7 @@ def statcan_monitor(statcan_file, driver):
         """
         print('_______________NEW ITEM_________________')
         url = item.find_element(By.XPATH, './td/a').get_attribute('href')
+        #TODO: mind you the href doesn't include the .../n1/... in the url. Issues in manual inputs if thats the case
         if url not in statcan_file['url'].values:
             release_date = item.find_element(By.XPATH, "./td/a/p[@class='text-img-list keynext']").text
             release_date = re.search( r'(\d{4}-\d{2}-\d{2})', release_date).group()
@@ -53,7 +50,7 @@ def statcan_monitor(statcan_file, driver):
             #Extraction
             item.click()
             stat = statcan.Statcan(url=url, release_date=release_date, driver=driver)
-            stat.statcan_scrape()
+            stat.statcan_daily_scrape()
             print(stat)
             release_dates.append(stat.output['release_date'])
             titles.append(stat.output['title'])
@@ -73,7 +70,7 @@ def statcan_monitor(statcan_file, driver):
     if titles:
         df_extended = pd.DataFrame(zip(release_dates, titles, urls, dates_retrieved, summary, files), columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'files'])
         statcan_file = pd.concat([df_extended, statcan_file], ignore_index=True)                  
-        statcan_file.to_csv('temp_database.csv', encoding='utf-8', index=False)
+        statcan_file.to_csv('temp_database_copy.csv', encoding='utf-8', index=False)
 
         #sending email
         keep_asking = True

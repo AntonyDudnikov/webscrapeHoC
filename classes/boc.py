@@ -90,8 +90,8 @@ class Boc(Source):
         return (p_first, headings, body)
 
     def boc_scrape(self):
-
         self.driver.get(self.output['url']) #load in the page
+
         if self.output['type'] == 'research': #if this page is research
             pass
         elif self.output['type'] == 'Quarterly Financial Report': # if its a Quarterly Financial Report 
@@ -101,12 +101,11 @@ class Boc(Source):
             - the XML path to content is different 
             use the helper function to extract the content
             """
-            content = self.driver.find_element(By.XPATH, "//main[@id='main-content']").find_elements(By.CLASS_NAME, 'row')
+            content = self.driver.find_element(By.XPATH, "//main[@id='main-content']/div").find_elements(By.CLASS_NAME, 'row')
 
             #_______title_______
-            title = content[0].find_element(By.XPATH, "//h1[@class='post-heading']").text
+            title = content[0].find_element(By.XPATH, "./div/div[1]/div/div/div/div[1]/h1[@class='post-heading']").text
             self.output['title'] = title
-
             #_______body_______
             body = content[1].find_elements(By.XPATH, './div/*')
             self.output['p_first'], self.output['headings'], self.output['content'] = self._content_scrape(body[1:-2])
@@ -116,7 +115,7 @@ class Boc(Source):
             content = self.driver.find_elements(By.XPATH, "//main[@id='main-content']/div/div/div/*")
 
             #_______title & date_______
-            self.output['title'] = content[0].find_element(By.TAG_NAME, 'h1')
+            self.output['title'] = content[0].find_element(By.XPATH, './div/div/div/div[1]/h1').text
             release_date = content[0].find_element(By.CLASS_NAME, 'post-date').text
             release_date = re.search( r'(\w+ \d{1,2}, \d{4})', release_date).group()
             self.output['release_date'] = datetime.strptime(release_date, "%B %d, %Y").strftime("%d/%m/%Y")

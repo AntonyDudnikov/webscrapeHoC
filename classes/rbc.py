@@ -97,7 +97,7 @@ class Rbc(Source):
         self.output["images"] = [s.get_attribute("src") for s in images]
 
 
-    def rbc_website(self):
+    def rbc_website_scrape(self):
         self.driver.get(self.output['url'])
 
         #------date------

@@ -11,23 +11,104 @@ import pprint
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print("----------------------------")
-    #rbc.rbc_email_scrape("http://view.website.rbc.com/?qs=252693f6703bfe6d95f0c536c2c7ee9f7244cf155cbfebb7c0d992e5f5b31a311ad856fb417e3136f18422d16689747e4d3c542f49bed74450aa1d874c8eff0315fcb987ab8a6a8a9984a8deeebde978")
-    #rbc.rbc_email_scrape('http://view.website.rbc.com/?qs=a15bb554423f2e6a43da32adab780a64a077f0addb8582d5923332f64ce294472d01b53f8817b134041c7da41846f02f7037165d5c0398488bfec2dcd050deebe4864bb2b2aeb21102d2bb70cacc6ca2')
-    #pprint.pp(statcan.statcan_scrape("https://www150.statcan.gc.ca/n1/daily-quotidien/231212/dq231212a-eng.htm"), indent=2)
-    #pbo.pbo_scrape(url= 'https://www.pbo-dpb.ca/en/publications/LEG-2324-018-S--amendment-excise-tax-act-exempt-psychotherapy-mental-health-support-services-from-gst--modification-loi-taxe-accise-afin-exonerer-services-psychotherapie-accompagnement-sante-mentale-tps', report=False)
-    #rbc.rbc_website(url='https://thoughtleadership.rbc.com/rbc-consumer-spending-tracker/')
     service = Service(executable_path="C:\Program Files (x86)\chromedriver.exe")
     options= webdriver.ChromeOptions()
-    options.add_argument('headless')
+    #options.add_argument('headless')
     driver = webdriver.Chrome(options=options, service=service)
 
-    all_files_copy = pd.read_csv("temp_database_copy.csv")
-    boc_mon.boc_monitor(all_files_copy, driver)
 
+
+    all_files_copy = pd.read_csv("temp_database_copy.csv")
+    stay_on = True
+    release_dates = []
+    titles = []
+    urls = []
+    dates_retrieved = []
+    summaries = []
+    gpt_outputs = []
+    files = []
+    institution = []
+    while stay_on:
+        manual = input("Do you wish to manually input a release? [yes, no, exit] \n")
+        if manual == 'yes':
+            release_type = input("Is it a StatsCan, BoC, PBO, RBC or other? [type answer as written in the question] \n")
+            if release_type == "StatsCan":
+                url = input("What is the url? \n")
+                if url not in all_files_copy['url'].values:
+                    release_date = input("What is the release date? Write in this format, dd/mm/YYYY \n")
+                    statcan = statcan.Statcan(url=url, release_date=release_date, driver=driver)
+                    type = input('What type of release is this? [The Daily, Articles and reports] \n')
+                    if type == 'The Daily':
+                        statcan.statcan_daily_scrape()
+                        release_dates.append(statcan.output['release_date'])
+                        titles.append(statcan.output['title'])
+                        urls.append(statcan.output['url'])
+                        dates_retrieved.append(statcan.output['date_retrieved'])
+                        institution.append('statistics canada') 
+                        summaries.append(gpt_processing.summary_processing(statcan.output))
+                        files.append(gpt_processing.classify_file(statcan.output['title']))
+                    elif type == 'Articles and reports':
+                        statcan.statcan_report_scrape()
+                        release_dates.append(statcan.output['release_date'])
+                        titles.append(statcan.output['title'])
+                        urls.append(statcan.output['url'])
+                        dates_retrieved.apepnd(statcan.output['date_retrieved'])
+                        institution.append('statistics canada') 
+                        summaries.append(gpt_processing.summary_processing(statcan.output))
+                        files.append(gpt_processing.classify_file(statcan.output['title']))
+                else:
+                    print('This release already exists in the database.')
+            elif release_type == 'PBO':
+                url = input("What is the url?")
+                if url not in all_files_copy['url'].values:
+                    print('THIS SECTION OF COMMANS IS NOT COMPLETE YET')
+                else:
+                    print('This release already exists in the database.')
+            elif release_type == 'RBC':
+                url = input("What is the url? \n")
+                if url not in all_files_copy['url'].values:
+                    release_date = input("What is the release date? Write in this format, dd/mm/YYYY \n")
+                    email = input('What format is this RBC release? [email, website] \n')
+                    rbc = rbc.Rbc(url=url, release_date=release_date, email= email, driver=driver)
+                    if email == 'email':
+                        rbc.rbc_email_scrape()
+                        release_dates.append(rbc.output['release_date'])
+                        titles.append(rbc.output['title'])
+                        urls.append(rbc.output['url'])
+                        dates_retrieved.apepnd(rbc.output['date_retrieved'])
+                        institution.append('rbc') 
+                        summaries.append(gpt_processing.summary_processing(rbc.output))
+                        files.append(gpt_processing.classify_file(rbc.output['title']))
+                    elif type == 'website':
+                        rbc.rbc_website_scrape()
+                        release_dates.append(rbc.output['release_date'])
+                        titles.append(rbc.output['title'])
+                        urls.append(rbc.output['url'])
+                        dates_retrieved.apepnd(rbc.output['date_retrieved'])
+                        institution.append('rbc') 
+                        summaries.append(gpt_processing.summary_processing(rbc.output))
+                        files.append(gpt_processing.classify_file(rbc.output['title']))
+                else:
+                    print('This release already exists in the database.')
+            elif release_type == 'other':
+                pass
+        elif manual == 'no':
+            scrape_type = input('Which source do you want to scrape? \n[StatsCan, BoC] \n')
+            if scrape_type == 'StatsCan':
+                statscan_mon.statcan_monitor(all_files_copy, driver)
+                print('DONE')
+            elif scrape_type == "BoC":
+                boc_mon.boc_monitor(all_files_copy, driver)
+                print('DONE')
+        elif manual =='exit':
+            print('THANK YOU')
+            stay_on = False
+    df_extended = pd.DataFrame(zip(release_dates, titles, urls, dates_retrieved, summaries, files, institution), columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'files', 'institution'])
+    all_files_copy = pd.concat([df_extended, all_files_copy], ignore_index=True)        
+    all_files_copy.to_csv('temp_database_copy.csv', encoding='utf-8', index=False)
     driver.quit()
 """
-TODO: start monitoring stage
+TODO: check over the main function
 
 """
 

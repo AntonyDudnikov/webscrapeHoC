@@ -25,15 +25,11 @@ class Statcan(Source):
         self.output['institution'] = 'Statistics Canada'
         self.output['release_date'] = release_date
 
-    def statcan_scrape(self):
+    def statcan_daily_scrape(self):
         self.driver.get(self.output['url'])
 
         #----- Meta Data -----
         self.output['title'] = self.driver.find_element(By.XPATH, '//*[@id="wb-cont"]').text #title
-        # release_date = self.driver.find_element(By.XPATH, "//p[@class='sd-release-date']").text #get release date
-        # release_date = re.search(r'\d{4}-\d{2}-\d{2}', release_date).group() #extract it
-        # self.output['release_date'] = datetime.strptime(release_date, "%Y-%m-%d").strftime("%d/%m/%Y") #convert it
-        #section_content = driver.find_element(By.XPATH, '/html/body/main/section') #overall html section path
         
         elements = self.driver.find_elements(By.XPATH, '/html/body/main/section/*') #all the children
         headings = []
@@ -89,6 +85,39 @@ class Statcan(Source):
                 }
         except NoSuchElementException:
             print("No tables.")
+
+    def statcan_report_scrape(self):
+        self.driver.get(self.output['url'])
+
+        #----- title -----
+        self.output['title'] = title = self.driver.find_element(By.XPATH, '//*[@id="wb-cont"]').text.split('\n')[1]
+
+        elements = self.driver.find_elements(By.XPATH, '/html/body/main/section[1]/div[3]/*') #all the children
+        headings = []
+        content = []
+        aggregate = False
+        self.output['p_first'] = False
+        for element in elements: #iterate all values past the release date on webpage
+            if element.tag_name == 'p':
+                if aggregate: #consecutive <p>, so concatenate text to last item in content
+                    content[-1] = content[-1] + ' ' + element.text
+                else:
+                    content.append(element.text)
+                aggregate = True
+            elif element.tag_name == 'h2':
+                aggregate = False
+                stopwords = ['Contact information', 'Products', 'Looking for more insight?', 'Data appendix', 'References']
+                if element.text not in stopwords:
+                    headings.append(element.text)
+                else:
+                    break
+            else:
+                pass
+                #print(f"something else came up: {element.tag_name}")
+        self.output['headings'] = headings
+        self.output['content'] = content
+
+
 
 
 
