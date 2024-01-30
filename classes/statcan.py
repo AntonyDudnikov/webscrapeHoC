@@ -69,22 +69,22 @@ class Statcan(Source):
         self.output['content'] = content
         
         #----- Data Tables -----
-        try:
-            buttons =self.driver.find_element(By.CLASS_NAME, 'release_nav').find_elements(By.XPATH, './*')
-            tables = buttons[1].click()
-            time.sleep(random.randint(2,5))
-            release_list = self.driver.find_elements(By.XPATH, '//*[@id="release-list"]/tbody/*')
-            self.output['data_tables'] = {}
-            for table in release_list:
-                raw_title = table.find_element(By.TAG_NAME, 'h3').text
-                title = re.sub(re.compile(r'\([^)]*\)'), '', raw_title)
-                unit = re.findall(r'\([^)]*\)', raw_title)[0].replace(")", '').replace("(", '')
-                self.output['data_tables'][title] = {
-                    'unit': unit, #quaterly/annual
-                    'url': table.find_element(By.TAG_NAME, 'a').get_attribute('href') #reference url
-                }
-        except NoSuchElementException:
-            print("No tables.")
+        # try:
+        #     buttons =self.driver.find_element(By.CLASS_NAME, 'release_nav').find_elements(By.XPATH, './*')
+        #     tables = buttons[1].click()
+        #     time.sleep(random.randint(2,5))
+        #     release_list = self.driver.find_elements(By.XPATH, '//*[@id="release-list"]/tbody/*')
+        #     self.output['data_tables'] = {}
+        #     for table in release_list:
+        #         raw_title = table.find_element(By.TAG_NAME, 'h3').text
+        #         title = re.sub(re.compile(r'\([^)]*\)'), '', raw_title)
+        #         unit = re.findall(r'\([^)]*\)', raw_title)[0].replace(")", '').replace("(", '')
+        #         self.output['data_tables'][title] = {
+        #             'unit': unit, #quaterly/annual
+        #             'url': table.find_element(By.TAG_NAME, 'a').get_attribute('href') #reference url
+        #         }
+        # except NoSuchElementException:
+        #     print("No tables.")
 
     def statcan_report_scrape(self):
         self.driver.get(self.output['url'])
