@@ -164,7 +164,7 @@ def classify_file(title) -> str:
     reply = reply.split(';')
     return reply
 
-def summary_processing(output):
+def summary_processing(output, manual):
     """
     GPT API request for parliamentary budget office reports
     Input: dictionary of release metadata and content
@@ -177,12 +177,15 @@ def summary_processing(output):
         stream=False,
         messages=[
             {"role":"system", 'content': summary_prompt},
-            {'role': 'user', 'content': print_result(output)}
+            {'role': 'user', 'content': output if manual else print_result(output)}
         ]
     )
     return response.choices[0].message.content
 
 def rbc_processing():
+    pass
+
+def manual_input(text):
     pass
 
 
