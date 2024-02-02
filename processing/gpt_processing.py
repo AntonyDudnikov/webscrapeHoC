@@ -39,7 +39,7 @@ summary_prompt = """You are a policy analyst tasked with summarising reports
     supplied with the triple quotation delimiter. Please provide a 100 words max summary.
 """
 
-classifying_prompt = """You are given a title of a report and you must classify them into 1 or 2 corresponding policy files.
+classifying_prompt = """You are given a title of a report and you must classify them into 2 of the most corresponding policy files.
     Return just the file names, with no dashes, seperated by ";".
     Here are the possible files:
     - Digital Government
@@ -120,7 +120,7 @@ def print_result(output) -> str:
             result +='\n'
             if x == 0:
                 result += 'Introduction:\n'
-            elif x >= 1:
+            elif x >= 1 and len(output['headings']) > 0:
                 result += f"heading: {output['headings'][x-1]}\n"                
             result += output['content'][x] + '\n'
     return result
@@ -173,7 +173,7 @@ def summary_processing(output, manual):
     response = client.chat.completions.create(
         model = 'gpt-4-1106-preview',
         #model="gpt-3.5-turbo-1106",
-        temperature=0.2,
+        temperature=0.3,
         stream=False,
         messages=[
             {"role":"system", 'content': summary_prompt},
