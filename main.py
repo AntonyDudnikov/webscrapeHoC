@@ -136,8 +136,11 @@ def file_allocation(list_files:list):
     
     for x in range(len(list_files)):
         release_files[x].append(list_files[x].lstrip().rstrip())
+        for key, value in file_advisors.items():
+            if list_files[x] in value:
+                advisors[x].append(key)
         # [advisors[x].append(item) if item else pass for key,value in file_advisors]
-
+#TODO:
     # for file in list_files:
     #     counts.append(files.get(file.lstrip()))
     # for x in range(len(release_files)):release_files[x].append(1 if x in counts else 0)
@@ -163,6 +166,7 @@ def print_lists():
     print(f"news: {news}")
     print(f"summaries: {summaries}")
     print(f"Files: {release_files}") 
+    print(f"file advisor: {advisors}")
 
 
 # Press the green button in the gutter to run the script.
@@ -413,9 +417,9 @@ if __name__ == '__main__':
     #TODO: add corresponding policy advisors
     df_extended = pd.DataFrame(
         zip(release_dates, titles, urls, dates_retrieved, summaries, release_files, institutions,
-            release_files[0], release_files[1]),
+            release_files[0], release_files[1], advisors[0], advisors[1]),
         columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'files', 'institution',
-                 "file_1", "file_2"]
+                 "file_1", "file_2", "file_advisor_1", "file_advisor_2"]
     )
     # df_extended = pd.DataFrame(
     #     zip(release_dates, titles, urls, dates_retrieved, summaries, release_files, institutions,
