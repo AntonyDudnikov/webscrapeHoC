@@ -124,7 +124,7 @@ file_advisors = {
     "Yuan Yi Zhu":[
         "Canadian Heritage", 
         "Immigration, Refugees and Citizenship", 
-        "Sport; Economic Development Agency of Canada for the Regions of Quebec",
+        "Sport, Economic Development Agency of Canada for the Regions of Quebec",
         "Official Languages", 
         "Public Safety", 
         "Emergency Preparedness", 
@@ -139,17 +139,7 @@ def file_allocation(list_files:list):
         for key, value in file_advisors.items():
             if list_files[x] in value:
                 advisors[x].append(key)
-        # [advisors[x].append(item) if item else pass for key,value in file_advisors]
-#TODO:
-    # for file in list_files:
-    #     counts.append(files.get(file.lstrip()))
-    # for x in range(len(release_files)):release_files[x].append(1 if x in counts else 0)
         
-def advisor_classifier(list_files:list):
-    count = 0
-    for item in list_files:
-
-        count+=1
 
 def print_lists():
     # print(f"Titles: {len(titles)}")
@@ -167,6 +157,7 @@ def print_lists():
     print(f"summaries: {summaries}")
     print(f"Files: {release_files}") 
     print(f"file advisor: {advisors}")
+    print(f"Quotes: {quotes}")
 
 
 # Press the green button in the gutter to run the script.
@@ -190,17 +181,18 @@ if __name__ == '__main__':
     advisors = [[],[]]
     institutions = []
     news = []
+    quotes = []
     emailable_summaries = []
 
-    #test = statcan.Statcan(url="https://www150.statcan.gc.ca/n1/daily-quotidien/240202/dq240202a-eng.htm", release_date="02/02/2024", driver=driver)
-    
+    # test = statcan.Statcan(url="https://www150.statcan.gc.ca/n1/daily-quotidien/240131/dq240131c-eng.htm", release_date="02/02/2024", driver=driver)
+    # test.statcan_daily_scrape()
+    # print(gpt_processing.quote_identifier(test.output, manual=False))
     """
     How it works:
     - through a series of input functions, the corresponding scrape is done
     - if its not scraped, then it's just manually added with no scraping
     - info is added into corresponding lists that are zipped at the end of commands and added to the temp database
     """
-    print(files)
     while stay_on:
         manual = input("Do you wish to manually input a release? [yes, no, exit] \n")
         if manual == 'yes':
@@ -222,6 +214,7 @@ if __name__ == '__main__':
                         summaries.append(gpt_processing.summary_processing(statcan_report.output, False))
                         file_allocation(gpt_processing.classify_file(statcan_report.output['title']))
                         news.append(False)
+                        quotes.append(gpt_processing.quote_identifier(statcan_report.output, False))
                         emailable_summaries.append(statcan_report)
                         print_lists()
                     elif type == 'Articles and reports':
@@ -231,9 +224,19 @@ if __name__ == '__main__':
                         urls.append(statcan_report.output['url'])
                         dates_retrieved.append(statcan_report.output['date_retrieved'])
                         institutions.append('Statistics Canada')
-                        summaries.append(gpt_processing.summary_processing(statcan_report.output, False))
+                        summary_q = input("Do you want an automatic summary? [yes, no] \n")
+                        if (summary_q == 'yes' or summary_q == 'no') and summary_q == 'yes':
+                            summaries.append(gpt_processing.summary_processing(statcan_report.output, False))
+                        elif (summary_q == 'yes' or summary_q == 'no') and summary_q == 'no':
+                            test = input('Do you want a summary? [yes, no] \n')
+                            if (test == 'yes' or test == 'no') and test == 'yes':
+                                input = input("Please insert the section of text that you want summarised. \n")
+                                summaries.append(gpt_processing.summary_processing(input, manual=True))
+                            elif (test == 'yes' or test == 'no') and test == 'no':
+                                summaries.append("NO SUMMARY")
                         file_allocation(gpt_processing.classify_file(statcan_report.output['title']))
                         news.append(False)
+                        quotes.append(gpt_processing.quote_identifier(statcan_report.output, False))
                         emailable_summaries.append(statcan_report)
                         print_lists()
                 else:
@@ -241,7 +244,7 @@ if __name__ == '__main__':
             #___________PBO___________
             elif release_type == 'PBO':
                 report_type = input("Is this a report or a legislative costing note? \n [report, legislative] \n")
-                url = input("What is the url?")
+                url = input("What is the url? \n")
                 title_report = input('What is the title of the release? \n')
                 release_date = input("What is the release date? Write in this format, dd/mm/YYYY \n")
                 if url not in all_files_copy['url'].values and (report_type == 'report' or report_type == 'legislative'):
@@ -252,9 +255,10 @@ if __name__ == '__main__':
                     urls.append(url)
                     dates_retrieved.append(pbo_report.output['date_retrieved'])
                     institutions.append('Parliamentary Budget Office')
-                    summaries.append(pbo_report.output['highlights'])
+                    summaries.append(pbo_report.output['highlights'] if report_type == 'report' else gpt_processing.summary_processing(pbo_report.output, manual=False))
                     file_allocation(gpt_processing.classify_file(pbo_report.output['title']))
                     news.append(False)
+                    quotes.append('No Quotes')
                     print_lists()
                 elif url in all_files_copy['url'].values:
                     print('This release already exists in the database.')
@@ -263,29 +267,32 @@ if __name__ == '__main__':
             #____________RBC____________
             elif release_type == 'RBC':
                 url = input("What is the url? \n")
-                if url not in all_files_copy['url'].values:
+                title_q = input("What is the title? \n")
+                if url not in all_files_copy['url'].values and title_q not in all_files_copy['title'].values:
                     release_date = input("What is the release date? Write in this format, dd/mm/YYYY \n")
                     email = input('What format is this RBC release? [email, website] \n')
                     rbc_report = rbc.Rbc(url=url, email= email, release_date=release_date, driver=driver)
                     if email == 'email':
                         rbc_report.rbc_email_scrape()
                         release_dates.append(release_date)
-                        titles.append(rbc_report.output['title'])
+                        titles.append(title_q)
                         urls.append(url)
                         dates_retrieved.append(rbc_report.output['date_retrieved'])
                         institutions.append('RBC')
                         summaries.append(gpt_processing.summary_processing(rbc_report.output, False))
+                        quotes.append(gpt_processing.quote_identifier(rbc_report.output, False))
                         file_allocation(gpt_processing.classify_file(rbc_report.output['title']))
                         news.append(False)
                         print_lists()
                     elif email == 'website':
                         rbc_report.rbc_website_scrape()
                         release_dates.append(release_date)
-                        titles.append(rbc_report.output['title'])
+                        titles.append(title_q)
                         urls.append(url)
                         dates_retrieved.append(rbc_report.output['date_retrieved'])
                         institutions.append('RBC')
                         summaries.append(gpt_processing.summary_processing(rbc_report.output, False))
+                        quotes.append(gpt_processing.quote_identifier(rbc_report.output, False))
                         file_allocation(gpt_processing.classify_file(rbc_report.output['title']))
                         news.append(False)
                         print_lists()
@@ -293,8 +300,8 @@ if __name__ == '__main__':
                     print('This release already exists in the database.\n')
             #____________BoC____________
             elif release_type == 'BoC':
-                report_type = input("What BoC type of release is this? [Summary of deliberations, Quarterly Financial Report, other]")
-                url = input("What is the url?")
+                report_type = input("What BoC type of release is this? [Summary of deliberations, Quarterly Financial Report, other] \n")
+                url = input("What is the url? \n")
                 release_date = input("What is the release date? Write in this format, dd/mm/YYYY \n")
                 if url not in all_files_copy['url'].values and (report_type == 'Summary of deliberations' or report_type == 'Quarterly Financial Report'):
                     boc_report = boc.Boc(url, report_type, release_date, driver)
@@ -305,6 +312,7 @@ if __name__ == '__main__':
                     dates_retrieved.append(boc_report.output['date_retrieved'])
                     institutions.append('Bank of Canada')
                     summaries.append(gpt_processing.summary_processing(boc_report.output, False))
+                    quotes.append(gpt_processing.quote_identifier(boc_report.output, False))
                     file_allocation(gpt_processing.classify_file(boc_report.output['title']))
                     news.append(False)
                     print_lists()
@@ -318,7 +326,8 @@ if __name__ == '__main__':
                         urls.append(url)
                         dates_retrieved.append(datetime.date.today().strftime("%d/%m/%Y"))
                         institutions.append('Bank of Canada')
-                        summaries.appned(gpt_processing.summary_processing(content, True))
+                        summaries.append(gpt_processing.summary_processing(content, True))
+                        quotes.append(input("Are there any 'headline' quotes in this release? \n *place each quote in quotations and seperated by a dash, or just say 'No quotes'*"))
                         file_allocation(gpt_processing.classify_file(title))
                         news.append(False)
                         print_lists()
@@ -349,6 +358,7 @@ if __name__ == '__main__':
                         urls.append(url)
                         dates_retrieved.append(datetime.date.today().strftime("%d/%m/%Y"))
                         institutions.append(institution)
+                        quotes.append(input("Are there any 'headline' quotes in this release? \n *place each quote in quotations and seperated by a dash, or just say 'No quotes'*"))
                         summaries.append(gpt_processing.summary_processing(content, True))
                         file_allocation(gpt_processing.classify_file(title))
                         news.append(news_q == "yes")
@@ -360,6 +370,7 @@ if __name__ == '__main__':
                         dates_retrieved.append(datetime.date.today().strftime("%d/%m/%Y"))
                         institutions.append(institution)
                         summaries.append('NO SUMMARY')
+                        quotes.append(input("Are there any 'headline' quotes in this release? \n *place each quote in quotations and seperated by a dash, or just say 'No quotes'*"))
                         file_allocation(gpt_processing.classify_file(title))
                         news.append(news == "yes")
                         print_lists()
@@ -368,15 +379,16 @@ if __name__ == '__main__':
         elif manual == 'no':
             scrape_type = input('Which source do you want to scrape? \n[StatsCan, BoC] \n')
             if scrape_type == 'StatsCan':
-                temp_titles, temp_release_dates, temp_urls, temp_dates_retrieved, temp_summary, temp_files, temp_institution, temp_emailable = statscan_mon.statcan_monitor(all_files_copy, driver)
+                temp_titles, temp_release_dates, temp_urls, temp_dates_retrieved, temp_summary, temp_files, temp_institution, temp_emailable, temp_quotes = statscan_mon.statcan_monitor(all_files_copy, driver)
                 titles.extend(temp_titles)
                 release_dates.extend(temp_release_dates)
                 urls.extend(temp_urls)
                 dates_retrieved.extend(temp_dates_retrieved)
+                quotes.extend(temp_quotes)
                 summaries.extend(temp_summary)
                 for x in temp_files:
                     file_allocation(x)
-                institution.extend(temp_institution)
+                institutions.extend(temp_institution)
                 emailable_summaries.extend(temp_emailable)
                 print('DONE')
                 print_lists()
@@ -389,7 +401,7 @@ if __name__ == '__main__':
                 summaries.extend(temp_summary)
                 for x in temp_files:
                     file_allocation(x)
-                institution.extend(temp_institution)
+                institutions.extend(temp_institution)
                 print('DONE')
                 print_lists()
         elif manual =='exit':
@@ -413,23 +425,13 @@ if __name__ == '__main__':
                     print('Thank you. Have a great rest of your day!')
                     email = False
                     stay_on = False
-    #TODO create indicator columns
-    #TODO: add corresponding policy advisors
     df_extended = pd.DataFrame(
-        zip(release_dates, titles, urls, dates_retrieved, summaries, release_files, institutions,
+        zip(release_dates, titles, urls, dates_retrieved, summaries, quotes, release_files, institutions,
             release_files[0], release_files[1], advisors[0], advisors[1]),
-        columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'files', 'institution',
+        columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'quotes', 'files', 'institution',
                  "file_1", "file_2", "file_advisor_1", "file_advisor_2"]
     )
-    # df_extended = pd.DataFrame(
-    #     zip(release_dates, titles, urls, dates_retrieved, summaries, release_files, institutions,
-    #         files[0], files[1], files[2], files[3], files[4], files[5], files[6], files[7],
-    #         files[8], files[9], files[10], files[11], files[12], files[13], files[14],
-    #         files[15], files[16], files[17], files[18]),
-    #     columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'files', 'institution',
-    #              "dig_gov","agri", 'cad_heritage', 'crown-indig', 'finance', 'employ', 'env', "fam",
-    #              "fed_econ_sont", 'fish', "f_affair", 'health', 'housing', 'immigration', 'fed_econ_nont',
-    #              'innov_sci', 'inter_dev', 'inter_trade', 'sup_chain'])
+
     all_files_copy = pd.concat([df_extended, all_files_copy], ignore_index=True)        
     all_files_copy.to_csv('temp_database_copy.csv', encoding='utf-8', index=False)
     driver.quit()

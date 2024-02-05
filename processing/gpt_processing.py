@@ -10,6 +10,11 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
+quote_prompt = """You are a news article writer and you need to identify from the content
+    supplied with a tripple quotation delimiter any headline worthy quotes. Seperate 
+    each quote with a "-"
+"""
+
 system_prompt = """You are a policy analyst tasked with summarising Statistics Canada reports
     supplied with the triple quotation delimiter. Follow these instructions:
     1. For each heading, output the heading surrounded with '**' and
@@ -47,7 +52,7 @@ classifying_prompt = """You are given a title of a report and you must classify 
     - Canadian Heritage
     - Crown-indigenous Relations
     - Finance and Middle Class Prosperity
-    - Employment, Future Workforce Development and Disability inclusion
+    - Employment, Future Workforce Development and Disability Inclusion
     - Environment and Climate Change
     - Families, Children and Social Development
     - Federal Economic Development Agency for Eastern, Central and Southern Ontario
@@ -69,7 +74,7 @@ classifying_prompt = """You are given a title of a report and you must classify 
     - Northern Affairs and Artic Sovereignty; Canadian Northern Economic Development Agency
     - Prairie Economic Development (Advisor to the Leader, Economy)
     - Pacific Economic Development 
-    - Sport; Economic Development Agency of Canada for the Regions of Quebec
+    - Sport, Economic Development Agency of Canada for the Regions of Quebec
     - National Defence 
     - National Revenue 
     - Natural Resources 
@@ -101,6 +106,20 @@ def summary_gpt_extraction(gpt_output) -> str:
     except:
         print("NOT AVAILABLE")
 
+def quote_identifier(output, manual:bool) -> str:
+    response = client.chat.completions.create(
+        model = 'gpt-4-1106-preview',
+        #model="gpt-3.5-turbo-1106",
+        temperature=0.5,
+        stream=False,
+        messages=[
+            {"role":"system", 'content': quote_prompt},
+            {'role': 'user', 'content': output if manual else print_result(output)}
+        ]
+    )
+    reply = response.choices[0].message.content
+    reply = re.sub('-\n', '', reply)
+    return reply
 
 def print_result(output) -> str:
     #TODO create  before gpt processing
@@ -152,7 +171,7 @@ def classify_file(title) -> str:
     response = client.chat.completions.create(
         model = 'gpt-4-1106-preview',
         #model="gpt-3.5-turbo-1106",
-        temperature=0.2,
+        temperature=0.0,
         stream=False,
         messages=[
             {"role":"system", 'content': classifying_prompt},
