@@ -118,7 +118,7 @@ def quote_identifier(output, manual:bool) -> str:
         ]
     )
     reply = response.choices[0].message.content
-    reply = re.sub('-\n', '', reply)
+    reply = re.sub('\n', '', reply)
     return reply
 
 def print_result(output) -> str:
@@ -153,7 +153,7 @@ def statcan_processing(output) -> str:
     response = client.chat.completions.create(
         model = 'gpt-4-1106-preview',
         #model="gpt-3.5-turbo-1106",
-        temperature=0.0,
+        temperature=0.1,
         stream=False,
         messages=[
             {"role":"system", 'content': system_prompt2},

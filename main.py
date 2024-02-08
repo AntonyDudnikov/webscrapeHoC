@@ -6,6 +6,7 @@ from classes import statcan, rbc, pbo, boc, source
 from monitoring import statscan_mon, boc_mon
 import pandas as pd
 from gmail import send_email
+import tabula
 import pprint
 import datetime
 
@@ -76,13 +77,13 @@ file_advisors = {
     "Darren Hall":[
         "Digital Government",
         "Federal Economic Development Agency for Eastern, Central and Southern Ontario",
-        "Housing and Diversity and Inclusion ",
+        "Housing and Diversity and Inclusion",
         "Federal Economic Development Agency for Northern Ontario",
         "International Trade",
         "Red Tape Reduction",
         "Prairie Economic Development (Advisor to the Leader, Economy)",
-        "Pacific Economic Development ",
-        "Atlantic Canada Opportunities Agency ",
+        "Pacific Economic Development",
+        "Atlantic Canada Opportunities Agency",
         "Rural Economic Development & Connectivity",
         "Tourism",
 
@@ -168,8 +169,8 @@ if __name__ == '__main__':
     driver = webdriver.Chrome(options=options, service=service)
 
     #load temporary database
-    all_files_copy = pd.read_csv("temp_database.csv")
-    stay_on = True
+    all_files_copy = pd.read_csv("temp_database_copy.csv")
+    stay_on = False
 
     release_dates = []
     titles = []
@@ -184,9 +185,11 @@ if __name__ == '__main__':
     quotes = []
     emailable_summaries = []
 
-    # test = statcan.Statcan(url="https://www150.statcan.gc.ca/n1/daily-quotidien/240131/dq240131c-eng.htm", release_date="02/02/2024", driver=driver)
-    # test.statcan_daily_scrape()
-    # print(gpt_processing.quote_identifier(test.output, manual=False))
+
+    file = "C:\Users\anton\Downloads\Q-2074(Order).pdf"
+    table = tabula.read_pdf(file, pages=4)
+    print(table)
+
     """
     How it works:
     - through a series of input functions, the corresponding scrape is done
