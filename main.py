@@ -64,7 +64,7 @@ files = {
 }
 
 file_advisors = {
-    "Connor MacDonald":[
+    "C. MacDonald":[
         "Agriculture, Agri-Food and Food Security",
         "Crown-indigenous Relations",
         "Environment and Climate Change",
@@ -74,7 +74,7 @@ file_advisors = {
         "Natural Resources",
         "Indigenous Services"
     ],
-    "Darren Hall":[
+    "D. Hall":[
         "Digital Government",
         "Federal Economic Development Agency for Eastern, Central and Southern Ontario",
         "Housing and Diversity and Inclusion",
@@ -88,10 +88,10 @@ file_advisors = {
         "Tourism",
 
     ],
-    "David Murray":[
+    "D. Murray":[
         "Hunting, Fishing and Conservation"
     ],
-    "Elan Harper":[
+    "E. Harper":[
         "Finance and Middle Class Prosperity",
         "Employment, Future Workforce Development and Disability Inclusion",
         "Innovation, Science and Industry",
@@ -100,10 +100,10 @@ file_advisors = {
         "Treasury Board", 
         "Pan-Canadian Trade and Competition"
     ],
-    "Emma Hopper":[
+    "E. Hopper":[
         "Ethics and Accountable Government"
     ],
-    "Mark Emes":[
+    "M. Emes":[
         "Families, Children and Social Development", 
         "Fisheries, Oceans and the Canadian Coast Guard", 
         "Supply Chain Issues",
@@ -112,7 +112,7 @@ file_advisors = {
         "Women and Gender Equality and Youth", 
         "Infrastructure and Communities" 
     ],
-    "Sean Phelan": [
+    "S. Phelan": [
         "Foreign Affairs", 
         "International Development",
         "Justice and Attorney General of Canada", 
@@ -122,7 +122,7 @@ file_advisors = {
         "Veterans Affairs",
         "Democratic Reform",
     ],
-    "Yuan Yi Zhu":[
+    "Y. Zhu":[
         "Canadian Heritage", 
         "Immigration, Refugees and Citizenship", 
         "Sport, Economic Development Agency of Canada for the Regions of Quebec",
@@ -134,7 +134,6 @@ file_advisors = {
 }
 
 def file_allocation(list_files:list):
-    
     for x in range(len(list_files)):
         release_files[x].append(list_files[x].lstrip().rstrip())
         for key, value in file_advisors.items():
@@ -170,6 +169,7 @@ if __name__ == '__main__':
 
     #load temporary database
     all_files_copy = pd.read_csv("temp_database_copy.csv")
+    #bool to turn on/off the console control
     stay_on = False
 
     release_dates = []
@@ -185,10 +185,9 @@ if __name__ == '__main__':
     quotes = []
     emailable_summaries = []
 
-
-    file = "C:\Users\anton\Downloads\Q-2074(Order).pdf"
-    table = tabula.read_pdf(file, pages=4)
-    print(table)
+    test = statcan.Statcan("https://www150.statcan.gc.ca/n1/daily-quotidien/240209/dq240209a-eng.htm", "13/02/2024", driver)
+    test.statcan_daily_scrape()
+    print(gpt_processing.test_summary(test.output))
 
     """
     How it works:
@@ -262,6 +261,7 @@ if __name__ == '__main__':
                     file_allocation(gpt_processing.classify_file(pbo_report.output['title']))
                     news.append(False)
                     quotes.append('No Quotes')
+                    print(pbo_report)
                     print_lists()
                 elif url in all_files_copy['url'].values:
                     print('This release already exists in the database.')

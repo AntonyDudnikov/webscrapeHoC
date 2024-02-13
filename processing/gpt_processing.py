@@ -15,16 +15,14 @@ quote_prompt = """You are a news article writer and you need to identify from th
     each quote with a "-"
 """
 
-system_prompt = """You are a policy analyst tasked with summarising Statistics Canada reports
-    supplied with the triple quotation delimiter. Follow these instructions:
-    1. For each heading, output the heading surrounded with '**' and
-        list each variable mentioned in the section. Each variable is surrounded with '*'
-    2. Under each variable mentioned, further indent, and list the changes and values of 
-        the variable without extra words. Place the percentage first and the amount changed in parenthesis afterwards. 
-    3. At the end of report, include a 100 word max summary headed by 'Summary'
+test_prompt = """Act like a policy analyst who is tasked with writing a key facts summary of a report which is
+supplied with the triple quotation delimiter. 
+1. Output in a multilevel point form style in a length representative of the length of the report. 
+2. Incorporate verbatim facts taken from the report surrounded by quotations.
+3. Incorporate main ideas and essential information, eliminating extraneous language and focusing on critical facts.
+4. Incorporate mentions of trends over time.
+"""
 
-    Lastly, be concise in displaying the facts.
-    """
 
 system_prompt2 = """You are a policy analyst tasked with summarising Statistics Canada reports
     supplied with the triple quotation delimiter. Follow these instructions:
@@ -99,6 +97,41 @@ classifying_prompt = """You are given a title of a report and you must classify 
     - Democratic Reform
     """
 
+def print_result(output) -> str:
+    """
+    convert webscrape output into human dialogue for LLM to process
+    Input: dictionary of release meta date and content
+    Output: single string 
+    """
+    result = """"""
+    if not output['p_first']:
+        for x in range(len(output['headings'])):
+            result +='\n'
+            result += f"heading: {output['headings'][x]}\n"
+            result += output['content'][x] + '\n'
+    else:
+        for x in range(len(output['content'])):
+            result +='\n'
+            if x == 0:
+                result += 'Introduction:\n'
+            elif x >= 1 and len(output['headings']) > 0:
+                result += f"heading: {output['headings'][x-1]}\n"                
+            result += output['content'][x] + '\n'
+    return result
+
+def test_summary(output) -> str:
+    response = client.chat.completions.create(
+        model = 'gpt-4-1106-preview',
+        #model="gpt-3.5-turbo-1106",
+        temperature=0.4,
+        stream=False,
+        messages=[
+            {"role":"system", 'content': test_prompt},
+            {'role': 'user', 'content': print_result(output)}
+        ]
+    )
+    return response.choices[0].message.content
+
 def summary_gpt_extraction(gpt_output) -> str:
     try:
         matches = re.findall(re.compile(r'<p>(.*?)</p>', re.DOTALL), gpt_output)
@@ -121,28 +154,7 @@ def quote_identifier(output, manual:bool) -> str:
     reply = re.sub('\n', '', reply)
     return reply
 
-def print_result(output) -> str:
-    #TODO create  before gpt processing
-    """
-    convert webscrape output into human dialogue for LLM to process
-    Input: dictionary of release meta date and content
-    Output: single string 
-    """
-    result = """"""
-    if not output['p_first']:
-        for x in range(len(output['headings'])):
-            result +='\n'
-            result += f"heading: {output['headings'][x]}\n"
-            result += output['content'][x] + '\n'
-    else:
-        for x in range(len(output['content'])):
-            result +='\n'
-            if x == 0:
-                result += 'Introduction:\n'
-            elif x >= 1 and len(output['headings']) > 0:
-                result += f"heading: {output['headings'][x-1]}\n"                
-            result += output['content'][x] + '\n'
-    return result
+
 
 def statcan_processing(output) -> str:
     """

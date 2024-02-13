@@ -32,7 +32,6 @@ def send_email(text, title):
     message.attach(part2)
 
     context = ssl.create_default_context()
-
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context= context) as smtp:
         smtp.login(EMAIL, PASSWORD)
         smtp.sendmail(EMAIL, email_receiver, message.as_string())
