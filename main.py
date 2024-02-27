@@ -7,6 +7,7 @@ from monitoring import statscan_mon, boc_mon
 import pandas as pd
 from gmail import send_email
 import tabula
+import json
 import pprint
 import datetime
 
@@ -142,35 +143,36 @@ def file_allocation(list_files:list):
         
 
 def print_lists():
-    # print(f"Titles: {len(titles)}")
-    # print(f"Url: {len(urls)}")
-    # print(f"date recieved: {len(dates_retrieved)}")
-    # print(f"institutions: {len(institutions)}")
-    # print(f"news: {len(news)}")
-    # print(f"summaries: {len(summaries)}")
-    # print(f"Files: {len(release_files[0])}  {len(release_files[1])}")
-    print(f"Titles: {titles}")
-    print(f"Url: {urls}")
-    print(f"date recieved: {dates_retrieved}")
-    print(f"institutions: {institutions}")
-    print(f"news: {news}")
-    print(f"summaries: {summaries}")
-    print(f"Files: {release_files}") 
-    print(f"file advisor: {advisors}")
-    print(f"Quotes: {quotes}")
+    print(f"Titles: {len(titles)}")
+    print(f"Url: {len(urls)}")
+    print(f"date recieved: {len(dates_retrieved)}")
+    print(f"institutions: {len(institutions)}")
+    print(f"news: {len(news)}")
+    print(f"summaries: {len(summaries)}")
+    print(f"Files: {len(release_files[0])}  {len(release_files[1])}")
+    # print(f"Titles: {titles}")
+    # print(f"Url: {urls}")
+    # print(f"date recieved: {dates_retrieved}")
+    # print(f"institutions: {institutions}")
+    # print(f"news: {news}")
+    # print(f"summaries: {summaries}")
+    # print(f"Files: {release_files}") 
+    # print(f"file advisor: {advisors}")
+    # print(f"Quotes: {quotes}")
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    #service = Service(executable_path="C:\Program Files (x86)\chrome")
     service = Service(executable_path="C:\Program Files (x86)\chromedriver.exe")
     options= webdriver.ChromeOptions()
     options.add_argument('headless')
     driver = webdriver.Chrome(options=options, service=service)
 
     #load temporary database
-    all_files_copy = pd.read_csv("temp_database_copy.csv")
+    all_files_copy = pd.read_csv("final.csv")
     #bool to turn on/off the console control
-    stay_on = False
+    stay_on = True
 
     release_dates = []
     titles = []
@@ -184,10 +186,6 @@ if __name__ == '__main__':
     news = []
     quotes = []
     emailable_summaries = []
-
-    test = statcan.Statcan("https://www150.statcan.gc.ca/n1/daily-quotidien/240209/dq240209a-eng.htm", "13/02/2024", driver)
-    test.statcan_daily_scrape()
-    print(gpt_processing.test_summary(test.output))
 
     """
     How it works:
@@ -230,7 +228,7 @@ if __name__ == '__main__':
                         if (summary_q == 'yes' or summary_q == 'no') and summary_q == 'yes':
                             summaries.append(gpt_processing.summary_processing(statcan_report.output, False))
                         elif (summary_q == 'yes' or summary_q == 'no') and summary_q == 'no':
-                            test = input('Do you want a summary? [yes, no] \n')
+                            test = input('Do you want a section specific summary? [yes, no] \n')
                             if (test == 'yes' or test == 'no') and test == 'yes':
                                 input = input("Please insert the section of text that you want summarised. \n")
                                 summaries.append(gpt_processing.summary_processing(input, manual=True))
@@ -373,7 +371,7 @@ if __name__ == '__main__':
                         dates_retrieved.append(datetime.date.today().strftime("%d/%m/%Y"))
                         institutions.append(institution)
                         summaries.append('NO SUMMARY')
-                        quotes.append(input("Are there any 'headline' quotes in this release? \n *place each quote in quotations and seperated by a dash, or just say 'No quotes'*"))
+                        quotes.append(input("Are there any 'headline' quotes in this release? \n *place each quote in quotations and seperated by a dash, or just say 'No quotes'* \n"))
                         file_allocation(gpt_processing.classify_file(title))
                         news.append(news == "yes")
                         print_lists()
@@ -388,6 +386,8 @@ if __name__ == '__main__':
                 urls.extend(temp_urls)
                 dates_retrieved.extend(temp_dates_retrieved)
                 quotes.extend(temp_quotes)
+                for x in range(len(urls)):
+                    news.append(False)
                 summaries.extend(temp_summary)
                 for x in temp_files:
                     file_allocation(x)
@@ -429,14 +429,15 @@ if __name__ == '__main__':
                     email = False
                     stay_on = False
     df_extended = pd.DataFrame(
-        zip(release_dates, titles, urls, dates_retrieved, summaries, quotes, release_files, institutions,
-            release_files[0], release_files[1], advisors[0], advisors[1]),
-        columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'quotes', 'files', 'institution',
-                 "file_1", "file_2", "file_advisor_1", "file_advisor_2"]
+        zip(release_dates, titles, urls, dates_retrieved, summaries, quotes, institutions,
+            release_files[0], release_files[1], advisors[0], advisors[1], news),
+        columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'quotes', 'institution',
+                 "file_1", "file_2", "file_advisor_1", "file_advisor_2", "news_bool"]
     )
 
     all_files_copy = pd.concat([df_extended, all_files_copy], ignore_index=True)        
-    all_files_copy.to_csv('temp_database_copy.csv', encoding='utf-8', index=False)
+    all_files_copy.to_csv('final.csv', encoding='utf-8', index=False)
+    all_files_copy.to_json('final.json', 'records', indent=2)
     driver.quit()
 
 """

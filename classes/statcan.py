@@ -89,8 +89,11 @@ class Statcan(Source):
     def statcan_report_scrape(self):
         self.driver.get(self.output['url'])
 
+
+    #/html/body/main/h1
+    #//*[@id="wb-cont"]
         #----- title -----
-        self.output['title'] = title = self.driver.find_element(By.XPATH, '//*[@id="wb-cont"]').text.split('\n')[1]
+        self.output['title'] = self.driver.find_element(By.XPATH, '//*[@id="wb-cont"]').text.split('\n')[1]
 
         elements = self.driver.find_elements(By.XPATH, '/html/body/main/section[1]/div[3]/*') #all the children
         headings = []

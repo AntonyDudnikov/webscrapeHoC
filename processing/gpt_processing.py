@@ -11,8 +11,8 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 quote_prompt = """You are a news article writer and you need to identify from the content
-    supplied with a tripple quotation delimiter any headline worthy quotes. Seperate 
-    each quote with a "-"
+    supplied with a tripple quotation delimiter any headline worthy quotes. Only include 
+    the quotes, seperate each quote with an apostrophe.
 """
 
 test_prompt = """Act like a policy analyst who is tasked with writing a key facts summary of a report which is
@@ -26,20 +26,21 @@ supplied with the triple quotation delimiter.
 
 system_prompt2 = """You are a policy analyst tasked with summarising Statistics Canada reports
     supplied with the triple quotation delimiter. Follow these instructions:
-    1. For each heading, output the heading and
-        list each variable mentioned in the section.
-    2. Under each variable mentioned, further indent, and list the changes and values of 
+    1. Include a 100 word max summary headed by 'Summary'
+    2. For each heading including the introduction, output the heading and
+        list each variable mentioned in that section.
+    3. Under each variable mentioned, further indent, and list the changes and values of 
         the variable without extra words. Place the percentage first and the amount changed in parenthesis afterwards. 
-    3. At the end of report, include a 100 word max summary headed by 'Summary'
+    4. At the end of the report, identify and list any news article worthy quotes headed by 'Quotes'
 
     Lastly, be concise in displaying the facts.
-    Format the structure with the Summary at the top and the statistics below it.
     Return the format in a HTML format under these rules:
         - headings use <h3>
     """
 
 summary_prompt = """You are a policy analyst tasked with summarising reports
-    supplied with the triple quotation delimiter. Please provide a 100 words max summary.
+    supplied with the triple quotation delimiter. Please provide a 100 words max summary that highlights the main
+    statistics and points.
 """
 
 classifying_prompt = """You are given a title of a report and you must classify them into 2 of the most corresponding policy files.
@@ -119,19 +120,6 @@ def print_result(output) -> str:
             result += output['content'][x] + '\n'
     return result
 
-def test_summary(output) -> str:
-    response = client.chat.completions.create(
-        model = 'gpt-4-1106-preview',
-        #model="gpt-3.5-turbo-1106",
-        temperature=0.4,
-        stream=False,
-        messages=[
-            {"role":"system", 'content': test_prompt},
-            {'role': 'user', 'content': print_result(output)}
-        ]
-    )
-    return response.choices[0].message.content
-
 def summary_gpt_extraction(gpt_output) -> str:
     try:
         matches = re.findall(re.compile(r'<p>(.*?)</p>', re.DOTALL), gpt_output)
@@ -152,6 +140,7 @@ def quote_identifier(output, manual:bool) -> str:
     )
     reply = response.choices[0].message.content
     reply = re.sub('\n', '', reply)
+    reply = reply.split("' '")
     return reply
 
 
