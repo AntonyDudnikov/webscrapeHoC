@@ -185,7 +185,7 @@ if __name__ == '__main__':
     institutions = []
     news = []
     quotes = []
-    emailable_summaries = []
+
 
     """
     How it works:
@@ -215,7 +215,6 @@ if __name__ == '__main__':
                         file_allocation(gpt_processing.classify_file(statcan_report.output['title']))
                         news.append(False)
                         quotes.append(gpt_processing.quote_identifier(statcan_report.output, False))
-                        emailable_summaries.append(statcan_report)
                         print_lists()
                     elif type == 'Articles and reports':
                         statcan_report.statcan_report_scrape()
@@ -237,7 +236,6 @@ if __name__ == '__main__':
                         file_allocation(gpt_processing.classify_file(statcan_report.output['title']))
                         news.append(False)
                         quotes.append(gpt_processing.quote_identifier(statcan_report.output, False))
-                        emailable_summaries.append(statcan_report)
                         print_lists()
                 else:
                     print('This release already exists in the database.')
@@ -380,7 +378,7 @@ if __name__ == '__main__':
         elif manual == 'no':
             scrape_type = input('Which source do you want to scrape? \n[StatsCan, BoC] \n')
             if scrape_type == 'StatsCan':
-                temp_titles, temp_release_dates, temp_urls, temp_dates_retrieved, temp_summary, temp_files, temp_institution, temp_emailable, temp_quotes = statscan_mon.statcan_monitor(all_files_copy, driver)
+                temp_titles, temp_release_dates, temp_urls, temp_dates_retrieved, temp_summary, temp_files, temp_institution, temp_quotes = statscan_mon.statcan_monitor(all_files_copy, driver)
                 titles.extend(temp_titles)
                 release_dates.extend(temp_release_dates)
                 urls.extend(temp_urls)
@@ -392,7 +390,6 @@ if __name__ == '__main__':
                 for x in temp_files:
                     file_allocation(x)
                 institutions.extend(temp_institution)
-                emailable_summaries.extend(temp_emailable)
                 print('DONE')
                 print_lists()
             elif scrape_type == "BoC":
@@ -409,25 +406,23 @@ if __name__ == '__main__':
                 print_lists()
         elif manual =='exit':
             email = True
-            while email:
-                email_question = input("Do you wish to send an email summary regarding one of the reports? [yes, no] \n")
-                if email_question == 'yes':
-                    if emailable_summaries:
-                        for x, item in enumerate(emailable_summaries):
-                            print(f"[{x}] - {item.output['title']} \n")
-                        number = input('Type the number of the corresponding report to email.\n')
-                        send_email.send_email(gpt_processing.statcan_processing(emailable_summaries[int(number)].output), emailable_summaries[int(number)].output['title'])
-                        print("Email sent. \n")
-                    if summaries:
+            #TODO: improve the email sending portion, differentiate the statcan from other 
+            if summaries:
+                while email:
+                    email_question = input("Do you wish to send an email summary regarding one of the reports? [yes, no] \n")
+                    if email_question == 'yes':
                         for x in range(len(summaries)):
                             print(f"[{x}] - {titles[x]} \n")
                         number = input('Type the number of the corresponding report to email.\n')
-                        send_email.send_email(summaries[int(number)], titles[int(number)])
+                        send_email.send_email(summaries[int(number)], titles[int(number)], institutions[int(number)])
                         print("Email sent.\n")
-                elif email_question == 'no':
-                    print('Thank you. Have a great rest of your day!')
-                    email = False
-                    stay_on = False
+                    elif email_question == 'no':
+                        print('Thank you. Have a great rest of your day!')
+                        email = False
+                        stay_on = False
+            else:
+                print('Thank you. Have a great rest of your day!')
+                stay_on = False
     df_extended = pd.DataFrame(
         zip(release_dates, titles, urls, dates_retrieved, summaries, quotes, institutions,
             release_files[0], release_files[1], advisors[0], advisors[1], news),

@@ -37,6 +37,17 @@ system_prompt2 = """You are a policy analyst tasked with summarising Statistics 
     Return the format in a HTML format under these rules:
         - headings use <h3>
     """
+system_prompt_final = """You are a policy analyst tasked with summarising and providing key facts of the content 
+    supplied with the triple quotation delimiter. Follow these instructions:
+    1. Include a 100 word max summary headed by 'Summary', that highlights the main statistics and points.
+    2. Under a 'Facts' heading, list the most important variables
+    3. Under each variable mentioned, further indent, and list the changes and values of 
+        the variable without extra words. Place the percentage first and the amount changed in parenthesis afterwards. 
+
+    Lastly, be concise in displaying the facts.
+    Return the format in a HTML format under these rules:
+        - headings use <h3>
+    """
 
 summary_prompt = """You are a policy analyst tasked with summarising reports
     supplied with the triple quotation delimiter. Please provide a 100 words max summary that highlights the main
@@ -120,12 +131,6 @@ def print_result(output) -> str:
             result += output['content'][x] + '\n'
     return result
 
-def summary_gpt_extraction(gpt_output) -> str:
-    try:
-        matches = re.findall(re.compile(r'<p>(.*?)</p>', re.DOTALL), gpt_output)
-        return matches[0]
-    except:
-        print("NOT AVAILABLE")
 
 def quote_identifier(output, manual:bool) -> str:
     response = client.chat.completions.create(
@@ -143,26 +148,6 @@ def quote_identifier(output, manual:bool) -> str:
     reply = reply.split("' '")
     return reply
 
-
-
-def statcan_processing(output) -> str:
-    """
-    GPT API request for Statistics Canada reports
-    Input: dictionary of release metadata and content
-    Output: string content of GPT LLM output
-    """
-    response = client.chat.completions.create(
-        model = 'gpt-4-1106-preview',
-        #model="gpt-3.5-turbo-1106",
-        temperature=0.1,
-        stream=False,
-        messages=[
-            {"role":"system", 'content': system_prompt2},
-            {'role': 'user', 'content': print_result(output)}
-        ]
-    )
-    return response.choices[0].message.content
-
 def classify_file(title) -> str:
     """
     GPT API request to classify a release title by a corresponding file.
@@ -170,8 +155,8 @@ def classify_file(title) -> str:
     OUTPUT: max of 2 corresponding files
     """
     response = client.chat.completions.create(
-        model = 'gpt-4-1106-preview',
-        #model="gpt-3.5-turbo-1106",
+        #model = 'gpt-4-1106-preview',
+        model="gpt-3.5-turbo-1106",
         temperature=0.0,
         stream=False,
         messages=[
@@ -196,17 +181,11 @@ def summary_processing(output, manual):
         temperature=0.3,
         stream=False,
         messages=[
-            {"role":"system", 'content': summary_prompt},
+            {"role":"system", 'content': system_prompt_final},
             {'role': 'user', 'content': output if manual else print_result(output)}
         ]
     )
     return response.choices[0].message.content
-
-def rbc_processing():
-    pass
-
-def manual_input(text):
-    pass
 
 
 #API key

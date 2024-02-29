@@ -13,8 +13,8 @@ EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv('APP_PASSWORD')
 email_receiver = 'antony.dudnikov@parl.gc.ca'
 
-def send_email(text, title):
-    text = re.sub("```html", f"Today Statistics Canada released: {title}", text)
+def send_email(text, title, institution):
+    text = re.sub("```html", f"Today {institution} released: {title}", text)
     # em = EmailMessage()
     # em['From'] = EMAIL
     # em['To'] = email_receiver

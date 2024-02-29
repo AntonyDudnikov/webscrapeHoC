@@ -2,7 +2,6 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from processing import gpt_processing
-from gmail import send_email
 from classes import statcan
 from selenium import webdriver
 from datetime import datetime
@@ -35,7 +34,6 @@ def statcan_monitor(statcan_file, driver) -> tuple:
     advisors = [[],[]]
     quotes = []
     institution = []
-    emailable = []
 
     for index in range(len(table)):
         """
@@ -65,13 +63,12 @@ def statcan_monitor(statcan_file, driver) -> tuple:
             dates_retrieved.append(stat.output['date_retrieved'])
             institution.append('statistics canada')
             summary.append(gpt_processing.summary_processing(stat.output, manual=False))
-            emailable.append(stat)
             files.append(gpt_processing.classify_file(stat.output['title']))
             quotes.append(gpt_processing.quote_identifier(stat.output, manual=False))
             driver.get("https://www150.statcan.gc.ca/n1/dai-quo/ssi/homepage/rel-com/all_subjects-eng.htm")
         else:
             print('The Database is up to date for Statistics Canada The Daily releases.')
-    return (titles, release_dates, urls, dates_retrieved, summary, files, institution, emailable, quotes)
+    return (titles, release_dates, urls, dates_retrieved, summary, files, institution, quotes)
 
     # if titles:
     #     df_extended = pd.DataFrame(zip(release_dates, titles, urls, dates_retrieved, summary, files), columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'files'])

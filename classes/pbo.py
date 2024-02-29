@@ -11,16 +11,18 @@ import time
 import re
 
 class Pbo(Source):
-    def __init__(self, url:str, report:bool, release_date:str, title:str, driver:webdriver) -> None:
+    def __init__(self, url: str, report: bool, release_date: str, title: str, driver) -> None:
         super().__init__()
         self.report = report
         self.driver = driver
         self.output['url'] = url
-        self.output['type'] = 'Report' if type else 'Legislative Costing Note'
+        self.output['type'] = 'Report' if report else 'Legislative Costing Note'
         self.output['release_date'] = release_date
         self.output['institution'] = 'Parliamentary Budget Officer'
         self.output['title'] = title
         self.output['p_first'] = True
+        self.output['headings'] = []
+        self.output['content'] = []
 
 
     def _table_extraction(self, table) -> dict:
@@ -49,18 +51,31 @@ class Pbo(Source):
         Outputs:
             - dicitonary of title, highlights, summary
         """
+        
         self.driver.get(self.output['url'])
-
         if self.report:
-
-            #----- Highlights -----
-            highlights = self.driver.find_elements(By.XPATH, "//*[@id='pb-hlt']/ul/*")
-            self.output['highlights'] = []
-            for item in highlights:
-                self.output['highlights'].append(item.text)
+            self.output['headings'].append('Summary')
+            aggregate = False
+            #----- Summary -------
+            summ = self.driver.execute_script("""return document.querySelector('div#pb-art pboml-parser').shadowRoot.querySelector('section[id="markdown-2"]')""")
+            summary_items = summ.find_elements(By.XPATH, "./div/*")
+            for section in summary_items:
+                if section.tag_name == 'ul': #ul
+                    if aggregate:
+                            for item in section.find_elements(By.XPATH, './li'):
+                                self.output['content'][-1] = self.output['content'][-1] + ' ' + f"- {item.text}"
+                    else:
+                            self.output['content'].append(f"- {section.text}")
+                    aggregate = True
+                elif section.tag_name == 'p': #<p>
+                    if aggregate: #consecutive <p>, so concatenate text to last item in content
+                        self.output['content'][-1] = self.output['content'][-1] + ' ' + section.text
+                    else:
+                        self.output['content'].append(section.text)
+                    aggregate = True
 
                 
-        else: #legislative costing note
+        else: #legislative costing note 
             #----- Summary -----
             self.output['summary'] = self.driver.find_element(By.XPATH, "//div[@id='pb-abs']").text #sumamry of the costing note
         
