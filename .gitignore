@@ -10,3 +10,5 @@ __pycache__
 classes/__pycache__
 gmail/__pycache__
 processing/__pycache__
+storage/webscrapehoc-f7ee5859ad23.json
+storage/load_storage.py

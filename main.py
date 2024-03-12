@@ -10,6 +10,7 @@ import tabula
 import json
 import pprint
 import datetime
+from storage import load_storage
 
 files = {
     "Digital Government":0,
@@ -167,9 +168,10 @@ if __name__ == '__main__':
     service = Service(executable_path="C:\Program Files (x86)\chromedriver.exe")
     options= webdriver.ChromeOptions()
     options.add_argument('headless')
-    driver = webdriver.Chrome(options=options, service=service)
+    driver = webdriver.Chrome(service=service, options=options)
 
     #load temporary database
+    load_storage.load_storage()
     all_files_copy = pd.read_csv("final.csv")
     #bool to turn on/off the console control
     stay_on = True
@@ -431,8 +433,9 @@ if __name__ == '__main__':
     )
 
     all_files_copy = pd.concat([df_extended, all_files_copy], ignore_index=True)        
-    all_files_copy.to_csv('final.csv', encoding='utf-8', index=False)
-    all_files_copy.to_json('final.json', 'records', indent=2)
+    all_files_copy.to_csv('storage/final_loaded.csv', encoding='utf-8', index=False)
+    all_files_copy.to_json('storage/final_loaded.json', 'records', indent=2)
+    load_storage.upload_storage()
     driver.quit()
 
 """
