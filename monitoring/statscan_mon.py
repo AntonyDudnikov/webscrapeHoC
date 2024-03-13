@@ -61,7 +61,7 @@ def statcan_monitor(statcan_file, driver) -> tuple:
             titles.append(stat.output['title'])
             urls.append(stat.output['url'])
             dates_retrieved.append(stat.output['date_retrieved'])
-            institution.append('statistics canada')
+            institution.append('Statistics Canada')
             summary.append(gpt_processing.summary_processing(stat.output, manual=False))
             files.append(gpt_processing.classify_file(stat.output['title']))
             quotes.append(gpt_processing.quote_identifier(stat.output, manual=False))

@@ -13,6 +13,41 @@ EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv('APP_PASSWORD')
 email_receiver = 'antony.dudnikov@parl.gc.ca'
 
+advisor_details = {
+    'Connor':{
+        'email':"connor.macdonald@parl.gc.ca",
+        'release_titles': []
+    },
+    'Sean':{
+        'email': "sean.phelan@parl.gc.ca",
+        'release_titles':[] 
+    },
+    'Mark':{
+        'email': 'mark.emes@parl.gc.ca',
+        'release_titles':[]
+    },
+    'Yuan': {
+        'email': 'yuanyi.zhu@parl.gc.ca',
+        'release_titles':[] 
+    },
+    'Elan':{
+        'email':'elan.harper@parl.gc.ca',
+        'release_titles':[]
+    },
+    'Darren': {
+        'email':'darren.hall@parl.gc.ca',
+        'release_titles':[]
+    },
+    'David':{
+        'email':'david.murray@parl.gc.ca',
+        'release_titles':[]
+    },
+    'Emma':{
+        'email':'emma.hopper@parl.gc.ca',
+        'release_titles':[]
+    }
+}
+
 def send_email(text, title, institution):
     text = re.sub("```html", f"Today {institution} released: {title}", text)
     # em = EmailMessage()
@@ -36,3 +71,40 @@ def send_email(text, title, institution):
         smtp.login(EMAIL, PASSWORD)
         smtp.sendmail(EMAIL, email_receiver, message.as_string())
     pass
+
+def advisor_send(titles, advisors):
+    """
+    Automatic email sender that sends the advisors their corresponding related
+    files inclusions into the database.
+
+    Method:
+        2. create a lsit for each advisor of corresponding titles
+        3. create email content
+        4. send email
+    """
+    for x in range(len(titles)):
+        for y in range(2):
+            match advisors[y][x]:
+                case 'C. MacDonald':
+                    advisor_details['Connor']['release_titles'].append(titles[x])
+                case 'D. Hall':
+                    advisor_details['Darren']['release_titles'].append(titles[x])
+                case 'D. Murray':
+                    advisor_details['David']['release_titles'].append(titles[x])
+                case 'E. Harper':
+                    advisor_details['Elan']['release_titles'].append(titles[x])
+                case 'E. Hopper':
+                    advisor_details['Emma']['release_titles'].append(titles[x])
+                case 'M. Emes':
+                    advisor_details['Mark']['release_titles'].append(titles[x])
+                case 'S. Phelan':
+                    advisor_details['Sean']['release_titles'].append(titles[x])
+                case 'Y. Zhu':
+                    advisor_details['Yuan']['release_titles'].append(titles[x])
+
+
+if __name__ == "__main__":
+    advisor_send(titles=["banana","orange"], advisors=[['E. Harper', 'M. Emes'],['S. Phelan', 'D. Murray']])
+
+                
+

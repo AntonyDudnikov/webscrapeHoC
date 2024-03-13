@@ -1,4 +1,272 @@
 release_date,title,url,date_retrieved,summary,quotes,institution,file_1,file_2,file_advisor_1,file_advisor_2,news_bool
+13/03/2024,"National balance sheet and financial flow accounts, fourth quarter 2023",https://www150.statcan.gc.ca/daily-quotidien/240313/dq240313a-eng.htm,13/03/2024,"```html
+<h3>Summary</h3>
+<p>Household net worth in Canada increased by $289.8 billion (+1.8%) to $16,419.9 billion in Q4, driven by a rally in financial markets. Financial assets hit a record $9,741.3 billion, while residential real estate values declined by $157.8 billion. The household saving rate stood at 6.2%, with strong growth in currency and deposits, and mutual fund shares. Residential real estate decreased by 1.9% in Q4, with a 6.8% annual drop. Consumer credit spiked with a $29.5 billion increase in household borrowing. The household debt service ratio was largely unchanged at 15.00%.</p>
+
+<h3>Facts</h3>
+Household net worth
+  +1.8% ($289.8 billion)
+
+Financial assets
+  +5.4% ($500 billion)
+
+Residential real estate
+  -1.9% ($157.8 billion)
+
+Household saving rate
+  6.2%
+
+Currency and deposits
+  +2.4% ($50.1 billion)
+
+Mutual fund shares
+  +$11.8 billion
+
+Resale homes value
+  -8.9%
+
+Resale homes units
+  -7.7%
+
+Housing investment
+  +0.1%
+
+Consumer credit
+  +$8.2 billion
+
+Household debt service ratio
+  15.00%
+
+Mortgage interest payments
+  +97.2%
+
+Household credit market debt to disposable income
+  -0.5% (from 179.2% to 178.7%)
+
+Federal government borrowing
+  +$22.0 billion
+
+Private non-financial corporations' demand for funds
+  -$12.8 billion (from $21.7 billion to $8.9 billion)
+
+National net worth
+  +$251.0 billion
+
+International investment position
+  +20.7%
+
+International financial assets
+  +7.3% ($613.1 billion)
+
+International liabilities
+  +$324.9 billion
+
+National wealth
+  -0.2% ($16,821.3 billion)
+
+Residential real estate (national wealth component)
+  -$166.1 billion
+
+Subsoil assets
+  +$68.9 billion
+```","[""'Households were wealthier in the fourth quarter as their net worth—the value of all assets minus all liabilities—increased $289.8 billion (+1.8%) to $16,419.9 billion"", 'This increase was driven by strength in financial markets as both bonds and equities rallied after losing ground in the prior quarter', 'the slowest accumulation of household debt in a calendar year since 1990', 'The household saving rate (seasonally adjusted) stood at 6.2% in the fourth quarter', 'During the fourth quarter, the pace of household credit market borrowing (seasonally adjusted) continued to rise, reaching $29.5 billion', 'From the start of 2022, when the Bank of Canada began raising interest rates, to the end of 2023, mortgage interest payments almost doubled (+97.2%)', 'In the fourth quarter, the federal government borrowed $22.0 billion in bonds and treasury bills', 'The demand for funds by private non-financial corporations fell to $8.9 billion in the fourth quarter', ""Canada's national net worth was driven by growth in the international investment position (+20.7%)"", ""the highest quarterly increase on record'""]",statistics canada,Finance and Middle Class Prosperity,Treasury Board,E. Harper,E. Harper,False
+13/03/2024,"Police-reported hate crime, 2022",https://www150.statcan.gc.ca/daily-quotidien/240313/dq240313b-eng.htm,13/03/2024,"```html
+<h3>Summary</h3>
+<p>Canada saw a 7% rise in hate crimes from 2021 to 2022, with a cumulative 83% increase since 2019. Hate crimes targeting race/ethnicity and sexual orientation each rose by 12%, while religious hate crimes decreased by 15%. The rate of police-reported hate crime increased by 5% to 9.2 incidents per 100,000 population. Violent hate crimes increased by 12%, with a notable 53% rise in hate-related homicides. Ontario, Nova Scotia, and British Columbia had the highest hate crime rates. Cyber hate crimes more than doubled over the last five years, with 82% being violent.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Hate crimes reported
+    <ul>
+      <li>7% (from 3,355 to 3,576 incidents)</li>
+    </ul>
+  </li>
+  <li>Cumulative increase (2019-2022)
+    <ul>
+      <li>83%</li>
+    </ul>
+  </li>
+  <li>Hate crimes targeting race/ethnicity
+    <ul>
+      <li>12% (to 1,950 incidents)</li>
+    </ul>
+  </li>
+  <li>Hate crimes targeting sexual orientation
+    <ul>
+      <li>12% (to 491 incidents)</li>
+    </ul>
+  </li>
+  <li>Hate crimes targeting religion
+    <ul>
+      <li>-15% (from 886 to 750 incidents)</li>
+    </ul>
+  </li>
+  <li>Rate of police-reported hate crime
+    <ul>
+      <li>5% (to 9.2 incidents per 100,000 population)</li>
+    </ul>
+  </li>
+  <li>Violent hate crimes
+    <ul>
+      <li>12% increase</li>
+    </ul>
+  </li>
+  <li>Hate-related homicides
+    <ul>
+      <li>53% (from 15 to 23 victims)</li>
+    </ul>
+  </li>
+  <li>Provinces with highest hate crime rates
+    <ul>
+      <li>Ontario (12.7 incidents per 100,000)</li>
+      <li>Nova Scotia (11.1 incidents per 100,000)</li>
+      <li>British Columbia (10.2 incidents per 100,000)</li>
+    </ul>
+  </li>
+  <li>Cyber hate crimes
+    <ul>
+      <li>138% increase (from 92 to 219 incidents)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Hate crimes targeting a race or an ethnicity increase for the fourth straight year"", 'Hate crimes targeting a religion are down in 2022, after a peak in the previous year', 'Hate crimes targeting a sexual orientation increase for the second year in a row', 'Victims of hate crime are most often men and boys, except for crimes targeting sex or gender', 'People accused of hate crime are most often men and boys', 'Less than one-third of hate crimes were cleared (solved)', ""Most cyber hate crimes involve harassing and threatening behaviours'""]",statistics canada,Justice and Attorney General of Canada,Canadian Heritage,S. Phelan,E. Harper,False
+13/03/2024,"Employer pension plans (trusteed pension funds), third quarter 2023",https://www150.statcan.gc.ca/daily-quotidien/240313/dq240313c-eng.htm,13/03/2024,"<h3>Summary</h3>
+<p>Data for the third quarter on trusteed pension funds covering asset values by sector, and the distribution between foreign and domestic holdings, as well as details on revenues, expenditures, and net income are now available.</p>
+
+<h3>Facts</h3>
+<ul>
+<li>Value of assets by sector</li>
+<ul>
+<li>Changes and values not provided</li>
+</ul>
+<li>Value of assets by foreign and domestic holdings</li>
+<ul>
+<li>Changes and values not provided</li>
+</ul>
+<li>Revenues, expenditures, and net income</li>
+<ul>
+<li>Changes and values not provided</li>
+</ul>
+</ul>",['No headline-worthy quotes provided.'],statistics canada,Finance and Middle Class Prosperity,Pensions and Retirement Security,E. Harper,E. Harper,False
+13/03/2024,"Crushing statistics of major oilseeds, Canada and United States, 2023",https://www150.statcan.gc.ca/daily-quotidien/240313/dq240313d-eng.htm,13/03/2024,"```html
+<h3>Summary</h3>
+<p>Canadian oilseed processors set a record in 2023 by crushing 10,522,947 tonnes of canola, a 20.0% increase from 2022. Soybean crushing, however, fell by 5.7% to 1,762,693 tonnes. Canola oil production reached 4,422,368 tonnes, and soybean oil production was 329,856 tonnes. Canola meal production was 6,200,229 tonnes, and soybean meal was 1,371,250 tonnes. High canola prices and a 20.3% increase in canola oil exports, which totalled 3,149,904 tonnes, drove the growth. Canola production was up 31.2% from the previous year. In the US, soybean crushing increased by 2.6%, and canola crushing by 19.2% in 2023.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Canadian canola crushing
+    <ul>
+      <li>+20.0% (10,522,947 tonnes)</li>
+    </ul>
+  </li>
+  <li>Canadian soybean crushing
+    <ul>
+      <li>-5.7% (1,762,693 tonnes)</li>
+    </ul>
+  </li>
+  <li>Canadian canola oil production
+    <ul>
+      <li>4,422,368 tonnes</li>
+    </ul>
+  </li>
+  <li>Canadian soybean oil production
+    <ul>
+      <li>329,856 tonnes</li>
+    </ul>
+  </li>
+  <li>Canadian canola meal production
+    <ul>
+      <li>6,200,229 tonnes</li>
+    </ul>
+  </li>
+  <li>Canadian soybean meal production
+    <ul>
+      <li>1,371,250 tonnes</li>
+    </ul>
+  </li>
+  <li>Canadian canola oil exports
+    <ul>
+      <li>+20.3% (3,149,904 tonnes)</li>
+    </ul>
+  </li>
+  <li>Canadian canola production increase
+    <ul>
+      <li>+31.2%</li>
+    </ul>
+  </li>
+  <li>US soybean crushing
+    <ul>
+      <li>+2.6% (61,267,971 tonnes)</li>
+    </ul>
+  </li>
+  <li>US canola crushing
+    <ul>
+      <li>+19.2% (2,058,625 tonnes)</li>
+    </ul>
+  </li>
+  <li>US soybean oil production
+    <ul>
+      <li>12,052,159 tonnes</li>
+    </ul>
+  </li>
+  <li>US canola oil production
+    <ul>
+      <li>825,227 tonnes</li>
+    </ul>
+  </li>
+  <li>US soybean meal production
+    <ul>
+      <li>45,240,726 tonnes</li>
+    </ul>
+  </li>
+  <li>US canola meal production
+    <ul>
+      <li>1,197,806 tonnes</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Canadian oilseed processors crushed a record 10,522,947 tonnes of canola in 2023, up 20.0% from 2022"", 'In 2021, the price of canola oil increased by 65.2% over the previous year, and it has remained elevated ever since', ""In 2023, Canadian exports of canola oil increased 20.3% from 2022, totalling 3,149,904 tonnes'""]",statistics canada,"Agriculture, Agri-Food and Food Security",Natural Resources,C. MacDonald,E. Harper,False
+13/03/2024,"Area, production and farm value of potatoes, by harvest season, United States, 2023",https://www150.statcan.gc.ca/daily-quotidien/240313/dq240313e-eng.htm,13/03/2024,"<h3>Summary</h3>
+<p>Data for the United States' potato area and production for 2023 is currently unavailable. This summary will be updated once the information is provided.</p>
+
+<h3>Facts</h3>
+<p>No data provided.</p>","[""I'm sorry, but you have not provided any content with triple quotation delimiters that contain quotes. Please supply the relevant content with quotes for me to identify any headline-worthy quotes.""]",statistics canada,"Agriculture, Agri-Food and Food Security",Natural Resources,C. MacDonald,E. Harper,False
+13/03/2024,"Fertilizer Shipments Survey, second quarter 2023/2024",https://www150.statcan.gc.ca/daily-quotidien/240313/dq240313f-eng.htm,13/03/2024,"<h3>Summary</h3>
+<p>There is no specific data provided in the introduction to summarize. It merely states that data on shipments, production, and market inventories of fertilizer in Canada for the second quarter of the 2023/2024 fertilizer year are now available.</p>
+
+<h3>Facts</h3>
+<ul>
+<li>Shipments
+  <ul>
+    <li>No data provided</li>
+  </ul>
+</li>
+<li>Production
+  <ul>
+    <li>No data provided</li>
+  </ul>
+</li>
+<li>Market Inventories
+  <ul>
+    <li>No data provided</li>
+  </ul>
+</li>
+<li>Fertilizer Year
+  <ul>
+    <li>2023/2024</li>
+  </ul>
+</li>
+<li>Quarter
+  <ul>
+    <li>Second</li>
+  </ul>
+</li>
+<li>Location
+  <ul>
+    <li>Canada</li>
+  </ul>
+</li>
+</ul>",['No headline-worthy quotes provided.'],statistics canada,"Agriculture, Agri-Food and Food Security",Environment and Climate Change,C. MacDonald,D. Hall,False
 01/03/2024,"Energy statistics, December 2023",https://www150.statcan.gc.ca/daily-quotidien/240301/dq240301a-eng.htm,01/03/2024,"```html
 <h3>Summary</h3>
 <p>In December, primary energy production increased by 3.2%, led by an 8.1% rise in crude oil production. Secondary energy production grew by 2.9%, with refined petroleum products up 3.1%. Crude oil reached a high of 26.4 million cubic metres, with oil sands extraction up 10.7%. Natural gas production hit a series high at 695.5 million gigajoules, despite a 5.9% drop in deliveries to Canadian consumers. Electricity generation fell 8.5%, with hydroelectric down 17.3%. Electricity exports to the US decreased by 36.2%, while imports surged 169.3%.</p>

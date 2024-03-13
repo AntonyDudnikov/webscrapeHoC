@@ -12,6 +12,8 @@ import pprint
 import datetime
 from storage import load_storage
 
+#TODO: check if this block is really necessary
+"""
 files = {
     "Digital Government":0,
     "Agriculture, Agri-Food and Food Security":1,
@@ -64,6 +66,7 @@ files = {
     "Hunting, Fishing and Conservation":48,
     "Democratic Reform":49
 }
+"""
 
 file_advisors = {
     "C. MacDonald":[
@@ -161,6 +164,18 @@ def print_lists():
     # print(f"file advisor: {advisors}")
     # print(f"Quotes: {quotes}")
 
+release_dates = []
+titles = []
+urls = []
+dates_retrieved = []
+summaries = []
+gpt_outputs = []
+release_files = [[], []]
+advisors = [[],[]]
+institutions = []
+news = []
+quotes = []
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -175,18 +190,6 @@ if __name__ == '__main__':
     all_files_copy = pd.read_csv("final.csv")
     #bool to turn on/off the console control
     stay_on = True
-
-    release_dates = []
-    titles = []
-    urls = []
-    dates_retrieved = []
-    summaries = []
-    gpt_outputs = []
-    release_files = [[], []]
-    advisors = [[],[]]
-    institutions = []
-    news = []
-    quotes = []
 
 
     """
@@ -408,7 +411,6 @@ if __name__ == '__main__':
                 print_lists()
         elif manual =='exit':
             email = True
-            #TODO: improve the email sending portion, differentiate the statcan from other 
             if summaries:
                 while email:
                     email_question = input("Do you wish to send an email summary regarding one of the reports? [yes, no] \n")
@@ -439,7 +441,7 @@ if __name__ == '__main__':
     driver.quit()
 
 """
-release_date = re.search( r'(\w+ \d{1,2}, \d{4})', release_date).group()
+release_date = re.search( r'(\w+ \d{1,2}, \d{4})', release_yesdate).group()
 release_date = datetime.strptime(release_date, "%B %d, %Y").strftime("%d/%m/%Y")
 """
     
