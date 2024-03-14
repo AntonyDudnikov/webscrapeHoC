@@ -29,12 +29,11 @@ def statcan_monitor(statcan_file, driver) -> tuple:
     urls = []
     dates_retrieved = []
     summary = []
-    gpt_outputs = []
     files = []
-    advisors = [[],[]]
     quotes = []
     institution = []
 
+    #TODO change back to len(table)
     for index in range(len(table)):
         """
         check if item is in existing dataframe

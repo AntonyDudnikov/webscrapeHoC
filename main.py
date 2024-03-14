@@ -142,7 +142,7 @@ def file_allocation(list_files:list):
     for x in range(len(list_files)):
         release_files[x].append(list_files[x].lstrip().rstrip())
         for key, value in file_advisors.items():
-            if list_files[x] in value:
+            if list_files[x].lstrip().rstrip() in value:
                 advisors[x].append(key)
         
 
@@ -154,6 +154,9 @@ def print_lists():
     print(f"news: {len(news)}")
     print(f"summaries: {len(summaries)}")
     print(f"Files: {len(release_files[0])}  {len(release_files[1])}")
+    print(f"release_date: {len(release_dates)}")
+    print(f"quotes: {len(quotes)}")
+    print(f"advisors1: {len(advisors[0])}, advisors2: {len(advisors[1])}")
     # print(f"Titles: {titles}")
     # print(f"Url: {urls}")
     # print(f"date recieved: {dates_retrieved}")
@@ -164,17 +167,7 @@ def print_lists():
     # print(f"file advisor: {advisors}")
     # print(f"Quotes: {quotes}")
 
-release_dates = []
-titles = []
-urls = []
-dates_retrieved = []
-summaries = []
-gpt_outputs = []
-release_files = [[], []]
-advisors = [[],[]]
-institutions = []
-news = []
-quotes = []
+
 
 
 # Press the green button in the gutter to run the script.
@@ -191,6 +184,17 @@ if __name__ == '__main__':
     #bool to turn on/off the console control
     stay_on = True
 
+    release_dates = []
+    titles = []
+    urls = []
+    dates_retrieved = []
+    summaries = []
+    gpt_outputs = []
+    release_files = [[], []]
+    advisors = [[],[]]
+    institutions = []
+    news = []
+    quotes = []
 
     """
     How it works:
@@ -231,6 +235,7 @@ if __name__ == '__main__':
                         summary_q = input("Do you want an automatic summary? [yes, no] \n")
                         if (summary_q == 'yes' or summary_q == 'no') and summary_q == 'yes':
                             summaries.append(gpt_processing.summary_processing(statcan_report.output, False))
+                            pass
                         elif (summary_q == 'yes' or summary_q == 'no') and summary_q == 'no':
                             test = input('Do you want a section specific summary? [yes, no] \n')
                             if (test == 'yes' or test == 'no') and test == 'yes':
@@ -238,6 +243,7 @@ if __name__ == '__main__':
                                 summaries.append(gpt_processing.summary_processing(input, manual=True))
                             elif (test == 'yes' or test == 'no') and test == 'no':
                                 summaries.append("NO SUMMARY")
+                                pass
                         file_allocation(gpt_processing.classify_file(statcan_report.output['title']))
                         news.append(False)
                         quotes.append(gpt_processing.quote_identifier(statcan_report.output, False))
@@ -287,7 +293,6 @@ if __name__ == '__main__':
                         quotes.append(gpt_processing.quote_identifier(rbc_report.output, False))
                         file_allocation(gpt_processing.classify_file(rbc_report.output['title']))
                         news.append(False)
-                        print_lists()
                     elif email == 'website':
                         rbc_report.rbc_website_scrape()
                         release_dates.append(release_date)
@@ -299,7 +304,6 @@ if __name__ == '__main__':
                         quotes.append(gpt_processing.quote_identifier(rbc_report.output, False))
                         file_allocation(gpt_processing.classify_file(rbc_report.output['title']))
                         news.append(False)
-                        print_lists()
                 else:
                     print('This release already exists in the database.\n')
             #____________BoC____________
@@ -389,15 +393,14 @@ if __name__ == '__main__':
                 urls.extend(temp_urls)
                 dates_retrieved.extend(temp_dates_retrieved)
                 quotes.extend(temp_quotes)
-                for x in range(len(urls)):
+                for x in range(len(temp_urls)):
                     news.append(False)
                 summaries.extend(temp_summary)
                 for x in temp_files:
                     file_allocation(x)
                 institutions.extend(temp_institution)
-                print('DONE')
-                print_lists()
             elif scrape_type == "BoC":
+                #(titles, release_dates, urls, dates_retrieved, summary, files, institution, quotes)
                 temp_titles, temp_release_dates, temp_urls, temp_dates_retrieved, temp_summary, temp_files, temp_institution = boc_mon.boc_monitor(all_files_copy, driver)
                 titles.extend(temp_titles)
                 release_dates.extend(temp_release_dates)
@@ -407,8 +410,6 @@ if __name__ == '__main__':
                 for x in temp_files:
                     file_allocation(x)
                 institutions.extend(temp_institution)
-                print('DONE')
-                print_lists()
         elif manual =='exit':
             email = True
             if summaries:
@@ -427,6 +428,9 @@ if __name__ == '__main__':
             else:
                 print('Thank you. Have a great rest of your day!')
                 stay_on = False
+    
+    print_lists()
+    #TODO: issue is in the zip
     df_extended = pd.DataFrame(
         zip(release_dates, titles, urls, dates_retrieved, summaries, quotes, institutions,
             release_files[0], release_files[1], advisors[0], advisors[1], news),
@@ -434,7 +438,12 @@ if __name__ == '__main__':
                  "file_1", "file_2", "file_advisor_1", "file_advisor_2", "news_bool"]
     )
 
-    all_files_copy = pd.concat([df_extended, all_files_copy], ignore_index=True)        
+    #TODO: revert all changes (remove gpt_processing comments)
+    
+    print(f"loaded dataframe: {df_extended.shape}")
+    print(f"data lake pre entry: {all_files_copy.shape}")
+    all_files_copy = pd.concat([df_extended, all_files_copy], ignore_index=True)   
+    print(f"concatenated: {all_files_copy.shape}")     
     all_files_copy.to_csv('storage/final_loaded.csv', encoding='utf-8', index=False)
     all_files_copy.to_json('storage/final_loaded.json', 'records', indent=2)
     load_storage.upload_storage()
