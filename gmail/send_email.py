@@ -2,6 +2,8 @@ from email.mime.multipart import MIMEMultipart
 from email.message import EmailMessage
 from email.mime.text import MIMEText
 from dotenv import load_dotenv
+import pandas as pd
+import datetime
 import smtplib
 import ssl
 import os
@@ -13,49 +15,83 @@ EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv('APP_PASSWORD')
 email_receiver = 'antony.dudnikov@parl.gc.ca'
 
+
 advisor_details = {
     'Connor':{
-        'email':"connor.macdonald@parl.gc.ca",
-        'release_titles': []
+        'formal': 'C. MacDonald',
+        'email':"connor.macdonald@parl.gc.ca"
     },
     'Sean':{
-        'email': "sean.phelan@parl.gc.ca",
-        'release_titles':[] 
+        'formal': 'S. Phelan',
+        'email': "sean.phelan@parl.gc.ca"
     },
     'Mark':{
-        'email': 'mark.emes@parl.gc.ca',
-        'release_titles':[]
+        'formal': 'M. Emes',
+        'email': 'mark.emes@parl.gc.ca'
     },
     'Yuan': {
-        'email': 'yuanyi.zhu@parl.gc.ca',
-        'release_titles':[] 
+        'formal':'Y. Zhu',
+        'email': 'yuanyi.zhu@parl.gc.ca'
     },
     'Elan':{
-        'email':'elan.harper@parl.gc.ca',
-        'release_titles':[]
+        'formal': 'E. Harper',
+        'email':'elan.harper@parl.gc.ca'
     },
     'Darren': {
-        'email':'darren.hall@parl.gc.ca',
-        'release_titles':[]
+        'formal':'D. Hall',
+        'email':'darren.hall@parl.gc.ca'
     },
     'David':{
-        'email':'david.murray@parl.gc.ca',
-        'release_titles':[]
+        'formal':'D. Murray',
+        'email':'david.murray@parl.gc.ca'
     },
     'Emma':{
-        'email':'emma.hopper@parl.gc.ca',
-        'release_titles':[]
+        'formal': 'E. Hopper',
+        'email':'emma.hopper@parl.gc.ca'
     }
 }
 
-def send_email(text, title, institution):
-    text = re.sub("```html", f"Today {institution} released: {title}", text)
-    # em = EmailMessage()
-    # em['From'] = EMAIL
-    # em['To'] = email_receiver
-    # em['Subject'] = f"Summary: {title}"
-    # em.set_content(text)
+def _extract_summary(html)->str:
+    pattern = re.compile(r'<p>(.*?)</p>', re.DOTALL)
+    match = re.search(pattern, html)
+    if match:
+        print(match.group(1))
+        return match.group(1)
+    
 
+def _email_creation(todays_df, advisor):
+    #get all releases that relate to the advisor
+    current_advisor_df = todays_df[(todays_df['file_advisor_1'] == advisor_details[advisor]['formal']) | (todays_df['file_advisor_2'] == advisor_details[advisor]['formal'])].reset_index()
+    if len(current_advisor_df): #check if empty
+        email_content = f"""<p>GOOD MORNING {advisor}!</p><p>Today these reports, articles and news releases related to your files were included into the database:</p><h3>Releases related to your files</h3><ul>
+        """
+        for x in range(len(current_advisor_df)): #add releases and hyperlink
+            email_content += f"<li>{current_advisor_df['institution'][x]} - <a href={current_advisor_df['url'][x]}>{current_advisor_df['title'][x]}</a></li>"
+        email_content += '</ul><h3>Summaries of releases</h3><ul>'
+        for x in range(len(current_advisor_df)): #add release summaries
+            email_content += f"""<li><span style="text-decoration: underline;">{current_advisor_df['title'][x]}</span><ul><li>{_extract_summary(current_advisor_df['summary'][x])}</li></ul></li>"""
+        email_content += """</ul><p>Send a request to antony.dudnikov@parl.gc.ca for a summary regarding any of these releases.</p> <p>Have a great day!</p>"""
+        message = MIMEMultipart('alternative')
+        message['Subject'] = f"Summary: Recent inclusions to database related to your file"
+        message['From'] = EMAIL
+        #change to receiver 
+        message["To"] = advisor_details[advisor]['email']
+        part2 = MIMEText(email_content, 'html')
+        message.attach(part2)
+        context = ssl.create_default_context()
+        #send email
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context= context) as smtp:
+            smtp.login(EMAIL, PASSWORD)
+            smtp.sendmail(EMAIL, advisor_details[advisor]['email'], message.as_string())
+        pass
+        print(f"EMAIL SENT TO {advisor}")
+    else:
+        print(f"NOTHING TO SEND TO {advisor}")
+
+#my personal email send that 
+def send_email(text, title, institution, quotes):
+    text = re.sub("```html", f"Today {institution} released: {title}", text)
+    text += f"""<h3> Quotes</h3><p>{quotes}</p>"""
     #html gpt output
     message = MIMEMultipart('alternative')
     message['Subject'] = f"Summary: {title}"
@@ -72,7 +108,7 @@ def send_email(text, title, institution):
         smtp.sendmail(EMAIL, email_receiver, message.as_string())
     pass
 
-def advisor_send(titles, advisors):
+def advisor_send(files):
     """
     Automatic email sender that sends the advisors their corresponding related
     files inclusions into the database.
@@ -82,29 +118,20 @@ def advisor_send(titles, advisors):
         3. create email content
         4. send email
     """
-    for x in range(len(titles)):
-        for y in range(2):
-            match advisors[y][x]:
-                case 'C. MacDonald':
-                    advisor_details['Connor']['release_titles'].append(titles[x])
-                case 'D. Hall':
-                    advisor_details['Darren']['release_titles'].append(titles[x])
-                case 'D. Murray':
-                    advisor_details['David']['release_titles'].append(titles[x])
-                case 'E. Harper':
-                    advisor_details['Elan']['release_titles'].append(titles[x])
-                case 'E. Hopper':
-                    advisor_details['Emma']['release_titles'].append(titles[x])
-                case 'M. Emes':
-                    advisor_details['Mark']['release_titles'].append(titles[x])
-                case 'S. Phelan':
-                    advisor_details['Sean']['release_titles'].append(titles[x])
-                case 'Y. Zhu':
-                    advisor_details['Yuan']['release_titles'].append(titles[x])
+    #get today's releases from dataframe
+    todays_df = files[files["date_retrieved"] == datetime.date.today().strftime("%d/%m/%Y")]
+
+    #loop through advisors
+    for key in advisor_details:
+         _email_creation(todays_df, key)
+           
+
 
 
 if __name__ == "__main__":
-    advisor_send(titles=["banana","orange"], advisors=[['E. Harper', 'M. Emes'],['S. Phelan', 'D. Murray']])
+    all_files_copy = pd.read_csv("storage/final_loaded.csv")
+    advisor_send(all_files_copy)
+    
 
                 
 

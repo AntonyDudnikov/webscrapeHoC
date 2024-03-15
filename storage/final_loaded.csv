@@ -1,7 +1,268 @@
 release_date,title,url,date_retrieved,summary,quotes,institution,file_1,file_2,file_advisor_1,file_advisor_2,news_bool
-14/03/2024,"Monthly Survey of Manufacturing, January 2024",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314a-eng.htm,14/03/2024,"```html
+15/03/2024,Fed to keep rates unchanged for a fifth meeting even as inflation risks lurk,https://thoughtleadership.rbc.com/forward-guidance-our-weekly-preview/,15/03/2024,"```html
 <h3>Summary</h3>
-<p>Canadian manufacturing sales increased by 0.2% to $71.1 billion in January, with the transportation equipment and chemical subsectors leading the growth. Motor vehicle sales surged by 19.6% to $5.3 billion, while chemical product sales rose 3.5% to $5.6 billion. Aerospace industry sales saw a significant drop of 16.7% to $2.1 billion. Ontario experienced a 3.8% sales increase, primarily in motor vehicles and chemicals, whereas Quebec's sales declined by 4.2%, affected by aerospace and primary metals. Total inventories fell slightly by 0.2%, and unfilled orders decreased by 1.3%. The capacity utilization rate improved to 77.1%.</p>
+<p>The Federal Reserve is expected to maintain the current federal funds rate, with markets predicting a 75 basis point cut to 4.5-4.75% this year. Inflation remains above target, with recent data showing unexpected increases. The Fed's projections on rate cuts, GDP growth, unemployment, and inflation will be scrutinized. Canadian inflation is also in focus, with February's CPI anticipated at 3.1% year-over-year. Retail sales in Canada are predicted to decline by 0.4% in January. Various reports from RBC Economics discuss the economic outlook, housing market, inflation, and consumer spending.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Federal Reserve interest rate cuts
+    <ul>
+      <li>-75 basis points (from 125 bps expected)</li>
+      <li>to 4.5-4.75%</li>
+    </ul>
+  </li>
+  <li>U.S. inflation
+    <ul>
+      <li>Two months of upside surprises</li>
+    </ul>
+  </li>
+  <li>Canada inflation (February)
+    <ul>
+      <li>3.1% year-over-year</li>
+      <li>Up from 2.9% in January</li>
+    </ul>
+  </li>
+  <li>Canada gasoline prices
+    <ul>
+      <li>+4% in February (from the previous month)</li>
+    </ul>
+  </li>
+  <li>Retail sales in Canada (January)
+    <ul>
+      <li>-0.4%</li>
+      <li>Volume -0.3%</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Markets continue to expect the first interest rate cut in June in line with our expectations"", 'But we now anticipate the Fed will be moving at a slower pace and cut rates by 75 basis points (instead of the 125 bps previously expected) this year to 4.5-4.75%', 'Recent comments from Fed officials have suggested they’re still committed to moving rates lower this year despite the setback in inflation', 'Both headline and core (ex-food and energy) inflation are expected to come in at 3.1% year-over-year with headline up from 2.9% in January on higher energy inflation', 'Gasoline prices rose by nearly 4% in February from a month ago', ""Still, a very soft economic backdrop means that price pressures in Canada are more likely to keep easing and narrowing, allowing for a first rate cut from the BoC to also come in June'""]",RBC,Finance and Middle Class Prosperity,Economic Development and Industry,E. Harper,D. Hall,False
+15/03/2024,"Canada's international transactions in securities, January 2024",https://www150.statcan.gc.ca/daily-quotidien/240315/dq240315a-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Foreign investment in Canadian securities was $8.9 billion in January, with a focus on government debt securities, which saw an inflow of $21.3 billion. Conversely, Canadian investors divested $7.6 billion in foreign securities, with a notable $14.8 billion sell-off in foreign equities. The net result was a $16.5 billion inflow into the Canadian economy. The S&P/TSX composite index slightly rose by 0.3%, while the S&P 500 index increased by 1.7%.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Foreign investment in Canadian securities
+    <ul>
+      <li>$8.9 billion (January total)</li>
+    </ul>
+  </li>
+  <li>Canadian divestment in foreign securities
+    <ul>
+      <li>-$7.6 billion (January total)</li>
+    </ul>
+  </li>
+  <li>Net inflow of funds into the Canadian economy
+    <ul>
+      <li>$16.5 billion (January result)</li>
+    </ul>
+  </li>
+  <li>Foreign investment in Canadian government debt securities
+    <ul>
+      <li>$21.3 billion (January total)</li>
+    </ul>
+  </li>
+  <li>Investment in federal government debt instruments
+    <ul>
+      <li>$14.1 billion (January amount)</li>
+    </ul>
+  </li>
+  <li>Investment in debt securities of government business enterprises
+    <ul>
+      <li>$6.6 billion (January amount)</li>
+    </ul>
+  </li>
+  <li>Divestment in private corporate paper
+    <ul>
+      <li>-$15.5 billion (January amount)</li>
+    </ul>
+  </li>
+  <li>Canadian share prices (S&P/TSX)
+    <ul>
+      <li>+0.3% (January change)</li>
+    </ul>
+  </li>
+  <li>Canadian divestment in foreign equity securities
+    <ul>
+      <li>-$14.8 billion (January total)</li>
+    </ul>
+  </li>
+  <li>US share prices (S&P 500)
+    <ul>
+      <li>+1.7% (January change)</li>
+    </ul>
+  </li>
+  <li>Canadian investment in foreign bonds
+    <ul>
+      <li>$8.1 billion (January amount)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Foreign investors acquired $8.9 billion of Canadian securities in January, a third consecutive monthly investment."", 'Foreign acquisitions of public sector debt securities totalled $21.3 billion in January, the largest investment since November 2021.', 'Canadian investors reduced their exposure to foreign securities by $7.6 billion in January, after a record investment of $29.4 billion in the previous month.', ""The divestment in foreign equity securities totalled $14.8 billion, nearly equally split between US and non-US foreign shares.'""]",Statistics Canada,Finance and Middle Class Prosperity,International Trade,E. Harper,D. Hall,False
+15/03/2024,"Wholesale trade, January 2024",https://www150.statcan.gc.ca/daily-quotidien/240315/dq240315b-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Wholesale sales grew marginally by 0.1% to $82.4 billion in January, with a year-on-year decrease of 2.0%. The machinery, equipment and supplies subsector rose by 1.4% to $17.4 billion, while the personal and household goods subsector increased by 1.8% to $12.0 billion. Quebec led provincial sales with a 0.8% increase to $14.8 billion. However, inventories fell by 1.1% to $128.0 billion, with the motor vehicle and parts subsector seeing the largest decline of 4.5% to $16.7 billion. The inventory-to-sales ratio decreased from 1.57 to 1.55.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Overall wholesale sales
+    <ul>
+      <li>0.1% ($82.4 billion)</li>
+      <li>-2.0% (year-on-year)</li>
+    </ul>
+  </li>
+  <li>Machinery, equipment and supplies subsector
+    <ul>
+      <li>1.4% ($17.4 billion)</li>
+    </ul>
+  </li>
+  <li>Personal and household goods subsector
+    <ul>
+      <li>1.8% ($12.0 billion)</li>
+    </ul>
+  </li>
+  <li>Quebec wholesale sales
+    <ul>
+      <li>0.8% ($14.8 billion)</li>
+    </ul>
+  </li>
+  <li>Ontario wholesale sales
+    <ul>
+      <li>-0.2% ($42.6 billion)</li>
+    </ul>
+  </li>
+  <li>Wholesale inventories
+    <ul>
+      <li>-1.1% ($128.0 billion)</li>
+    </ul>
+  </li>
+  <li>Motor vehicle and parts inventories
+    <ul>
+      <li>-4.5% ($16.7 billion)</li>
+    </ul>
+  </li>
+  <li>Inventory-to-sales ratio
+    <ul>
+      <li>1.55 (from 1.57)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Sales in the machinery, equipment and supplies subsector grew by 1.4% to $17.4 billion in January, its first increase in five months"", 'The personal and household goods subsector also contributed to the growth, up 1.8% to $12.0 billion in January', 'Wholesale sales in Quebec increased 0.8% to $14.8 billion in January', ""Wholesale inventories fell 1.1% to $128.0 billion in January'""]",Statistics Canada,"Innovation, Science and Industry",Finance and Middle Class Prosperity,E. Harper,E. Harper,False
+15/03/2024,Tracking Canada's evolving supply chain links and their effects: Knowns and unknowns,https://www150.statcan.gc.ca/daily-quotidien/240315/dq240315c-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Canada's integration into global supply chains has led to 10% higher labour productivity and 6% higher wages in manufacturing firms involved in global value chains. However, 25% of Canada's economic output faces risks from external demand and supply shocks. Import prices contributed to half of the consumer inflation in the latter three quarters of 2022. Canada's imports from the US decreased from 62% to 49% between 2002 and 2022, while imports from China increased from 5% to 14%. Input requirements from abroad increased from 19% in 2007 to 23% in 2019.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Labor Productivity
+    <ul>
+      <li>+10% (higher in manufacturing firms in global value chains)</li>
+    </ul>
+  </li>
+  <li>Wages
+    <ul>
+      <li>+6% (higher in manufacturing firms in global value chains)</li>
+    </ul>
+  </li>
+  <li>Economic Output at Risk
+    <ul>
+      <li>25% (exposed to external shocks)</li>
+    </ul>
+  </li>
+  <li>Consumer Inflation from Imports
+    <ul>
+      <li>50% (contribution to inflation in last three quarters of 2022)</li>
+    </ul>
+  </li>
+  <li>Imports from the United States
+    <ul>
+      <li>-13% (from 62% to 49% between 2002 and 2022)</li>
+    </ul>
+  </li>
+  <li>Imports from China
+    <ul>
+      <li>+9% (from 5% to 14% between 2002 and 2022)</li>
+    </ul>
+  </li>
+  <li>Input Requirements Sourced from Abroad
+    <ul>
+      <li>+4% (from 19% in 2007 to 23% in 2019)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Research to Insights: Tracking Canada's Evolving Supply Chain Links and their Effects"", 'Manufacturing firms that participate in global value chains have, on average, 10% higher labour productivity and 6% higher wages than those that do not', ""Canadian industries accounting for 25% of the country's economic output are exposed to potential external demand and supply shocks"", 'Rising import prices accounted for about half of consumer inflation at its peak in the last three quarters of 2022', ""From 2002 to 2022, Canada's imports shifted away from the United States, whose import share declined from 62% to 49%"", ""China's import share rose from 5% to 14% over the same period"", 'The share of input requirements sourced from abroad rose from 19% in 2007 to 23% in 2019', ""These smaller firms, which have less capacity to absorb import supply chain shocks, had on average fewer than two suppliers for each imported intermediate product'""]",Statistics Canada,"Innovation, Science and Industry",Supply Chain Issues,E. Harper,M. Emes,False
+15/03/2024,Canadian Health and COVID-19 Survey,https://www150.statcan.gc.ca/daily-quotidien/240315/dq240315d-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>Statistics Canada has not provided specific statistics or main points in the provided text. The summary cannot be completed without the key data from the Canadian Health and COVID-19 Survey conducted in Prince Edward Island and Ontario in 2023, which is based on the 2022 Canadian COVID-19 Antibody and Health Survey.</p>
+
+<h3>Facts</h3>
+<p>No variables, changes, or values were provided in the text to list under this section.</p>","[""'Canadian Health and COVID-19 Survey reveals new data'""]",Statistics Canada,Health,Emergency Preparedness,C. MacDonald,Y. Zhu,False
+15/03/2024,"Wholesale Services Price Index, fourth quarter 2023",https://www150.statcan.gc.ca/daily-quotidien/240315/dq240315e-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>The Wholesale Services Price Index, with a reference period of 2020=100, has been updated in the fourth quarter. The update includes a new basket introduced in the third quarter of 2022, effective from the second quarter of 2022. This basket incorporates the new NAICS category: Cannabis merchant wholesalers [41341]. Historical data prior to the second quarter of 2022 has been re-aggregated above the NAICS five-digit level to include this new category.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>New basket introduction
+    <ul>
+      <li>Effective from the second quarter of 2022</li>
+    </ul>
+  </li>
+  <li>Historical series re-aggregation
+    <ul>
+      <li>From the second quarter of 2022</li>
+    </ul>
+  </li>
+  <li>NAICS category addition
+    <ul>
+      <li>Cannabis merchant wholesalers [41341]</li>
+    </ul>
+  </li>
+  <li>Reference period
+    <ul>
+      <li>2020=100</li>
+    </ul>
+  </li>
+</ul>
+```","[""'With the release of the third quarter of 2022, a new basket was introduced going back to the start of the second quarter of 2022."", ""The Wholesale Services Price Index's basket and updated basket weights, based on the year 2020 (see table 18-10-0179-01), are now available."", ""This basket includes data from the newly collected NAICS category: Cannabis merchant wholesalers [41341].'""]",Statistics Canada,Finance and Middle Class Prosperity,Economic Development and Industry,E. Harper,& C:/Users/anton/anaconda3/envs/webscrapeHoC/python.exe c:/Users/anton/PycharmProjects/webscrapeHoC/gmail/send_email.py,False
+15/03/2024,"Telecommunications services producer price indexes, fourth quarter 2023",https://www150.statcan.gc.ca/daily-quotidien/240315/dq240315f-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>The summary is not available as the content provided does not include any statistics or main points to summarize.</p>
+
+<h3>Facts</h3>
+<p>No variables, changes, or values were provided to list under this section.</p>",['There are no headline-worthy quotes provided in the content supplied.'],Statistics Canada,"Innovation, Science and Industry",Infrastructure and Communities,E. Harper,M. Emes,False
+15/03/2024,Traffic Flow Dashboard,https://www150.statcan.gc.ca/daily-quotidien/240315/dq240315g-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>Statistics Canada's Traffic Flow Dashboard provides experimental statistics on traffic flow in Calgary and Toronto. The data are sourced from traffic camera imagery and analyzed using a computer vision system by the Data Exploration and Integration Lab.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Traffic Flow Dashboard
+    <ul>
+      <li>Experimental statistics</li>
+      <li>Cities covered: Calgary, Toronto</li>
+    </ul>
+  </li>
+  <li>Data Source
+    <ul>
+      <li>Traffic camera imagery</li>
+    </ul>
+  </li>
+  <li>Analysis Method
+    <ul>
+      <li>Computer vision-based system</li>
+    </ul>
+  </li>
+  <li>Developed by
+    <ul>
+      <li>Statistics Canada's Data Exploration and Integration Lab</li>
+    </ul>
+  </li>
+</ul>","[""'Experimental statistics from Statistics Canada's new Traffic Flow Dashboard reveal traffic flow on selected roads in Calgary and Toronto'""]",Statistics Canada,Transport,Infrastructure and Communities,M. Emes,M. Emes,False
+15/03/2024,"Real-time local business conditions, March 4 to 10, 2024",https://www150.statcan.gc.ca/daily-quotidien/240315/dq240315h-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>No content provided to summarize for the specified date range of March 4 to 10, 2024.</p>
+
+<h3>Facts</h3>
+<p>No variables provided to list changes and values.</p>",['No headline-worthy quotes provided.'],Statistics Canada,Small Business Recovery and Growth,Economic Development Agency for Northern Ontario,E. Harper,D.Hall,False
+14/03/2024,"Monthly Survey of Manufacturing, January 2024",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314a-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Manufacturing sales increased slightly by 0.2% to $71.1 billion in January, with transportation equipment and chemical subsectors leading the growth. Motor vehicle sales surged by 19.6% to $5.3 billion, marking a recovery after a period of retooling. Chemical product sales also rose by 3.5% to $5.6 billion. However, aerospace products saw a significant decline of 16.7% to $2.1 billion. Ontario's sales grew by 3.8%, while Quebec experienced a 4.2% decrease. Inventories fell by 0.2% to $122.1 billion, and unfilled orders decreased by 1.3% to $104.2 billion. The capacity utilization rate improved to 77.1%.</p>
 
 <h3>Facts</h3>
 <ul>
@@ -17,12 +278,12 @@ release_date,title,url,date_retrieved,summary,quotes,institution,file_1,file_2,f
   </li>
   <li>Chemical sales
     <ul>
-      <li>+3.5% ($5.6 billion)</li>
+      <li>+3.5%</li>
     </ul>
   </li>
   <li>Aerospace product and parts sales
     <ul>
-      <li>-16.7% ($2.1 billion)</li>
+      <li>-16.7%</li>
     </ul>
   </li>
   <li>Motor vehicle sales
@@ -30,6 +291,12 @@ release_date,title,url,date_retrieved,summary,quotes,institution,file_1,file_2,f
       <li>+19.6% ($5.3 billion)</li>
       <li>Year over year: +7.7%</li>
       <li>Exports: +1.6%</li>
+    </ul>
+  </li>
+  <li>Chemical product sales
+    <ul>
+      <li>+3.5% ($5.6 billion)</li>
+      <li>Year over year: -2.2%</li>
     </ul>
   </li>
   <li>Ontario sales
@@ -60,18 +327,18 @@ release_date,title,url,date_retrieved,summary,quotes,institution,file_1,file_2,f
   </li>
   <li>Capacity utilization rate
     <ul>
-      <li>+2.0 percentage points (77.1%)</li>
+      <li>+2 percentage points (77.1%)</li>
     </ul>
   </li>
 </ul>
-```","[""'Production resumed in some auto assembly plants in January, after several months of downtime for retooling in 2023"", 'Year over year, sales of motor vehicles were up 7.7% in January', 'Exports of motor vehicles and parts rose 1.6%', 'Sales of chemical products rose 3.5% from December to $5.6 billion in January', 'Pesticide, fertilizer and other agricultural chemical manufacturing (+68.1%)', 'Total sales of chemical products declined 2.2% year over year in January', 'The decline in January followed the largest production on record of aerospace products in December', 'Exports of aircraft, aircraft engines and aircraft parts decreased 15.2% in January', 'Sales in Ontario rose 3.8% to $32.2 billion in January', 'Motor vehicle manufacturing also contributed to the higher sales in Windsor (+59.6%) and Toronto (+1.5%) in January', 'In New Brunswick, sales increased 4.2% to $2.1 billion in January', 'Total sales in New Brunswick were down 6.1% on a year-over-year basis in January', 'In Quebec, sales fell 4.2% from December to $17.3 billion in January', 'Lower production of aerospace product and parts (-20.6%) as well as lower sales of primary metals (-8.6%) were mainly responsible for this decline', 'Total inventories decreased 0.2% to $122.1 billion in January', 'Lower inventories of primary metals (-4.2%) and petroleum and coal (-4.5%) were mainly responsible for the decline', 'The inventory-to-sales ratio was unchanged, at 1.72 in January', 'The total value of unfilled orders declined 1.3% to $104.2 billion in January', 'Capacity utilization rate (not seasonally adjusted) for the total manufacturing sector increased from 75.1% in December to 77.1% in January', ""Capacity utilization rates increased in the chemical (+7.5 percentage points) and transportation equipment (+3.7 percentage points) subsectors'""]",Statistics Canada,"Innovation, Science and Industry",Finance and Middle Class Prosperity,E. Harper,M. Emes,False
-14/03/2024,"Fewer charitable donors, less money donated in 2022",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314b-eng.htm,14/03/2024,"```html
+```","[""'Production resumed in some auto assembly plants in January, after several months of downtime for retooling in 2023."", 'Sales of chemical products rose 3.5% from December to $5.6 billion in January, on widespread gains in six of the seven industry groups, led by pesticide, fertilizer and other agricultural chemical manufacturing (+68.1%).', 'The decline in January followed the largest production on record of aerospace products in December.', 'Sales in Ontario rose 3.8% to $32.2 billion in January, led by higher sales of motor vehicles (+21.8%) and chemical products (+10.1%).', 'Motor vehicle manufacturing also contributed to the higher sales in Windsor (+59.6%) and Toronto (+1.5%) in January.', 'Lower production of aerospace product and parts (-20.6%) as well as lower sales of primary metals (-8.6%) were mainly responsible for this decline.', 'The total value of unfilled orders declined 1.3% to $104.2 billion in January, largely on a 2.2% decrease in unfilled orders of transportation equipment.', ""The capacity utilization rate (not seasonally adjusted) for the total manufacturing sector increased from 75.1% in December to 77.1% in January, mainly on higher production.'""]",Statistics Canada,"Innovation, Science and Industry","Economic Development Agency for Eastern, Central and Southern Ontario",E. Harper,D. Hall,False
+14/03/2024,"Fewer charitable donors, less money donated in 2022",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314b-eng.htm,15/03/2024,"```html
 <h3>Summary</h3>
-<p>Canadian charitable donations decreased by 3.1% to $11.4 billion in 2022, with a 0.3% drop in the number of donors. Median donations rose by 5.6% to $380. Donations of $100,000 or more fell by 12.4%, and their total value declined by 13.4%. High-income earners ($100,000 or more) made up 59.1% of total donations. Seniors were most likely to donate, with 23.9% of those aged 65 or older contributing. Men donated more than women, accounting for 63.4% of total donations. British Columbia and Ontario led the decline in donations, while Manitoba remained the most charitable province.</p>
+<p>In 2022, 17.1% of Canadian tax filers reported charitable donations, a slight decrease from the previous year, with total donations falling by 3.1% to $11.4 billion. Median donations increased by 5.6% to $380. Donations of $100,000 or more saw a 12.4% decline in the number of donors and a 13.4% decrease in total amount donated. Higher-income filers contributed 59.1% of total donations, with those earning $1 million or more reporting the highest median donation at $5,150. Seniors were the most charitable, with those aged 65 or older contributing $48 for every $100 donated. Men were more likely to donate than women, contributing 63.4% of total donations. British Columbia and Ontario led the decrease in donations, while Manitoba remained the most charitable province.</p>
 
 <h3>Facts</h3>
 <ul>
-  <li>Number of tax filers making charitable donations
+  <li>Number of tax filers declaring charitable donations
     <ul>
       <li>-0.3% (decrease from previous year)</li>
     </ul>
@@ -88,11 +355,11 @@ release_date,title,url,date_retrieved,summary,quotes,institution,file_1,file_2,f
   </li>
   <li>Donations of $100,000 or more
     <ul>
-      <li>-12.4% (number of tax filers)</li>
+      <li>-12.4% (number of donors)</li>
       <li>-13.4% (total amount donated)</li>
     </ul>
   </li>
-  <li>Share of total donations from high-income earners
+  <li>Share of total donations from high-income filers
     <ul>
       <li>+0.9 percentage points (59.1% of total donations)</li>
     </ul>
@@ -102,88 +369,60 @@ release_date,title,url,date_retrieved,summary,quotes,institution,file_1,file_2,f
       <li>$71,240</li>
     </ul>
   </li>
-  <li>Median donation by income group
+  <li>Median donation by income
     <ul>
       <li>$1 million or more: -5.2% ($5,150)</li>
       <li>$500,000 to $999,999: +1.0% ($1,930)</li>
     </ul>
   </li>
-  <li>Charitable donations by age group
+  <li>Charitable donations by age
     <ul>
-      <li>65 or older: 23.9% (of age group donating)</li>
+      <li>65 or older: 23.9% (of tax filers)</li>
+      <li>Median donation by seniors: $590</li>
     </ul>
   </li>
   <li>Charitable donations by gender
     <ul>
-      <li>Men: 18.1% (of men donating)</li>
-      <li>Women: 16.2% (of women donating)</li>
+      <li>Men: 18.1% (of tax filers)</li>
+      <li>Women: 16.2% (of tax filers)</li>
+      <li>Men's median donation: +2.5% ($410)</li>
+      <li>Women's median donation: +6.1% ($350)</li>
     </ul>
   </li>
   <li>Charitable donations by province
     <ul>
       <li>British Columbia: -11.8%</li>
       <li>Ontario: -6.0%</li>
-      <li>Manitoba: 19.3% (of tax filers donating)</li>
+      <li>Newfoundland and Labrador: -13.2%</li>
+      <li>Manitoba: 19.3% (of tax filers)</li>
+      <li>Manitoba's median donation: +7.3% ($590)</li>
+      <li>Nunavut's median donation: $900</li>
     </ul>
   </li>
-  <li>Median donations by urban centre
+  <li>Charitable donations by urban centre
     <ul>
       <li>Steinbach: -1.7% ($2,230)</li>
       <li>Winkler: +0.0% ($1,820)</li>
+      <li>Abbotsford-Mission: $1,000</li>
+      <li>Québec: 22.1% (of donors)</li>
     </ul>
   </li>
 </ul>
-```","[""'The total amount donated fell for the first time since 2016, decreasing 3.1% to $11.4 billion"", 'The median income of charitable donors ($71,240) was significantly higher than the median income of all tax filers ($41,930)', 'Seniors had the highest median donation ($590)', 'Men continue to donate more overall, accounting for 63.4% of total charitable donations', 'British Columbia and Ontario are leading the decrease in charitable donations', ""Manitoba remained Canada's most charitable province in 2022 with just under one in five tax filers (19.3%) declaring a donation on their tax form"", ""Steinbach (-1.7% to $2,230) and Winkler (+0.0% to $1,820) remained Canada's most charitable urban centres of 10,000 or more people in 2022'""]",Statistics Canada,Finance and Middle Class Prosperity,Canadian Heritage,E. Harper,M. Emes,False
-14/03/2024,"Infrastructure economic account, 2023",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314c-eng.htm,14/03/2024,"<h3>Summary</h3>
-<p>The release includes updated estimates for infrastructure investment, stock, and remaining service life for 2023, alongside their economic and environmental impacts. Data from 2017-2022 have also been revised. These estimates align with the income and expenditure accounts released on February 29, 2023. The complete time series spans from 1981 to 2023.</p>
+```","[""'The total amount donated fell for the first time since 2016, decreasing 3.1% to $11.4 billion."", 'The number of tax filers reporting donations of $100,000 or more fell by 12.4% in 2022, after rising by one-third (+33.6%) in 2021.', 'Tax filers with incomes of $100,000 or more continued to account for the largest share of charitable giving in 2022 (+0.9 percentage points to 59.1%).', 'Seniors had the highest median donation ($590).', 'Men continue to donate more overall, accounting for 63.4% of total charitable donations.', 'The overall decline in charitable donations in 2022 was driven by British Columbia (-11.8%) and Ontario (-6.0%).', ""Manitoba remained Canada's most charitable province in 2022 with just under one in five tax filers (19.3%) declaring a donation on their tax form."", ""Steinbach (-1.7% to $2,230) and Winkler (+0.0% to $1,820) remained Canada's most charitable urban centres of 10,000 or more people in 2022.'""]",Statistics Canada,Finance and Middle Class Prosperity,"Families, Children and Social Development",E. Harper,M. Emes,False
+14/03/2024,"Infrastructure economic account, 2023",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314c-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>No summary provided as the text given does not contain statistics or main points, but rather an introduction to the release of infrastructure investment data, its economic and environmental impacts, and the update of data from 2017 to 2023.</p>
 
 <h3>Facts</h3>
-<ul>
-  <li>Infrastructure investment
-    <ul>
-      <li>2023 estimates released</li>
-    </ul>
-  </li>
-  <li>Infrastructure stock
-    <ul>
-      <li>2023 estimates released</li>
-    </ul>
-  </li>
-  <li>Remaining useful service life
-    <ul>
-      <li>2023 estimates released</li>
-    </ul>
-  </li>
-  <li>Economic and environmental impacts
-    <ul>
-      <li>2023 estimates released</li>
-    </ul>
-  </li>
-  <li>Data revision
-    <ul>
-      <li>2017-2022 updated</li>
-    </ul>
-  </li>
-  <li>Income and expenditure accounts
-    <ul>
-      <li>Consistent with February 29, 2023 release</li>
-    </ul>
-  </li>
-  <li>Time series data
-    <ul>
-      <li>Available from 1981 to 2023</li>
-    </ul>
-  </li>
-</ul>",['No headline-worthy quotes have been provided in the text supplied. Please provide text containing direct quotes for me to identify any potential headlines.'],Statistics Canada,Infrastructure and Communities,Finance and Middle Class Prosperity,M. Emes,E. Harper,False
-14/03/2024,"New motor vehicle sales, January 2024",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314d-eng.htm,14/03/2024,"```html
+<p>No facts provided as the text given does not contain specific variables, changes, or values.</p>","[""I'm sorry, but there are no direct quotes provided in the content you've supplied. If you have any specific statements or quotes from individuals that you'd like me to identify as headline-worthy, please provide them, and I'll be happy to help.""]",Statistics Canada,Infrastructure and Communities,Finance and Middle Class Prosperity,M. Emes,E. Harper,False
+14/03/2024,"New motor vehicle sales, January 2024",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314d-eng.htm,15/03/2024,"```html
 <h3>Summary</h3>
-<p>In Canada, 1,755,741 new motor vehicles were sold in 2023, marking a 12.7% increase from 2022. Despite this, sales were still 11.3% lower than in 2019. Passenger car sales fell by 7.0%, while sales of heavy trucks, buses, and light trucks rose by 12.4%, 16.1%, and 17.0% respectively. In dollar terms, sales surged by 20.4% with buses (73.8%), light trucks (23.3%), and heavy trucks (22.7%) seeing the highest increases.</p>
+<p>In 2023, Canada saw a 12.7% increase in new motor vehicle sales, totaling 1,755,741 units. This rise is attributed to the recovery from the global semiconductor shortage. Despite this growth, sales were still 11.3% lower than pre-pandemic levels in 2019. Passenger car sales fell by 7.0%, while sales of heavy trucks, buses, and light trucks increased by 12.4%, 16.1%, and 17.0% respectively. In dollar terms, sales surged by 20.4%, with buses leading at a 73.8% increase.</p>
 
 <h3>Facts</h3>
 <ul>
-  <li>New motor vehicles sold in 2023
+  <li>New motor vehicle sales
     <ul>
-      <li>12.7% (+197,504 units)</li>
+      <li>+12.7% (+197,504 units)</li>
     </ul>
   </li>
   <li>Comparison with 2019 sales
@@ -225,22 +464,15 @@ release_date,title,url,date_retrieved,summary,quotes,institution,file_1,file_2,f
     </ul>
   </li>
 </ul>
-```","['""In 2023, there were 1,755,741 new motor vehicles sold in Canada, up 12.7% (+197,504 units) from 2022."" \' ""The increase in 2023 was partly due to the recovery of the global semiconductors shortage, which affected the new motor vehicle industry in 2022."" \' ""Sales of new passenger cars continued to decline in 2023, with a drop of 7.0% (-18,955) in units sold compared with 2022."" \' ""In contrast, there were more heavy trucks (+12.4%), buses (+16.1%) and light trucks (+17.0%) sold in 2023."" \' ""In dollars terms, total new motor vehicle sales increased 20.4% in 2023 compared with 2022."" \' ""Sales of buses had the highest increase (+73.8%) in 2023, followed by light trucks (+23.3%), heavy trucks (+22.7%) and passenger cars (+0.3%).""']",Statistics Canada,Finance and Middle Class Prosperity,Transport,E. Harper,D. Hall,False
-14/03/2024,"Provisional death counts, January 2021 to December 2023",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314e-eng.htm,14/03/2024,"<h3>Summary</h3>
-<p>This release presents updated adjusted death counts from the Canadian Vital Statistics Death Database, spanning from January 3, 2021, to December 30, 2023.</p>
+```","['""In 2023, there were 1,755,741 new motor vehicles sold in Canada, up 12.7% (+197,504 units) from 2022."" \' ""The increase in 2023 was partly due to the recovery of the global semiconductors shortage, which affected the new motor vehicle industry in 2022."" \' ""Sales of new passenger cars continued to decline in 2023, with a drop of 7.0% (-18,955) in units sold compared with 2022."" \' ""In dollars terms, total new motor vehicle sales increased 20.4% in 2023 compared with 2022."" \' ""Sales of buses had the highest increase (+73.8%) in 2023, followed by light trucks (+23.3%), heavy trucks (+22.7%) and passenger cars (+0.3%).""']",Statistics Canada,Finance and Middle Class Prosperity,Transport,E. Harper,M. Emes,False
+14/03/2024,"Provisional death counts, January 2021 to December 2023",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314e-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>No summary provided as there were no statistics or main points included in the content supplied.</p>
 
 <h3>Facts</h3>
-<ul>
-    <li>Database: Canadian Vital Statistics Death Database</li>
-    <li>Coverage Period:
-        <ul>
-            <li>Start Date: January 3, 2021</li>
-            <li>End Date: December 30, 2023</li>
-        </ul>
-    </li>
-</ul>","[""'new and updated adjusted counts of death from the Canadian Vital Statistics Death Database'""]",Statistics Canada,Health,Emergency Preparedness,C. MacDonald,E. Harper,False
-14/03/2024,"Monthly Analysis on the Canadian Economic Tracker, March 2024",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314f-eng.htm,14/03/2024,"<h3>Summary</h3>
-<p>The Canadian Economic Tracker provides a monthly analysis of various economic indicators, which is accessible through a dedicated button on its page. It showcases data from Statistics Canada's Common Output Database Repository, offering insights into the Canadian economy's dynamics. Key indicators tracked include business dynamics, employment, earnings, job vacancies, GDP, inflation, industrial prices, trade, and sales. This tool is designed to offer a comprehensive, up-to-date, and interactive view of economic activity in Canada.</p>
+<p>No facts to list as the content supplied did not contain any variables, changes, or values.</p>",['No headline-worthy quotes provided.'],Statistics Canada,Health,Emergency Preparedness,C. MacDonald,Y. Zhu,False
+14/03/2024,"Monthly Analysis on the Canadian Economic Tracker, March 2024",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314f-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>The Canadian Economic Tracker provides a monthly analysis of various economic indicators from Statistics Canada's Common Output Database Repository. It includes data on business dynamics, employment, GDP, inflation, industrial pricing, trade, and sales, offering a comprehensive overview of Canada's economic performance. This tool is designed to present timely and detailed insights into the Canadian economy's current state, with interactive charts and customizable data.</p>
 
 <h3>Facts</h3>
 <ul>
@@ -253,12 +485,1742 @@ release_date,title,url,date_retrieved,summary,quotes,institution,file_1,file_2,f
   <li>Merchandise exports and imports</li>
   <li>Retail trade sales</li>
   <li>Manufacturers' sales</li>
-</ul>","[""'Canadian Economic Tracker: A new data visualization tool.'""]",Statistics Canada,Finance and Middle Class Prosperity,"Economic Development Agency for Eastern, Central and Southern Ontario",E. Harper,E. Harper,False
-14/03/2024,"Data availability: Food services and drinking places, annual, 2022",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314g-eng.htm,14/03/2024,"<h3>Summary</h3>
-<p>Unfortunately, there is no data provided in the introduction to summarize. Additional information is required to provide a summary and list key facts.</p>
+</ul>
+```","[""'Canadian Economic Tracker: A new data visualization tool.'""]",Statistics Canada,Finance and Middle Class Prosperity,"Economic Development Agency for Eastern, Central and Southern Ontario",E. Harper,D. Hall,False
+14/03/2024,"Data availability: Food services and drinking places, annual, 2022",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314g-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>No summary provided as the content supplied with the triple quotation delimiter does not contain any statistics or main points to summarize.</p>
 
 <h3>Facts</h3>
-<p>No data supplied.</p>",['No headline-worthy quotes provided.'],Statistics Canada,Finance and Middle Class Prosperity,"Agriculture, Agri-Food and Food Security",E. Harper,D. Hall,False
+<p>No facts provided as the content supplied with the triple quotation delimiter does not contain any variables, changes, or values to list.</p>","[""Sorry, there seems to be a misunderstanding. You've provided an introduction to a potential article, but there are no quotes included within the triple quotation marks. If you have quotes that you need to identify for a headline, please provide them and I can assist you in extracting headline-worthy quotes.""]",Statistics Canada,"Agriculture, Agri-Food and Food Security",Finance and Middle Class Prosperity,C. MacDonald,E. Harper,False
+14/03/2024,"Participation in regular French programs in Canada outside Quebec, 2021: Maps, key facts and data table",https://www150.statcan.gc.ca/daily-quotidien/240314/dq240314h-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>In 2021, 64.7% of eligible children aged 5 to 17 outside Quebec participated in regular French programs. This varied by region, age, education level, and eligibility under section 23 of the Charter. At least one municipality per province and the Northwest Territories had over 80% of eligible children attending French-language schools. However, only 35.5% of eligible youth aged 12 to 17 attended French-language secondary schools. Additionally, 60.4% of children with a French-speaking parent attended French-language schools, versus 40.9% with parents who did not have French as a mother tongue but attended French-language schools themselves.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Overall participation in French programs
+    <ul>
+      <li>64.7% (452,000 children)</li>
+    </ul>
+  </li>
+  <li>Participation by municipality
+    <ul>
+      <li>≥80% (at least one municipality per province/territory)</li>
+      <li><50% (at least one municipality per province/territory, except Nunavut)</li>
+    </ul>
+  </li>
+  <li>French-language elementary school attendance (youth aged 12 to 17)
+    <ul>
+      <li>65.3%</li>
+    </ul>
+  </li>
+  <li>French-language secondary school attendance (youth aged 12 to 17)
+    <ul>
+      <li>35.5%</li>
+    </ul>
+  </li>
+  <li>French-language school attendance (children aged 5 to 11)
+    <ul>
+      <li>62.7%</li>
+    </ul>
+  </li>
+  <li>Attendance with French-speaking parent
+    <ul>
+      <li>60.4%</li>
+    </ul>
+  </li>
+  <li>Attendance with parent who attended French-language school
+    <ul>
+      <li>40.9%</li>
+    </ul>
+  </li>
+</ul>
+```","['""Maps and key facts on participation in regular French programs in Canada outside Quebec, 2021,"" \'In at least one municipality in each province in Canada outside Quebec, four in five eligible children have attended a French-language school', 'In Canada outside Quebec, just over one-third of youth aged 12 to 17 years who are eligible for instruction in French have attended a French-language secondary school', ""In Canada outside Quebec, three in five school-aged children with at least one parent whose mother tongue is French have attended a French-language school'""]",Statistics Canada,Official Languages,Canadian Heritage,Y. Zhu,Y. Zhu,False
+13/03/2024,"National balance sheet and financial flow accounts, fourth quarter 2023",https://www150.statcan.gc.ca/daily-quotidien/240313/dq240313a-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Household net worth in Canada increased by $289.8 billion (+1.8%) to $16,419.9 billion in Q4, driven by a financial market rally. Financial assets hit a record $9,741.3 billion, while residential real estate values fell by $157.8 billion. The household saving rate was stable at 6.2%. Consumer credit spiked, with a $29.5 billion increase in household borrowing. The household debt service ratio slightly rose to 15.00%. National net worth grew by $251.0 billion, with a record $613.1 billion rise in international financial assets, despite a decline in national wealth.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Household net worth
+    <ul>
+      <li>+1.8% ($289.8 billion)</li>
+    </ul>
+  </li>
+  <li>Financial assets
+    <ul>
+      <li>+7.0% ($636.7 billion)</li>
+    </ul>
+  </li>
+  <li>Residential real estate value
+    <ul>
+      <li>-1.9% ($157.8 billion)</li>
+    </ul>
+  </li>
+  <li>Household saving rate
+    <ul>
+      <li>6.2%</li>
+    </ul>
+  </li>
+  <li>Currency and deposits
+    <ul>
+      <li>+2.4% ($50.1 billion)</li>
+    </ul>
+  </li>
+  <li>Mutual fund shares
+    <ul>
+      <li>$11.8 billion in net acquisitions</li>
+    </ul>
+  </li>
+  <li>Consumer credit
+    <ul>
+      <li>+$8.2 billion</li>
+    </ul>
+  </li>
+  <li>Household debt service ratio
+    <ul>
+      <li>15.00%</li>
+    </ul>
+  </li>
+  <li>Mortgage interest payments
+    <ul>
+      <li>+97.2%</li>
+    </ul>
+  </li>
+  <li>Household credit market debt to income
+    <ul>
+      <li>178.7%</li>
+    </ul>
+  </li>
+  <li>Federal government borrowing
+    <ul>
+      <li>$22.0 billion</li>
+    </ul>
+  </li>
+  <li>Private non-financial corporations' demand for funds
+    <ul>
+      <li>$8.9 billion</li>
+    </ul>
+  </li>
+  <li>Canada's international assets
+    <ul>
+      <li>+7.3% ($613.1 billion)</li>
+    </ul>
+  </li>
+  <li>National net worth
+    <ul>
+      <li>+20.7% ($251.0 billion)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Households were wealthier in the fourth quarter as their net worth—the value of all assets minus all liabilities—increased $289.8 billion (+1.8%) to $16,419.9 billion"", 'This increase was driven by strength in financial markets as both bonds and equities rallied after losing ground in the prior quarter', 'This pushed financial assets higher by nearly half a trillion dollars to a new record high of $9,741.3 billion, surpassing the previous record set in the fourth quarter of 2021', 'the slowest accumulation of household debt in a calendar year since 1990', 'The household saving rate (seasonally adjusted) stood at 6.2% in the fourth quarter', 'Households recorded $11.8 billion in net acquisitions of mutual fund shares in the fourth quarter of 2023', 'The value of household residential real estate decreased 1.9% in the fourth quarter, the second consecutive decline', 'During the fourth quarter, the pace of household credit market borrowing (seasonally adjusted) continued to rise, reaching $29.5 billion', 'The household debt service ratio, measured as total obligated payments of principal and interest on credit market debt as a proportion of household disposable income, rose slightly to 15.00% in the fourth quarter from 14.99% in the third quarter', 'In the fourth quarter, the federal government borrowed $22.0 billion in bonds and treasury bills', 'The demand for funds by private non-financial corporations fell to $8.9 billion in the fourth quarter from $21.7 billion in the third quarter', ""National net worth, the sum of national wealth and Canada's net foreign asset position, rose $251.0 billion in the fourth quarter despite a decline in national wealth"", ""Specifically, Canada's international financial assets were up by $613.1 billion (+7.3%) to $9,037.6 billion at the end of the fourth quarter, the highest quarterly increase on record'""]",Statistics Canada,Finance and Middle Class Prosperity,National Revenue,E. Harper,E. Harper,False
+13/03/2024,"Police-reported hate crime, 2022",https://www150.statcan.gc.ca/daily-quotidien/240313/dq240313b-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Hate crimes in Canada increased by 7% in 2022, with a cumulative rise of 83% since 2019. The majority of the increase was due to crimes targeting race or ethnicity (+12%) and sexual orientation (+12%). Violent hate crimes rose by 12%, while non-violent crimes increased by 3%. Hate crimes against religion decreased by 15%, yet remained above the numbers from 2018 to 2020. Ontario, Nova Scotia, and British Columbia had the highest rates of hate crime. Victims were predominantly men and boys, except in crimes targeting sex or gender. Less than one-third of hate crimes were cleared in 2022.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Hate crimes reported
+    <ul>
+      <li>+7% (from 3,355 to 3,576 incidents)</li>
+    </ul>
+  </li>
+  <li>Cumulative increase from 2019 to 2022
+    <ul>
+      <li>+83%</li>
+    </ul>
+  </li>
+  <li>Crimes targeting race or ethnicity
+    <ul>
+      <li>+12% (to 1,950 incidents)</li>
+    </ul>
+  </li>
+  <li>Crimes targeting sexual orientation
+    <ul>
+      <li>+12% (to 491 incidents)</li>
+    </ul>
+  </li>
+  <li>Crimes targeting religion
+    <ul>
+      <li>-15% (from 886 to 750 incidents)</li>
+    </ul>
+  </li>
+  <li>Rate of police-reported hate crime per 100,000 population
+    <ul>
+      <li>+5% (to 9.2 incidents)</li>
+    </ul>
+  </li>
+  <li>Overall crime rate change in 2022
+    <ul>
+      <li>+5%</li>
+    </ul>
+  </li>
+  <li>Highest hate crime rates by province (per 100,000)
+    <ul>
+      <li>Ontario: 12.7</li>
+      <li>Nova Scotia: 11.1</li>
+      <li>British Columbia: 10.2</li>
+    </ul>
+  </li>
+  <li>Violent hate crimes increase
+    <ul>
+      <li>+12%</li>
+    </ul>
+  </li>
+  <li>Non-violent hate crimes increase
+    <ul>
+      <li>+3%</li>
+    </ul>
+  </li>
+  <li>Hate-related homicide increase
+    <ul>
+      <li>+53% (from 15 to 23 victims)</li>
+    </ul>
+  </li>
+  <li>Clearance rate for hate crimes
+    <ul>
+      <li>29%</li>
+    </ul>
+  </li>
+  <li>Clearance rate for all criminal incidents
+    <ul>
+      <li>34%</li>
+    </ul>
+  </li>
+  <li>Cyber hate crimes increase from 2018 to 2022
+    <ul>
+      <li>+138% (from 92 to 219 incidents)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Hate crimes targeting a race or an ethnicity increase for the fourth straight year"", 'Hate crimes targeting a religion are down in 2022, after a peak in the previous year', 'Hate crimes targeting a sexual orientation increase for the second year in a row', 'Victims of hate crime are most often men and boys, except for crimes targeting sex or gender', 'People accused of hate crime are most often men and boys', 'Less than one-third of hate crimes were cleared (solved)', ""Most cyber hate crimes involve harassing and threatening behaviours'""]",Statistics Canada,Justice and Attorney General of Canada,Canadian Heritage,S. Phelan,Y. Zhu,False
+13/03/2024,"Employer pension plans (trusteed pension funds), third quarter 2023",https://www150.statcan.gc.ca/daily-quotidien/240313/dq240313c-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>Data for the third quarter on trusteed pension funds covering asset values by sector, and the distribution between foreign and domestic holdings, as well as information on revenues, expenditures, and net income, is now available.</p>
+
+<h3>Facts</h3>
+<ul>
+    <li>Value of assets by sector</li>
+    <li>Value of assets by foreign and domestic holdings</li>
+    <li>Revenues, expenditures, and net income</li>
+</ul>","[""'Value of assets by sector; value of assets by foreign and domestic holdings; and revenues, expenditures and net income are now available for the third quarter.'""]",Statistics Canada,Finance and Middle Class Prosperity,Labour,E. Harper,Y. Zhu,False
+13/03/2024,"Crushing statistics of major oilseeds, Canada and United States, 2023",https://www150.statcan.gc.ca/daily-quotidien/240313/dq240313d-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Canadian oilseed processors crushed a record 10,522,947 tonnes of canola in 2023, a 20.0% increase from 2022. Soybean crushing, however, decreased by 5.7%. Canola oil production was 4,422,368 tonnes and soybean oil was 329,856 tonnes. Canola meal production reached 6,200,229 tonnes and soybean meal was 1,371,250 tonnes. High canola prices and exports, which rose by 20.3% to 3,149,904 tonnes, drove the increase in canola crushing. Canola production was up by 31.2% from the previous year. In the US, soybean and canola crushing increased by 2.6% and 19.2%, respectively.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Canadian canola crushing
+    <ul>
+      <li>+20.0% (10,522,947 tonnes)</li>
+    </ul>
+  </li>
+  <li>Canadian soybean crushing
+    <ul>
+      <li>-5.7% (1,762,693 tonnes)</li>
+    </ul>
+  </li>
+  <li>Canadian canola oil production
+    <ul>
+      <li>4,422,368 tonnes</li>
+    </ul>
+  </li>
+  <li>Canadian soybean oil production
+    <ul>
+      <li>329,856 tonnes</li>
+    </ul>
+  </li>
+  <li>Canadian canola meal production
+    <ul>
+      <li>6,200,229 tonnes</li>
+    </ul>
+  </li>
+  <li>Canadian soybean meal production
+    <ul>
+      <li>1,371,250 tonnes</li>
+    </ul>
+  </li>
+  <li>Canadian canola oil exports
+    <ul>
+      <li>+20.3% (3,149,904 tonnes)</li>
+    </ul>
+  </li>
+  <li>Canadian canola production increase
+    <ul>
+      <li>+31.2%</li>
+    </ul>
+  </li>
+  <li>US soybean crushing
+    <ul>
+      <li>+2.6% (61,267,971 tonnes)</li>
+    </ul>
+  </li>
+  <li>US canola crushing
+    <ul>
+      <li>+19.2% (2,058,625 tonnes)</li>
+    </ul>
+  </li>
+  <li>US soybean oil production
+    <ul>
+      <li>12,052,159 tonnes</li>
+    </ul>
+  </li>
+  <li>US canola oil production
+    <ul>
+      <li>825,227 tonnes</li>
+    </ul>
+  </li>
+  <li>US soybean meal production
+    <ul>
+      <li>45,240,726 tonnes</li>
+    </ul>
+  </li>
+  <li>US canola meal production
+    <ul>
+      <li>1,197,806 tonnes</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Canadian oilseed processors crushed a record 10 522 947 tonnes of canola in 2023, up 20.0% from 2022"", 'In 2021, the price of canola oil increased by 65.2% over the previous year, and it has remained elevated ever since', ""In 2023, Canadian exports of canola oil increased 20.3% from 2022, totalling 3 149 904 tonnes'""]",Statistics Canada,"Agriculture, Agri-Food and Food Security",Natural Resources,C. MacDonald,C. MacDonald,False
+13/03/2024,"Area, production and farm value of potatoes, by harvest season, United States, 2023",https://www150.statcan.gc.ca/daily-quotidien/240313/dq240313e-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>There is no data provided in the introduction to summarize.</p>
+
+<h3>Facts</h3>
+<p>No variables or statistics were mentioned in the content provided.</p>","[""I'm sorry, but you haven't provided any content with triple quotation delimiters that contain quotes. Could you please supply the relevant text containing quotes for me to identify any headline-worthy quotes?""]",Statistics Canada,"Agriculture, Agri-Food and Food Security",Natural Resources,C. MacDonald,C. MacDonald,False
+13/03/2024,"Fertilizer Shipments Survey, second quarter 2023/2024",https://www150.statcan.gc.ca/daily-quotidien/240313/dq240313f-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>Data for the second quarter of the 2023/2024 fertilizer year in Canada has been released, detailing shipments, production, and market inventories of fertilizers. Specific statistics and changes in these variables have not been provided in the introduction.</p>
+
+<h3>Facts</h3>
+<p>No variables with specific changes and values were mentioned in the provided content.</p>","[""I'm sorry, but there doesn't seem to be any direct quote provided in the text you've supplied. If you can provide a specific statement or quotation, I'd be happy to help identify any headline-worthy quotes.""]",Statistics Canada,"Agriculture, Agri-Food and Food Security",Environment and Climate Change,C. MacDonald,C. MacDonald,False
+13/03/2024,"Weekly aircraft movements, February 24 to March 1, 2024",https://www150.statcan.gc.ca/daily-quotidien/240313/dq240313g-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>There is no summary provided as the content supplied does not include statistics or main points about the weekly data on aircraft itinerant movements for the period of February 24 to March 1, 2024.</p>
+
+<h3>Facts</h3>
+<p>No facts or variables were provided to list changes and values.</p>",['No headline-worthy quotes provided.'],Statistics Canada,Transport,Public Safety,M. Emes,Y. Zhu,False
+12/03/2024,"Canada's international investment position, fourth quarter 2023",https://www150.statcan.gc.ca/daily-quotidien/240312/dq240312a-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>Canada's net foreign asset position reached a new high of $1,677.3 billion at the end of 2023, with a $288.2 billion increase in the fourth quarter alone. This growth was driven by global equity market strength, with a $317.1 billion increase due to market prices. The Canadian dollar's fluctuations against other major currencies had a moderating effect. International financial assets rose by $613.1 billion to $9,037.6 billion, while international liabilities increased by $324.9 billion to $7,360.3 billion. Canada's gross external debt also grew, reaching $4,150.3 billion, or 140.6% of GDP. Throughout 2023, the net foreign asset position grew by $584.2 billion.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Net foreign asset position
+    <ul>
+      <li>+20.7% ($288.2 billion)</li>
+    </ul>
+  </li>
+  <li>International assets
+    <ul>
+      <li>+7.3% ($613.1 billion)</li>
+    </ul>
+  </li>
+  <li>International liabilities
+    <ul>
+      <li>+4.6% ($324.9 billion)</li>
+    </ul>
+  </li>
+  <li>Gross external debt
+    <ul>
+      <li>+5.4% ($212.9 billion)</li>
+    </ul>
+  </li>
+  <li>US stock market growth
+    <ul>
+      <li>+11.2%</li>
+    </ul>
+  </li>
+  <li>European stock market growth
+    <ul>
+      <li>+8.3%</li>
+    </ul>
+  </li>
+  <li>Canadian stock market growth
+    <ul>
+      <li>+7.3%</li>
+    </ul>
+  </li>
+  <li>Canadian dollar against US dollar
+    <ul>
+      <li>+2.2%</li>
+    </ul>
+  </li>
+  <li>Canadian dollar against euro
+    <ul>
+      <li>-2.2%</li>
+    </ul>
+  </li>
+  <li>Canadian dollar against British pound
+    <ul>
+      <li>-1.9%</li>
+    </ul>
+  </li>
+  <li>Canadian dollar against yen
+    <ul>
+      <li>-3.2%</li>
+    </ul>
+  </li>
+  <li>Net foreign asset position with the United States
+    <ul>
+      <li>+15.2% ($172.7 billion)</li>
+    </ul>
+  </li>
+  <li>Net foreign asset position with the rest of the world
+    <ul>
+      <li>+45.1% ($115.5 billion)</li>
+    </ul>
+  </li>
+  <li>Annual increase in net foreign asset position (2023)
+    <ul>
+      <li>+20.8% ($584.2 billion)</li>
+    </ul>
+  </li>
+  <li>GDP percentage of net foreign asset position (end of 2023)
+    <ul>
+      <li>56.8%</li>
+    </ul>
+  </li>
+</ul>","[""'Canada's net foreign asset position reached $1,677.3 billion at the end of 2023"", 'The growth in the fourth quarter was fuelled by the strength of global equity markets', ""Canada's international financial assets were up by $613.1 billion (+7.3%) to $9,037.6 billion at the end of the fourth quarter, the highest quarterly increase on record"", ""Canada's international liabilities were up $324.9 billion to $7,360.3 billion at the end of the fourth quarter, also the largest quarterly increase on record"", ""Canada's gross external debt increased by $212.9 billion (+5.4%) to reach $4,150.3 billion at the end of the fourth quarter"", ""Canada's net foreign asset position increased by $584.2 billion in 2023'""]",Statistics Canada,"Innovation, Science and Industry",International Trade,E. Harper,D. Hall,False
+12/03/2024,"Police-reported online child sexual exploitation in Canada, 2022",https://www150.statcan.gc.ca/daily-quotidien/240312/dq240312b-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>From 2014 to 2022, Canada saw a significant rise in police-reported online sexual offences against children and online child pornography, with the rate of online child pornography nearly quadrupling. The majority of accused were male, and non-consensual distribution of intimate images often involved youth victims victimized by peers. Police solved 41% of online sexual offences against children, and one-third of charges in adult criminal court resulted in a guilty finding, with 78% of those receiving a custodial sentence.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Overall rate of police-reported online child sexual exploitation
+    <ul>
+      <li>2014: 50 incidents per 100,000 children and youth</li>
+      <li>2022: 160 incidents per 100,000 children and youth</li>
+    </ul>
+  </li>
+  <li>Rate of online child pornography reported to police
+    <ul>
+      <li>2014: 32 incidents per 100,000 children and youth</li>
+      <li>2022: 125 incidents per 100,000 children and youth</li>
+    </ul>
+  </li>
+  <li>Percentage of online child pornography offences
+    <ul>
+      <li>75% of all online child sexual exploitation offences</li>
+    </ul>
+  </li>
+  <li>Percentage of making or distributing child pornography offences
+    <ul>
+      <li>72% of child pornography incidents from 2014 to 2022</li>
+    </ul>
+  </li>
+  <li>Percentage of male accused in online sexual offences against children
+    <ul>
+      <li>Invitation to sexual touching: 97%</li>
+      <li>Luring a child: 96%</li>
+      <li>Possessing or accessing child pornography: 90%</li>
+    </ul>
+  </li>
+  <li>Percentage of youth victims in non-consensual distribution of intimate images
+    <ul>
+      <li>97% aged 12 to 17 years</li>
+    </ul>
+  </li>
+  <li>Percentage of girls as victims in non-consensual distribution of intimate images
+    <ul>
+      <li>86%</li>
+    </ul>
+  </li>
+  <li>Percentage of accused-victim relationship in non-consensual distribution of intimate images
+    <ul>
+      <li>Casual acquaintances: 33%</li>
+      <li>Current or former dating partners: 28%</li>
+      <li>Friends: 21%</li>
+      <li>Strangers: 14%</li>
+    </ul>
+  </li>
+  <li>Percentage of incidents of police-reported online sexual offences against children cleared
+    <ul>
+      <li>41%</li>
+    </ul>
+  </li>
+  <li>Percentage of cleared incidents resulting in a charge
+    <ul>
+      <li>74%</li>
+    </ul>
+  </li>
+  <li>Clearance rates for online sexual offences against children vs. child pornography offences
+    <ul>
+      <li>Online sexual offences against children: 37%</li>
+      <li>Child pornography offences: 22%</li>
+    </ul>
+  </li>
+  <li>Percentage of charges in adult criminal court resulting in a guilty finding
+    <ul>
+      <li>34%</li>
+    </ul>
+  </li>
+  <li>Percentage of guilty cases in adult court leading to a custodial sentence
+    <ul>
+      <li>78%</li>
+    </ul>
+  </li>
+  <li>Percentage of charges in youth court leading to a guilty finding
+    <ul>
+      <li>44%</li>
+    </ul>
+  </li>
+  <li>Percentage of youth sentenced to probation
+    <ul>
+      <li>62%</li>
+    </ul>
+  </li>
+</ul>
+```","[""'The overall rate of police-reported online child sexual exploitation incidents—which includes both online sexual offences against children and online child pornography—has risen since 2014"", 'boys and men accounted for the vast majority of accused persons in incidents of online sexual offences against children from 2014 to 2022', 'Youth aged 12 to 17 years accounted for almost all (97%) victims', 'from 2014 to 2022, 41% of incidents of police-reported online sexual offences against children were cleared (that is, solved) by police', ""around one-third (34%) of charges laid for sexual offences against children likely committed online resulted in a guilty finding'""]",Statistics Canada,Justice and Attorney General of Canada,Public Safety,S. Phelan,Y. Zhu,False
+12/03/2024,"New motor vehicle registrations, fourth quarter 2023",https://www150.statcan.gc.ca/daily-quotidien/240312/dq240312c-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>In 2023, Canada saw a 13.4% increase in new motor vehicle registrations, totaling 1,714,356. Ontario, Quebec, and British Columbia led the count. Multipurpose vehicles dominated with a 20.8% increase, comprising 59.7% of registrations. Pickup trucks followed with a 6.5% rise. Vans rebounded with a 28.1% increase, while passenger cars declined by 3.8%. ZEVs hit a milestone, making up 10.8% of registrations, a 49.4% jump from 2022. Gasoline-powered vehicles decreased to 77.0% of registrations, while hybrids rose to 7.9%.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>New motor vehicle registrations
+    <ul>
+      <li>+13.4% (1,714,356)</li>
+    </ul>
+  </li>
+  <li>Ontario
+    <ul>
+      <li>+13.9% (677,043)</li>
+    </ul>
+  </li>
+  <li>Quebec
+    <ul>
+      <li>(414,897)</li>
+    </ul>
+  </li>
+  <li>British Columbia
+    <ul>
+      <li>+15.3% (210,666)</li>
+    </ul>
+  </li>
+  <li>Prince Edward Island
+    <ul>
+      <li>+19.5%</li>
+    </ul>
+  </li>
+  <li>Multipurpose vehicles
+    <ul>
+      <li>+20.8%</li>
+      <li>59.7% of total registrations</li>
+    </ul>
+  </li>
+  <li>Pickup trucks
+    <ul>
+      <li>+6.5%</li>
+    </ul>
+  </li>
+  <li>Vans
+    <ul>
+      <li>+28.1%</li>
+    </ul>
+  </li>
+  <li>Passenger cars
+    <ul>
+      <li>-3.8%</li>
+    </ul>
+  </li>
+  <li>Plug-in hybrid electric vehicles (PHEVs)
+    <ul>
+      <li>+80.5%</li>
+    </ul>
+  </li>
+  <li>Hybrid electric vehicles
+    <ul>
+      <li>+67.2%</li>
+    </ul>
+  </li>
+  <li>Battery-electric vehicles (BEVs)
+    <ul>
+      <li>+41.5%</li>
+    </ul>
+  </li>
+  <li>Gasoline-powered vehicles
+    <ul>
+      <li>+7.1%</li>
+      <li>77.0% of total registrations</li>
+    </ul>
+  </li>
+  <li>Diesel-powered vehicles
+    <ul>
+      <li>-1.7%</li>
+    </ul>
+  </li>
+  <li>Zero-emission vehicles (ZEVs)
+    <ul>
+      <li>10.8% of total registrations</li>
+      <li>+49.4% from 2022</li>
+      <li>+114.6% from 2021</li>
+      <li>91.8% registered in Ontario, Quebec, British Columbia</li>
+    </ul>
+  </li>
+  <li>Quebec ZEV registrations
+    <ul>
+      <li>41.8%</li>
+    </ul>
+  </li>
+  <li>Ontario ZEV registrations
+    <ul>
+      <li>27.0%</li>
+    </ul>
+  </li>
+  <li>British Columbia ZEV registrations
+    <ul>
+      <li>23.1%</li>
+      <li>20.2% of province's total registrations</li>
+    </ul>
+  </li>
+  <li>ZEV multipurpose vehicles
+    <ul>
+      <li>73.6% of ZEV registrations</li>
+      <li>+14.1 percentage points from 2022</li>
+    </ul>
+  </li>
+  <li>ZEV passenger cars
+    <ul>
+      <li>20.7% of ZEV registrations</li>
+    </ul>
+  </li>
+  <li>Hybrid electric vehicles share
+    <ul>
+      <li>7.9% of total registrations</li>
+    </ul>
+  </li>
+  <li>Diesel-powered vehicles share
+    <ul>
+      <li>4.3% of total registrations</li>
+    </ul>
+  </li>
+</ul>
+```","[""'In 2023, there were 1,714,356 new motor vehicles registrations in Canada, a 13.4% increase from 2022"", 'Ontario (677,043) continued to lead in total registrations in 2023, followed by Quebec (414,897) and British Columbia (210,666)', 'The largest percentage increases were observed in Prince Edward Island (+19.5%), followed by British Columbia (+15.3%) and Ontario (+13.9%)', 'Multipurpose vehicles continued to be the preferred vehicle type of Canadians, comprising 59.7% of new motor vehicle registrations in 2023', 'For the fourth year in a row, pickup trucks were the second-preferred vehicle type of Canadians in 2023, with registrations increasing 6.5%', 'Despite declining in previous years, new registrations of vans increased by 28.1%', 'Higher numbers of plug-in hybrid electric vehicles (PHEVs) (+80.5%), hybrid electric vehicles (+67.2%), battery-electric vehicles (BEVs) (+41.5%) and gasoline-powered vehicles (+7.1%) were registered in 2023', 'For the first time in 2023, zero-emission vehicles (ZEVs) accounted for just over 1 in 10 (10.8%) of all new motor vehicle registrations', 'This represents a 49.4% increase from 2022 and a 114.6% increase when compared with 2021', ""In 2023, most ZEVs (91.8%) were registered in Canada's three largest provinces"", 'Quebec comprised 41.8% of all ZEV registrations, followed by Ontario (27.0%) and British Columbia (23.1%)', 'In British Columbia, 20.2% of new motor vehicles registered were ZEVs', 'In Quebec, ZEVs represented 18.6% of all new motor vehicle registrations, and in Ontario, they represented 7.4%', 'Among ZEVs, 75.6% of new registrations in 2023 were BEVs and 24.4% were PHEVs', 'Nearly three-quarters (73.6%) of ZEV registrations were multipurpose vehicles', 'Gasoline-powered vehicles comprised 77.0% of all new motor vehicle registrations in 2023, decreasing from 81.5% in 2022', 'Hybrid electric vehicles accounted for 7.9% of all new motor vehicle registrations in 2023, an increase from 5.4% in 2022', ""Diesel-powered vehicles made up 4.3% of new registrations in 2023, decreasing from 5.0% in 2022'""]",Statistics Canada,Transport,Economic Development Agency for Northern Ontario,M. Emes,D. Hall,False
+12/03/2024,"Engineering services industry, 2022",https://www150.statcan.gc.ca/daily-quotidien/240312/dq240312d-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Engineering services industry operating revenue grew by 12.1% to $39.5 billion in 2022, with investment in oil and gas extraction up by 41.9%. Operating expenses rose by 14.0% to $37.0 billion, reducing the operating profit margin to 6.4%. Salaries and benefits accounted for 45.7% of expenses. Sales related to petroleum and petrochemical projects increased to 16.7% of total sales. Business sector clients constituted 61.6% of sales, while public institutions made up 22.6%. Foreign sales accounted for 8.8%, with the majority in the United States (51.3%).</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Operating revenue growth
+    <ul>
+      <li>12.1% ($39.5 billion)</li>
+    </ul>
+  </li>
+  <li>Investment in oil and gas extraction
+    <ul>
+      <li>41.9% (Increase)</li>
+    </ul>
+  </li>
+  <li>Operating expenses
+    <ul>
+      <li>14.0% ($37.0 billion)</li>
+    </ul>
+  </li>
+  <li>Operating profit margin
+    <ul>
+      <li>-1.6% (6.4% down from 8.0%)</li>
+    </ul>
+  </li>
+  <li>Salaries, wages, commissions, and benefits
+    <ul>
+      <li>45.7% ($16.9 billion)</li>
+    </ul>
+  </li>
+  <li>Cost of goods sold
+    <ul>
+      <li>21.2% (of total expenses)</li>
+    </ul>
+  </li>
+  <li>Sales from petroleum/petrochemical projects
+    <ul>
+      <li>+0.8% (16.7% up from 15.9%)</li>
+    </ul>
+  </li>
+  <li>Sales to business sector clients
+    <ul>
+      <li>61.6% (of sales)</li>
+    </ul>
+  </li>
+  <li>Sales to governments and public institutions
+    <ul>
+      <li>22.6% (of sales)</li>
+    </ul>
+  </li>
+  <li>Foreign sales
+    <ul>
+      <li>8.8% (of sales)</li>
+      <li>United States
+        <ul>
+          <li>51.3% (of foreign sales)</li>
+        </ul>
+      </li>
+      <li>Other countries
+        <ul>
+          <li>42.7% (of foreign sales)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+```","['""After two years marked by moderate growth, the operating revenue of the engineering services industry grew by 12.1% to $39.5 billion in 2022"" - ""The engineering services industry has strong ties to the oil and gas extraction industry, in which investment increased by 41.9% in 2022"" - ""Investment in public infrastructure, including public transit and other transportation-related projects, remained a driving force for the demand of engineering services in Ontario and Quebec in 2022"" - ""Operating expenses increased by 14.0% to $37.0 billion in 2022, resulting in an operating profit margin of 6.4%, down from 8.0% in 2021"" - ""Salaries, wages, commissions and benefits totalled $16.9 billion in 2022, accounting for 45.7% of the engineering services industry\'s total operating expenses"" - ""Engineering services related to petroleum and petrochemical engineering projects accounted for 16.7% of total sales in 2022, up from 15.9% in 2021"" - ""Clients in the business sector made up 61.6% of sales in the engineering services industry in 2022, while governments and public institutions accounted for 22.6%"" - ""Customers outside Canada accounted for 8.8% of sales in 2022"" - ""Foreign sales were mostly split between the United States (51.3%) and all other countries (42.7%)""']",Statistics Canada,"Innovation, Science and Industry",Infrastructure and Communities,E. Harper,M. Emes,False
+12/03/2024,"Research and development personnel, 2021",https://www150.statcan.gc.ca/daily-quotidien/240312/dq240312e-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>In 2021, Canada's full-time equivalent (FTE) R&D personnel increased by 5.8% to 298,850 FTEs, marking the fifth consecutive year of growth. This aligns with a 9.3% increase in gross domestic R&D spending, reaching $46.9 billion. The business enterprise and higher education sectors contributed 95.4% of the personnel growth. Researchers accounted for 69.4% of R&D personnel and saw a 5.8% increase in positions. Ontario and Quebec drove 80% of the FTE increase. Despite growth, Canada's R&D personnel per thousand employment ratio dropped to 15.7, still above the OECD average.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>R&D Personnel Growth (2021)
+    <ul>
+      <li>+5.8% (+16,500 FTEs)</li>
+    </ul>
+  </li>
+  <li>Gross Domestic R&D Spending (2021)
+    <ul>
+      <li>+9.3% (+$4.0 billion)</li>
+    </ul>
+  </li>
+  <li>Business Enterprise Sector Growth
+    <ul>
+      <li>+12,940 FTEs</li>
+    </ul>
+  </li>
+  <li>Higher Education Sector Growth
+    <ul>
+      <li>+2,800 FTEs</li>
+    </ul>
+  </li>
+  <li>Federal Government Sector Growth
+    <ul>
+      <li>+460 FTEs</li>
+    </ul>
+  </li>
+  <li>Provincial Government Sector Growth
+    <ul>
+      <li>+160 FTEs</li>
+    </ul>
+  </li>
+  <li>Private Non-Profit Sector Growth
+    <ul>
+      <li>+120 FTEs</li>
+    </ul>
+  </li>
+  <li>Researchers Position Growth
+    <ul>
+      <li>+5.8% (+11,410 FTEs)</li>
+    </ul>
+  </li>
+  <li>Technicians and Support Staff Growth
+    <ul>
+      <li>+5.6% (+4,310 FTEs)</li>
+    </ul>
+  </li>
+  <li>Ontario's FTE Increase
+    <ul>
+      <li>+8,700 FTEs</li>
+    </ul>
+  </li>
+  <li>Quebec's FTE Increase
+    <ul>
+      <li>+4,240 FTEs</li>
+    </ul>
+  </li>
+  <li>R&D Personnel per Thousand Employment Ratio
+    <ul>
+      <li>2020: 16.1</li>
+      <li>2021: 15.7</li>
+    </ul>
+  </li>
+  <li>OECD Average Ratio (Excluding US and UK)
+    <ul>
+      <li>15.4</li>
+    </ul>
+  </li>
+</ul>
+```","[""'The number of full-time equivalent (FTE) R&D personnel rose for the fifth consecutive year in 2021, reaching 298,850 FTEs (+16,500 FTEs; +5.8%)"", ""Canada's gross domestic R&D spending, which reached a high of $46.9 billion in 2021 (+$4.0 billion; +9.3%)"", 'R&D personnel gains recorded during the COVID-19 pandemic from 2020 and 2021 were more than twice the increase observed in 2019', 'The majority of the growth in R&D personnel in 2021 was driven by increased researcher positions, which rose to 207,420 FTEs (+11,410 FTEs; +5.8%)', 'Almost 80% of the increase in FTEs in 2021 came from Ontario and Quebec', ""Canada remains above the Organisation for Economic Co-operation and Development (OECD) average of 15.4 (excluding the United States and the United Kingdom)'""]",Statistics Canada,"Innovation, Science and Industry",Labour,E. Harper,Y. Zhu,False
+11/03/2024,"Principal field crop areas, 2024",https://www150.statcan.gc.ca/daily-quotidien/240311/dq240311a-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Canadian farmers are projected to plant more wheat, corn for grain, oats, lentils, and dry peas in 2024, while seeding less canola, soybeans, and barley. Wheat acreage is expected to edge up slightly by 0.1% to 27.0 million acres, with an increase in durum wheat but decreases in spring and winter wheat. Canola is set to decrease by 3.1% to 21.4 million acres. Soybean acreage will drop by 0.9% to 5.6 million acres. Barley will decline by 2.5% to 7.1 million acres, while oats will surge by 21.6% to 3.1 million acres. Corn for grain is expected to rise by 1.6% to 3.9 million acres. Lentils will increase by 4.4% to 3.8 million acres, and dry peas will go up by 2.4% to 3.1 million acres.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Wheat
+    <ul>
+      <li>+0.1% (27.0 million acres)</li>
+      <li>Spring wheat: -1.2% (19.2 million acres)</li>
+      <li>Winter wheat: -3.6% (1.5 million acres)</li>
+      <li>Durum wheat: +5.1% (6.3 million acres)</li>
+    </ul>
+  </li>
+  <li>Canola
+    <ul>
+      <li>-3.1% (21.4 million acres)</li>
+    </ul>
+  </li>
+  <li>Soybeans
+    <ul>
+      <li>-0.9% (5.6 million acres)</li>
+    </ul>
+  </li>
+  <li>Barley
+    <ul>
+      <li>-2.5% (7.1 million acres)</li>
+    </ul>
+  </li>
+  <li>Oats
+    <ul>
+      <li>+21.6% (3.1 million acres)</li>
+    </ul>
+  </li>
+  <li>Corn for grain
+    <ul>
+      <li>+1.6% (3.9 million acres)</li>
+    </ul>
+  </li>
+  <li>Lentils
+    <ul>
+      <li>+4.4% (3.8 million acres)</li>
+    </ul>
+  </li>
+  <li>Dry peas
+    <ul>
+      <li>+2.4% (3.1 million acres)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Canadian farmers expect to plant more wheat, corn for grain, oats, lentils and dry peas in 2024"", 'area seeded to canola, soybeans and barley is anticipated to decrease compared with 2023', 'durum wheat area is anticipated to rise 5.1% to 6.3 million acres', 'Canola area is expected to decrease 3.1% from 2023 to 21.4 million acres in 2024', 'Nationally, farmers anticipate planting 5.6 million acres of soybeans in 2024, down 0.9% from 2023', 'Oat area is expected to rise 21.6% to 3.1 million acres', 'farmers expect to plant 3.9 million acres of corn for grain in 2024, up 1.6% from 2023', 'Area seeded to lentils is expected to increase compared with 2023, rising 4.4% to 3.8 million acres in 2024', ""Farmers across Canada expect to plant more acres of dry peas in 2024, with area anticipated to rise 2.4% to 3.1 million acres compared with 2023'""]",Statistics Canada,"Agriculture, Agri-Food and Food Security",Environment and Climate Change,C. MacDonald,C. MacDonald,False
+11/03/2024,"Leading indicator of international arrivals to Canada, February 2024",https://www150.statcan.gc.ca/daily-quotidien/240311/dq240311b-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>In February 2024, international arrivals to Canada increased by 18.6% from the previous year. Non-resident air arrivals rose by 23.0%, surpassing pre-pandemic levels for the first time since COVID-19 began. Canadian residents returning from abroad by air increased by 15.8%, while US residents traveling to Canada by automobile went up by 18.8%. Canadian-resident return trips by automobile also saw a 20.7% rise. The busiest days coincided with US Presidents' Day and Canadian Family Day holidays.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>International arrivals to Canada
+    <ul>
+      <li>18.6% (Increase from February 2023)</li>
+    </ul>
+  </li>
+  <li>Non-resident arrivals by air
+    <ul>
+      <li>23.0% (519,500 total)</li>
+      <li>US residents: 84.3% (14,300 on Presidents' Day holiday)</li>
+      <li>Other countries: 2.9% (Higher than pre-pandemic level)</li>
+    </ul>
+  </li>
+  <li>Canadian-resident return trips by air
+    <ul>
+      <li>15.8% (1.8 million total)</li>
+      <li>20.2% (Higher in the second half of February)</li>
+      <li>5.2% (Higher than pre-pandemic level excluding Toronto Pearson International Airport Terminal 1)</li>
+    </ul>
+  </li>
+  <li>US-resident trips to Canada by automobile
+    <ul>
+      <li>18.8% (735,100 total)</li>
+      <li>92.8% (Of February 2020 level)</li>
+    </ul>
+  </li>
+  <li>Canadian-resident return trips by automobile
+    <ul>
+      <li>20.7% (1.5 million total)</li>
+      <li>138.0% (Higher on Family Day)</li>
+      <li>89.9% (Of February 2020 level)</li>
+    </ul>
+  </li>
+</ul>
+```","['""In February, the preliminary number of international arrivals to Canada by air and automobile increased 18.6% from February 2023"" - ""In February, for the first time since the start of the COVID-19 pandemic, the number of non-resident arrivals by air surpassed the pre-pandemic level, in February 2020"" - ""By automobile, US residents took 735,100 trips to Canada in February 2024, up 18.8% from the same month in 2023"" - ""When data from Toronto Pearson International Airport Terminal 1 are excluded from the total arrivals, non-resident arrivals in February were higher (+2.9%) than the pre-pandemic level observed in February 2020, a first since the start of the pandemic"" - ""When arrivals at Toronto Pearson International Airport Terminal 1 are excluded from the total arrivals, the number of return trips in February was 5.2% higher than the pre-pandemic level observed in February 2020"" - ""February 19, Family Day in most provinces, marked the peak of arrivals (118,500), exceeding the daily average of the remainder of the month (49,800) by 138.0%""']",Statistics Canada,International Trade,Tourism,D. Hall,D. Hall,False
+11/03/2024,"Natural Gas Financial Survey, 2022",https://www150.statcan.gc.ca/daily-quotidien/240311/dq240311c-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>In 2022, Canada's natural gas industry saw a significant increase in operating revenues, rising 25.3% to $20.6 billion, and operating expenses, up 23.5% to $15.6 billion. Net revenue from operations jumped 31.7% to $5.0 billion. Marketable natural gas production increased by 7.3%, and exports to the U.S. grew by 8.0%. Natural gas prices rose by 25.6%. Total assets of natural gas companies grew by 2.5% to $90.5 billion, with current assets up 23.0% and total investments increasing by 1.8%.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Total operating revenues
+    <ul>
+      <li>25.3% ($4.2 billion)</li>
+    </ul>
+  </li>
+  <li>Total operating expenses
+    <ul>
+      <li>23.5% ($3.0 billion)</li>
+    </ul>
+  </li>
+  <li>Net revenue from operations
+    <ul>
+      <li>31.7% ($1.2 billion)</li>
+    </ul>
+  </li>
+  <li>Marketable natural gas production
+    <ul>
+      <li>7.3% (0.5 million terajoules)</li>
+    </ul>
+  </li>
+  <li>Exports of natural gas to the United States
+    <ul>
+      <li>8.0% (0.2 million terajoules)</li>
+    </ul>
+  </li>
+  <li>Price of natural gas
+    <ul>
+      <li>25.6% (Not specified)</li>
+    </ul>
+  </li>
+  <li>Total assets
+    <ul>
+      <li>2.5% ($2.2 billion)</li>
+    </ul>
+  </li>
+  <li>Total current assets
+    <ul>
+      <li>23.0% ($1.5 billion)</li>
+    </ul>
+  </li>
+  <li>Total investments
+    <ul>
+      <li>1.8% ($0.2 billion)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Prices for marketable natural gas experienced a sharp increase in 2022 as economic recovery continued and demand for Canadian energy products increased due in part to the global market uncertainty caused by the Russian invasion of Ukraine."", 'Total operating revenues of Canadian natural gas distribution and transport pipeline companies increased 25.3%, from $16.4 billion in 2021 to $20.6 billion in 2022.', 'In 2022, operating revenues surpassed 2019 pre-pandemic levels ($16.7 billion).', 'Net revenue from operations was $5.0 billion in 2022, a rise of 31.7% from 2021.', 'Exports of natural gas to the United States rose 8.0% to 3.3 million terajoules.', 'The price of natural gas increasing 25.6%, contributing to the rise in revenue from operations.', ""In 2022, total assets reported by Canadian natural gas companies were $90.5 billion, up 2.5% compared with the previous year.'""]",Statistics Canada,Finance and Middle Class Prosperity,Natural Resources,E. Harper,C. MacDonald,False
+11/03/2024,Study: The duration of first unions: A comparative analysis between landed immigrants and Canadian-born individuals,https://www150.statcan.gc.ca/daily-quotidien/240311/dq240311d-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>A study based on the 2017 General Social Survey – Family reveals that landed immigrant women in Canada have a lower risk of first union dissolution compared to Canadian-born women. The analysis considers sociodemographic factors affecting union stability, including type of union, presence of children, age at union start, and education level. While some factors like union type and children have a consistent impact across groups, others such as age and education level show varying effects based on sex and immigration status.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Landed Immigrant Status
+    <ul>
+      <li>Lower risk of first union dissolution for immigrant women compared to Canadian-born</li>
+    </ul>
+  </li>
+  <li>Type of Union
+    <ul>
+      <li>Consistent impact on first union dissolution risk across groups</li>
+    </ul>
+  </li>
+  <li>Presence of Children
+    <ul>
+      <li>Consistent impact on first union dissolution risk across groups</li>
+    </ul>
+  </li>
+  <li>Age at Start of Union
+    <ul>
+      <li>Varying impact on first union dissolution risk based on sex and immigration status</li>
+    </ul>
+  </li>
+  <li>Highest Level of Education Attained
+    <ul>
+      <li>Varying impact on first union dissolution risk based on sex and immigration status</li>
+    </ul>
+  </li>
+</ul>
+```","['""The family institution has undergone important transformations in recent decades"" - ""landed immigrant women were less likely than Canadian-born women to experience the dissolution of their first union"" - ""the effect of other sociodemographic characteristics, such as age at the start of the union and the highest level of education attained, varies by sex and landed immigrant status""']",Statistics Canada,"Immigration, Refugees and Citizenship",Labour,Y. Zhu,Y. Zhu,False
+11/03/2024,"Opportunities of working remotely in rural labour markets: Small area estimation from the Canadian Survey on Business Conditions, second to fourth quarter of 2023",https://www150.statcan.gc.ca/daily-quotidien/240311/dq240311e-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>No summary provided as the content supplied does not contain specific statistics or points to summarize.</p>
+
+<h3>Facts</h3>
+<p>No facts provided as the content supplied does not contain specific variables, changes, or values to list.</p>",['No headline-worthy quotes provided.'],Statistics Canada,Labour,Rural Economic Development & Connectivity,Y. Zhu,D. Hall,False
+08/03/2024,"Labour Force Survey, February 2024",https://www150.statcan.gc.ca/daily-quotidien/240308/dq240308a-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Employment in Canada increased by 41,000 (+0.2%) in February, with gains in full-time work (+71,000; +0.4%) and among core-aged women (+45,000; +0.7%) and men (+23,000; +0.3%). However, population growth outpaced employment growth, leading to a 0.1 percentage point drop in the employment rate to 61.5%. The unemployment rate rose slightly to 5.8%. Service industries saw employment growth, particularly in accommodation and food services (+26,000; +2.4%) and professional, scientific, and technical services (+18,000; +0.9%). Average hourly wages increased by 5.0% year-over-year to $34.82.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Employment Increase
+    <ul>
+      <li>+0.2% (+41,000)</li>
+    </ul>
+  </li>
+  <li>Employment Rate
+    <ul>
+      <li>-0.1 percentage points (61.5%)</li>
+    </ul>
+  </li>
+  <li>Unemployment Rate
+    <ul>
+      <li>+0.1 percentage points (5.8%)</li>
+    </ul>
+  </li>
+  <li>Core-Aged Women Employment
+    <ul>
+      <li>+0.7% (+45,000)</li>
+    </ul>
+  </li>
+  <li>Core-Aged Men Employment
+    <ul>
+      <li>+0.3% (+23,000)</li>
+    </ul>
+  </li>
+  <li>Women Aged 55 and Older Employment
+    <ul>
+      <li>-1.4% (-29,000)</li>
+    </ul>
+  </li>
+  <li>Alberta Employment
+    <ul>
+      <li>+0.7% (+17,000)</li>
+    </ul>
+  </li>
+  <li>Nova Scotia Employment
+    <ul>
+      <li>+1.2% (+6,300)</li>
+    </ul>
+  </li>
+  <li>Manitoba Employment
+    <ul>
+      <li>-0.7% (-5,300)</li>
+    </ul>
+  </li>
+  <li>Accommodation and Food Services Employment
+    <ul>
+      <li>+2.4% (+26,000)</li>
+    </ul>
+  </li>
+  <li>Professional, Scientific, and Technical Services Employment
+    <ul>
+      <li>+0.9% (+18,000)</li>
+    </ul>
+  </li>
+  <li>Hours Worked
+    <ul>
+      <li>+0.3% (monthly)</li>
+      <li>+1.3% (year-over-year)</li>
+    </ul>
+  </li>
+  <li>Average Hourly Wages
+    <ul>
+      <li>+5.0% (+$1.66 to $34.82)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Employment rose by 41,000 in February"", 'The unemployment rate increased 0.1 percentage points to 5.8%', 'Employment increased among core-aged (25 to 54 years old) women (+45,000; +0.7%) and men (+23,000; +0.3%)', 'Employment increased in Alberta (+17,000; +0.7%) and Nova Scotia (+6,300; +1.2%)', 'Employment gains were spread across several industries in the services-producing sector, led by accommodation and food services (+26,000; +2.4%) and professional, scientific, and technical services (+18,000; +0.9%)', 'Average hourly wages among employees rose 5.0% on a year-over-year basis in February', 'The employment rate—the proportion of the population aged 15 and older who are employed—fell by 0.1 percentage points to 61.5% in February', 'The employment rate in February 2024 was down 0.9 percentage points from the recent peak of 62.4% observed in February 2023', 'Employment increased by 38,000 (+1.5%) among self-employed workers in February 2024, the first monthly increase since August 2023', 'Employment rose among core-aged women (+45,000; +0.7%) and men (+23,000; +0.3%) in February', 'The employment rate among core-aged women increased by 0.3 percentage points to 81.4% in February 2024', 'The unemployment rate for women aged 55 and older rose by 0.5 percentage points to 4.5%', 'In February, employment in accommodation and food services grew by 26,000 (+2.4%)', 'Employment in professional, scientific, and technical services rose by 18,000 (+0.9%) in February', 'Following little change in the previous two months, employment in Alberta rose by 17,000 (+0.7%) in February', 'In Nova Scotia, employment increased by 6,300 (+1.2%) in February', 'The employment rate of women aged 25 to 54 was 81.4% in February', 'Women aged 25 to 54 earned $0.87 for every dollar earned by men of the same age group', 'Women accounted for 47.3% of the Canadian labour force, with 9.7 million women employed', ""In February 2024, 13.5% of workers usually worked exclusively from home and a further 11.4% had a hybrid arrangement'""]",Statistics Canada,"Employment, Future Workforce Development and Disability Inclusion",Labour,E. Harper,Y. Zhu,False
+08/03/2024,"Industrial capacity utilization rates, fourth quarter 2023",https://www150.statcan.gc.ca/daily-quotidien/240308/dq240308b-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Canadian industries' capacity utilization slightly decreased to 78.7% in Q4 from 78.8% in Q3. Manufacturing saw a 0.7 percentage point drop, led by declines in petroleum, coal, and chemical manufacturing. Mining, quarrying, and oil and gas extraction rose by 1.3 percentage points, driven by oil sands extraction. Construction decreased by 0.7 percentage points due to reduced engineering activity despite growth in building construction.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Overall capacity utilization
+    <ul>
+      <li>-0.1% (78.8% to 78.7%)</li>
+    </ul>
+  </li>
+  <li>Manufacturing sector capacity utilization
+    <ul>
+      <li>-0.7% (76.9% from previous)</li>
+    </ul>
+  </li>
+  <li>Petroleum and coal product manufacturing
+    <ul>
+      <li>-4.7%</li>
+    </ul>
+  </li>
+  <li>Chemical manufacturing
+    <ul>
+      <li>-2.6%</li>
+    </ul>
+  </li>
+  <li>Mining, quarrying, and oil and gas extraction sector
+    <ul>
+      <li>+1.3% (76.3% from previous)</li>
+    </ul>
+  </li>
+  <li>Construction sector capacity utilization
+    <ul>
+      <li>-0.7% (82.7% from previous)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Canadian industries operated at 78.7% of their production capacity in the fourth quarter, down slightly from 78.8% in the third quarter."", 'The capacity utilization rate in the manufacturing sector fell 0.7 percentage points to 76.9% in the fourth quarter.', 'This decline was mainly due to a slowdown in petroleum and coal product manufacturing (-4.7 percentage points) and chemical manufacturing (-2.6 percentage points).', 'Capacity utilization in the mining, quarrying and oil and gas extraction sector continued its upward trend, with the rate rising 1.3 percentage points to 76.3% in the fourth quarter.', 'This increase coincided with a rebound in oil sands extraction.', 'Conversely, the capacity utilization rate in construction fell 0.7 percentage points to 82.7% in the fourth quarter.', ""Lower activity in engineering more than offset the increase in residential and non-residential building construction.'""]",Statistics Canada,"Innovation, Science and Industry",Finance and Middle Class Prosperity,E. Harper,E. Harper,False
+08/03/2024,Federal members of Parliament and federal members of Cabinet across Canada,https://www150.statcan.gc.ca/daily-quotidien/240308/dq240308c-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>In 2023, women constituted 30.6% of MPs in the House of Commons, a rise from 20.6% in 1997. Cabinet achieved gender parity with women representing 48.7%, a significant increase from 24.3% in 2002. These statistics are part of Canada's efforts to track and promote gender equality in federal leadership, as outlined in the Gender Results Framework introduced in 2018.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Gender representation among MPs in 1997
+    <ul>
+      <li>79.4% (Men)</li>
+      <li>20.6% (Women)</li>
+    </ul>
+  </li>
+  <li>Gender representation among MPs in 2023
+    <ul>
+      <li>69.4% (Men)</li>
+      <li>30.6% (Women)</li>
+    </ul>
+  </li>
+  <li>Gender representation in Cabinet in 2002
+    <ul>
+      <li>75.7% (Men)</li>
+      <li>24.3% (Women)</li>
+    </ul>
+  </li>
+  <li>Gender representation in Cabinet in 2023
+    <ul>
+      <li>51.3% (Men)</li>
+      <li>48.7% (Women)</li>
+    </ul>
+  </li>
+</ul>
+```","['\'In recognition of International Women\'s Day, the CGDIS has also released an infographic titled ""Gender representation among Canadian members of Parliament and Cabinet,"" which provides a brief overview of gender representation in Canada\'s House of Commons and Cabinet.', 'A balanced distribution of women and men throughout all levels of decision-making in Canada leads to better decisions and is essential to a fair and democratic society.', 'In 2023, 69.4% of MPs were men and 30.6% were women.', ""In 2023, men made up 51.3% of Cabinet, while women made up 48.7%.'""]",Statistics Canada,Ethics and Accountable Government,Treasury Board,E. Hopper,E. Harper,False
+08/03/2024,"Farm product prices, January 2024",https://www150.statcan.gc.ca/daily-quotidien/240308/dq240308d-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>January 2024 saw a decline in monthly prices for wheat (excluding durum) in the Prairie provinces, with Manitoba experiencing the largest year-over-year drop at -24.1%. Canola prices also fell across all provinces, with Quebec leading the decline at -11.2%. Conversely, dry peas prices increased in the Prairie provinces, with Saskatchewan seeing the highest rise at +6.6%. Slaughter cattle prices varied, with year-over-year gains in each province of at least +16.3%. Feeder cattle prices increased in Western provinces, with Alberta up by +3.3%, and saw year-over-year gains across all provinces, with Alberta having the highest at +39.1%. Hog prices had mixed movements, with Ontario leading monthly gains at +2.8%.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Wheat (excluding durum) January price changes
+    <ul>
+      <li>-4.8% (Manitoba)</li>
+      <li>-24.1% (Manitoba year-over-year)</li>
+      <li>-22.8% (Saskatchewan year-over-year)</li>
+      <li>-22.1% (Alberta year-over-year)</li>
+    </ul>
+  </li>
+  <li>Canola January price changes
+    <ul>
+      <li>-11.2% (Quebec)</li>
+    </ul>
+  </li>
+  <li>Soybean January price changes
+    <ul>
+      <li>-2.0% (Manitoba)</li>
+      <li>-3.4% (Quebec)</li>
+      <li>-3.5% (Ontario)</li>
+    </ul>
+  </li>
+  <li>Dry peas January price changes
+    <ul>
+      <li>+6.6% (Saskatchewan)</li>
+      <li>+6.1% (Alberta)</li>
+      <li>+4.7% (Manitoba)</li>
+    </ul>
+  </li>
+  <li>Slaughter cattle January price changes
+    <ul>
+      <li>-0.4% to -8.1% (Range across provinces)</li>
+      <li>+16.3% (Minimum year-over-year growth across provinces)</li>
+    </ul>
+  </li>
+  <li>Feeder cattle January price changes
+    <ul>
+      <li>+3.3% (Alberta)</li>
+      <li>-0.5% to -8.3% (Range of decreases across provinces)</li>
+      <li>+8.4% to +39.1% (Year-over-year range across provinces)</li>
+    </ul>
+  </li>
+  <li>Hog January price changes
+    <ul>
+      <li>+2.8% (Ontario)</li>
+      <li>-6.2% (Nova Scotia)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Manitoba (-24.1%) posted the most notable year-over-year drop"", 'Quebec posting the largest decline, down 11.2%', 'Saskatchewan leading the increase (+6.6%)', 'shrinking cattle herd supported year-over-year price gains in slaughter cattle, with each province posting growth of at least 16.3%', 'feeder cattle prices increased across all provinces year over year, with gains ranging from 8.4% in Prince Edward Island to 39.1% in Alberta', 'Ontario (+2.8%)', ""Nova Scotia (-6.2%) led the decreases in hog prices'""]",Statistics Canada,"Agriculture, Agri-Food and Food Security",Finance and Middle Class Prosperity,C. MacDonald,E. Harper,False
+08/03/2024,"Electric Power Selling Price Index, January 2024",https://www150.statcan.gc.ca/daily-quotidien/240308/dq240308e-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>The Electric Power Selling Price Index, with a base year of 2014, has been updated for January. No specific statistics or points were provided in the content supplied.</p>
+
+<h3>Facts</h3>
+<p>No variables with changes or values were provided in the content supplied.</p>",['No headline-worthy quotes provided.'],Statistics Canada,"Innovation, Science and Industry",Finance and Middle Class Prosperity,E. Harper,E. Harper,False
+08/03/2024,"Commercial rents in key Canadian economic markets, fourth quarter 2023",https://www150.statcan.gc.ca/daily-quotidien/240308/dq240308f-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>Unavailable content for summary; no statistics or main points provided.</p>
+
+<h3>Facts</h3>
+<p>No variables provided to list changes and values.</p>",['No headline-worthy quotes provided.'],Statistics Canada,Finance and Middle Class Prosperity,Small Business Recovery and Growth,E. Harper,E. Harper,False
+07/03/2024,"Canadian international merchandise trade, January 2024",https://www150.statcan.gc.ca/daily-quotidien/240307/dq240307a-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>In January, Canada's merchandise imports decreased by 3.8% to $61.8 billion, and exports fell by 1.7%. The trade balance shifted from a $863 million deficit in December to a $496 million surplus in January. Imports of consumer goods and motor vehicles and parts saw significant declines, while exports of metal products and aircraft also decreased. Trade with countries other than the United States saw a reduction in both imports and exports, with the trade deficit narrowing. Service exports decreased by 1.6%, and service imports increased by 1.5%.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Merchandise imports
+    <ul>
+      <li>-3.8% ($61.8 billion)</li>
+      <li>-6.0% (Year-over-year)</li>
+      <li>-4.1% (In real terms)</li>
+    </ul>
+  </li>
+  <li>Consumer goods imports
+    <ul>
+      <li>-7.1%</li>
+      <li>Pharmaceutical products imports
+        <ul>
+          <li>-19.0%</li>
+        </ul>
+      </li>
+      <li>Excluding pharmaceuticals
+        <ul>
+          <li>-3.8%</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Motor vehicles and parts imports
+    <ul>
+      <li>-5.2%</li>
+      <li>Passenger cars and light trucks
+        <ul>
+          <li>-10.3%</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Metal and non-metallic mineral products imports
+    <ul>
+      <li>-9.2%</li>
+      <li>Unwrought gold, silver, and platinum group metals
+        <ul>
+          <li>-33.5%</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Merchandise exports
+    <ul>
+      <li>-1.7%</li>
+      <li>-7.5% (Year-over-year)</li>
+      <li>-1.8% (In real terms)</li>
+    </ul>
+  </li>
+  <li>Metal and non-metallic mineral products exports
+    <ul>
+      <li>-6.2%</li>
+      <li>Unwrought gold, silver, and platinum group metals
+        <ul>
+          <li>-5.3%</li>
+        </ul>
+      </li>
+      <li>Waste and scrap of metal
+        <ul>
+          <li>-20.1%</li>
+        </ul>
+      </li>
+      <li>Basic and semi-finished non-ferrous metals
+        <ul>
+          <li>-26.5%</li>
+        </ul>
+      </li>
+      <li>Unwrought nickel and nickel alloys
+        <ul>
+          <li>-26.9%</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Aircraft and other transportation equipment and parts exports
+    <ul>
+      <li>-13.9%</li>
+      <li>Aircraft exports
+        <ul>
+          <li>-25.4%</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Trade with countries other than the United States
+    <ul>
+      <li>Imports
+        <ul>
+          <li>-7.3%</li>
+        </ul>
+      </li>
+      <li>Exports
+        <ul>
+          <li>-4.2%</li>
+        </ul>
+      </li>
+      <li>Trade deficit
+        <ul>
+          <li>$9.4 billion to $8.3 billion</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Trade with the United States
+    <ul>
+      <li>Imports
+        <ul>
+          <li>-1.7%</li>
+        </ul>
+      </li>
+      <li>Exports
+        <ul>
+          <li>-1.0%</li>
+        </ul>
+      </li>
+      <li>Trade surplus
+        <ul>
+          <li>$8.6 billion to $8.8 billion</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Revisions to December data
+    <ul>
+      <li>Imports
+        <ul>
+          <li>$64.4 billion to $64.2 billion</li>
+        </ul>
+      </li>
+      <li>Exports
+        <ul>
+          <li>$64.1 billion to $63.4 billion</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Monthly trade in services
+    <ul>
+      <li>Exports
+        <ul>
+          <li>-1.6% ($17.0 billion)</li>
+        </ul>
+      </li>
+      <li>Imports
+        <ul>
+          <li>+1.5% ($18.3 billion)</li>
+        </ul>
+      </li>
+      <li>Total trade deficit
+        <ul>
+          <li>$1.6 billion to $779 million</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+```","[""'Canada's merchandise trade balance shifted from a deficit to a surplus in January"", 'Imports of consumer goods declined 7.1% in January, erasing gains from the previous month', 'Exports of metal products and aircraft decline in January', 'Canadian exports and imports decrease with both the United States and other countries', ""Canada's total trade deficit with the world narrowed in January'""]",Statistics Canada,International Trade,Finance and Middle Class Prosperity,D. Hall,E. Harper,False
+07/03/2024,"Building permits, January 2024",https://www150.statcan.gc.ca/daily-quotidien/240307/dq240307b-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>In January, Canada's building permits surged to $10.8 billion, a 13.5% increase, with residential permits up 12.6% to $6.5 billion, driven by multi-unit construction, particularly in Ontario. Non-residential permits grew 14.8% to $4.2 billion, led by commercial projects in Quebec. Single-family dwelling permits fell by 10.3%. The constant dollar value of permits rose 14.0% to $6.7 billion.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Total value of building permits
+    <ul>
+      <li>13.5% (+$1.3 billion)</li>
+    </ul>
+  </li>
+  <li>Residential sector value
+    <ul>
+      <li>12.6% (+$0.7 billion)</li>
+    </ul>
+  </li>
+  <li>Non-residential sector value
+    <ul>
+      <li>14.8% (+$0.5 billion)</li>
+    </ul>
+  </li>
+  <li>Multi-unit construction intentions
+    <ul>
+      <li>35.1% (+$1.0 billion)</li>
+    </ul>
+  </li>
+  <li>Ontario residential permits
+    <ul>
+      <li>29.1% (+$0.3 billion)</li>
+    </ul>
+  </li>
+  <li>Quebec multi-unit permit values
+    <ul>
+      <li>61.6% (+$244.7 million)</li>
+    </ul>
+  </li>
+  <li>British Columbia multi-unit permit values
+    <ul>
+      <li>36.7% (+$281.9 million)</li>
+    </ul>
+  </li>
+  <li>Single-family dwelling permits
+    <ul>
+      <li>-10.3% (-$0.3 billion)</li>
+    </ul>
+  </li>
+  <li>Commercial component growth
+    <ul>
+      <li>34.5% (+$0.6 billion)</li>
+    </ul>
+  </li>
+  <li>Constant dollar basis value of permits
+    <ul>
+      <li>14.0% (+$0.8 billion)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Gains in the residential sector in January were led by a strong rebound in multi-unit construction intentions (+35.1% to $4.0 billion)"", 'Ontario (+29.1% to $1.4 billion) led this increase', 'Quebec (+61.6%; +$244.7 million) and British Columbia (+36.7%; +$281.9 million) also posted notable gains in multi-unit permit values', 'The total monthly value of non-residential permits increased 14.8% to $4.2 billion in January', 'The commercial component, which increased 34.5% to $2.3 billion, the highest monthly level recorded since April 2023', ""A $200 million permit for a new data centre in Lévis, Quebec, greatly contributed to the growth observed in January 2024'""]",Statistics Canada,Infrastructure and Communities,Housing and Diversity and Inclusion,M. Emes,D. Hall,False
+07/03/2024,"Canadian international trade in services, January 2024",https://www150.statcan.gc.ca/daily-quotidien/240307/dq240307c-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Canada's international trade in services deficit increased to $1.3 billion in January from $0.7 billion in December. Service exports fell by 1.6% to $17.0 billion, with travel services down 6.4%. Service imports rose by 1.5% to $18.3 billion, led by a 3.9% increase in travel services. Goods trade shifted to a $0.5 billion surplus from a $0.9 billion deficit, contributing to a combined goods and services trade deficit of $0.8 billion. Revisions from the previous release adjusted imports and exports of services up by $447 million and $436 million, respectively.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Services trade deficit
+    <ul>
+      <li>85.7% ($0.6 billion)</li>
+    </ul>
+  </li>
+  <li>Service exports
+    <ul>
+      <li>-1.6% (-$0.3 billion)</li>
+    </ul>
+  </li>
+  <li>Travel services exports
+    <ul>
+      <li>-6.4% (-)</li>
+    </ul>
+  </li>
+  <li>Transportation services exports
+    <ul>
+      <li>-3.0% (-)</li>
+    </ul>
+  </li>
+  <li>Commercial services exports
+    <ul>
+      <li>0.7% (+)</li>
+    </ul>
+  </li>
+  <li>Service imports
+    <ul>
+      <li>1.5% (+$0.3 billion)</li>
+    </ul>
+  </li>
+  <li>Travel services imports
+    <ul>
+      <li>3.9% (+)</li>
+    </ul>
+  </li>
+  <li>Financial services imports
+    <ul>
+      <li>1.0% (+)</li>
+    </ul>
+  </li>
+  <li>Goods trade balance
+    <ul>
+      <li>From -$0.9 billion to +$0.5 billion</li>
+    </ul>
+  </li>
+  <li>Combined trade balance
+    <ul>
+      <li>-$0.8 billion</li>
+    </ul>
+  </li>
+  <li>Revisions
+    <ul>
+      <li>Imports: +$447 million</li>
+      <li>Exports: +$436 million</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Canada's monthly international trade in services deficit widened from $0.7 billion in December to $1.3 billion in January'""]",Statistics Canada,International Trade,National Revenue,D. Hall,E. Harper,False
+07/03/2024,"Securities statistics, fourth quarter 2023",https://www150.statcan.gc.ca/daily-quotidien/240307/dq240307d-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Canadian entities increased their net borrowing in debt securities to $71.7 billion in Q4, with government sector leading at $50.9 billion. Total outstanding debt securities reached $5,721.5 billion, up by $58.4 billion. Net retirements of equity securities continued, totaling $5.5 billion in Q4. Annually, net debt security issuances were $206.3 billion in 2023, down from $253.9 billion in 2022. The government sector's net issuances were $88.8 billion, while financial sector borrowings slowed to $87.6 billion. Equity retirements exceeded issuances by $32.4 billion, and the market value of equity securities rose by $279.5 billion in 2023.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Net borrowing in debt securities Q4
+    <ul>
+      <li>150.9% ($43.0 billion)</li>
+    </ul>
+  </li>
+  <li>Total outstanding debt securities value Q4
+    <ul>
+      <li>1.03% ($58.4 billion)</li>
+    </ul>
+  </li>
+  <li>Government sector net issuances Q4
+    <ul>
+      <li>362.7% ($39.9 billion)</li>
+    </ul>
+  </li>
+  <li>Long-term interest rates change Q4
+    <ul>
+      <li>-103 basis points</li>
+    </ul>
+  </li>
+  <li>Short-term interest rates change Q4
+    <ul>
+      <li>-18 basis points</li>
+    </ul>
+  </li>
+  <li>Canadian financial corporations net borrowing Q4
+    <ul>
+      <li>$19.6 billion</li>
+    </ul>
+  </li>
+  <li>Canadian non-financial corporations net borrowing Q4
+    <ul>
+      <li>$1.2 billion</li>
+    </ul>
+  </li>
+  <li>Net retirements of equity securities Q4
+    <ul>
+      <li>$5.5 billion</li>
+    </ul>
+  </li>
+  <li>Market value of outstanding equity securities Q4
+    <ul>
+      <li>7.01% ($262.0 billion)</li>
+    </ul>
+  </li>
+  <li>Annual net debt security issuances 2023
+    <ul>
+      <li>-18.8% ($47.6 billion)</li>
+    </ul>
+  </li>
+  <li>Government sector net issuances 2023
+    <ul>
+      <li>$88.8 billion</li>
+    </ul>
+  </li>
+  <li>Financial sector borrowings 2023
+    <ul>
+      <li>-60.9% ($136.6 billion)</li>
+    </ul>
+  </li>
+  <li>Bank of Canada policy rates increase 2023
+    <ul>
+      <li>75 basis points</li>
+    </ul>
+  </li>
+  <li>Long-term interest rates change 2023
+    <ul>
+      <li>-23 basis points</li>
+    </ul>
+  </li>
+  <li>Short-term interest rates change 2023
+    <ul>
+      <li>64 basis points</li>
+    </ul>
+  </li>
+  <li>Net retirements of equity securities 2023
+    <ul>
+      <li>$32.4 billion</li>
+    </ul>
+  </li>
+  <li>Market value of outstanding equity securities 2023
+    <ul>
+      <li>7.52% ($279.5 billion)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Canadian governments and corporations borrowed a net $71.7 billion in the form of debt securities in the fourth quarter"", 'Net issuances of debt securities by the government sector totalled $50.9 billion in the fourth quarter', 'Net retirements of Canadian equity securities totalled $5.5 billion in the fourth quarter', 'On an annual basis, Canadian entities issued a net $206.3 billion in the form of debt securities in 2023', 'The Bank of Canada raised its policy rates by 75 basis points in 2023', ""Retirements of Canadian equity securities exceeded new issuances by $32.4 billion in 2023'""]",Statistics Canada,Finance and Middle Class Prosperity,Finance and Middle Class Prosperity,E. Harper,E. Harper,False
+07/03/2024,"Retail Commodity Survey, December 2023",https://www150.statcan.gc.ca/daily-quotidien/240307/dq240307e-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>Retail sales in Canada reached $69.1 billion in December, marking a 0.9% increase from the previous year. The highest sales were recorded in food and beverages at $17.7 billion, followed by motor vehicles at $11.0 billion, and home-related items including furniture, furnishings, housewares, appliances, and electronics at $7.4 billion.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Retail sales
+    <ul>
+      <li>0.9% ($69.1 billion)</li>
+    </ul>
+  </li>
+  <li>Food and beverages sales
+    <ul>
+      <li>$17.7 billion</li>
+    </ul>
+  </li>
+  <li>Motor vehicles sales
+    <ul>
+      <li>$11.0 billion</li>
+    </ul>
+  </li>
+  <li>Home-related items sales
+    <ul>
+      <li>$7.4 billion</li>
+    </ul>
+  </li>
+</ul>","[""'Retail sales totalled $69.1 billion in December, up 0.9% from the same month one year earlier'""]",Statistics Canada,"Innovation, Science and Industry",Natural Resources,E. Harper,C. MacDonald,False
+07/03/2024,"Forage seed usage, 2023",https://www150.statcan.gc.ca/daily-quotidien/240307/dq240307f-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>No summary provided as there was no substantial content or statistics given about forage seed usage data for 2023.</p>
+
+<h3>Facts</h3>
+<ul>
+    <li>Forage seed usage data for 2023
+        <ul>
+            <li>Data not provided</li>
+        </ul>
+    </li>
+</ul>",['No headline worthy quotes provided.'],Statistics Canada,"Agriculture, Agri-Food and Food Security","Innovation, Science and Industry",C. MacDonald,E. Harper,False
+07/03/2024,"Canadian Economic News, February 2024",https://www150.statcan.gc.ca/daily-quotidien/240307/dq240307g-eng.htm,15/03/2024,"<h3>Summary</h3>
+<p>The February 2024 issue of Canadian Economic News offers a brief monthly overview of notable economic occurrences within Canada, as well as significant international financial market developments that took place over the calendar month.</p>
+
+<h3>Facts</h3>
+<p>No variables provided to list changes and values.</p>","[""There doesn't seem to be a direct quote provided in the content supplied. If you have a specific statement or quote from the issue that you believe is headline-worthy, please provide it, and I can help identify it for you.""]",Statistics Canada,Finance and Middle Class Prosperity,Justice and Attorney General of Canada,E. Harper,S. Phelan,False
+06/03/2024,"Control and sale of alcoholic beverages and cannabis, April 1, 2022, to March 31, 2023",https://www150.statcan.gc.ca/daily-quotidien/240306/dq240306a-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>
+Federal and provincial governments collected $15.5 billion from alcohol and cannabis sales, marking a 2.5% increase from the previous fiscal year. Alcohol sales rose by 2.8% to $26.3 billion, driven by a 5.9% price increase, despite a 1.1% drop in volume. Beer per capita sales hit a record low, while wine volume sales fell by 3.0%. Ciders and coolers saw a modest volume increase of 0.6%. Spirit sales grew by 3.0%, but volume slightly decreased. Recreational cannabis sales surged by 15.8% to $4.7 billion, with inhaled extracts contributing significantly to this growth.
+</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Government revenue from alcohol and cannabis
+    <ul>
+      <li>+2.5% ($15.5 billion)</li>
+      <li>Alcohol: +0.1% ($13.6 billion)</li>
+      <li>Cannabis: +24.2% ($1.9 billion)</li>
+    </ul>
+  </li>
+  <li>Alcohol sales
+    <ul>
+      <li>+2.8% ($26.3 billion)</li>
+      <li>Price increase: +5.9%</li>
+      <li>Volume: -1.1% (3,106 million litres)</li>
+    </ul>
+  </li>
+  <li>Beer per capita sales
+    <ul>
+      <li>Volume: - (65.1 litres per person)</li>
+      <li>Value: +4.1% ($9.3 billion)</li>
+      <li>Highest increase: +27.5% (Nunavut)</li>
+      <li>Largest fall: -6.7% (Manitoba)</li>
+    </ul>
+  </li>
+  <li>Wine sales
+    <ul>
+      <li>Volume: -3.0% (500 million litres)</li>
+      <li>Value: +0.6% ($7.9 billion)</li>
+      <li>Inflation rate: +7.4%</li>
+      <li>Market share: -0.7% (29.9%)</li>
+    </ul>
+  </li>
+  <li>Ciders and coolers
+    <ul>
+      <li>Volume: +0.6% (372 million litres)</li>
+      <li>Value: +4.5% ($2.1 billion)</li>
+    </ul>
+  </li>
+  <li>Spirit sales
+    <ul>
+      <li>Value: +3.0% ($6.9 billion)</li>
+      <li>Volume: -0.6% (192 million litres)</li>
+      <li>Top sellers: Whisky (29.4%), Vodka (23.0%), Liqueurs (15.2%)</li>
+    </ul>
+  </li>
+  <li>Recreational cannabis sales
+    <ul>
+      <li>+15.8% ($4.7 billion)</li>
+      <li>Highest increase: +23.7% (Manitoba)</li>
+      <li>Largest decline: -0.4% (New Brunswick)</li>
+      <li>Inhaled extract sales: +59.0%</li>
+    </ul>
+  </li>
+  <li>Inhaled extracts market share
+    <ul>
+      <li>Dried cannabis: -6.1% (64.9%)</li>
+      <li>Inhaled extracts: +6.8% (24.9%)</li>
+      <li>Sales per person: $150</li>
+      <li>Highest sales per person: $314 (Yukon)</li>
+      <li>Lowest sales per person: $88 (Quebec)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Federal and provincial governments earned $15.5 billion (+2.5%) from the control and sale of alcohol and recreational cannabis"", 'The increase in alcohol sales was driven by increased prices', 'By volume, beer sales declined to 65.1 litres of beer per year per person of legal drinking age in 2022/2023, an all-time low', 'The inflation rate of 7.4% for wine purchased from stores from March 2022 to March 2023 was responsible for the increase in sales', 'Ciders and coolers was the lone beverage category with an increase in sales by volume', 'Total spirit sales rose 3.0% to $6.9 billion in 2022/2023', 'Sales of recreational cannabis by provincial cannabis authorities and other retail outlets increased 15.8%, or by $0.6 billion, to $4.7 billion in 2022/2023', ""The reversal of Newfoundland and Labrador's ban on cannabis vapes in 2022 is a major reason for the growth in sales of inhaled extracts in the province"", ""The market share of inhaled extracts increased from 18.1% to 24.9% in 2022/2023'""]",Statistics Canada,Health,Finance and Middle Class Prosperity,C. MacDonald,E. Harper,False
+06/03/2024,"Labour productivity, hourly compensation and unit labour cost, fourth quarter 2023",https://www150.statcan.gc.ca/daily-quotidien/240306/dq240306b-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Canadian businesses experienced a 0.4% rise in labour productivity in Q4, marking the first increase since Q1 of 2022. Hours worked remained stable, with slight changes in employment and average hours worked. Productivity improved in both goods-producing (+0.1%) and service-producing (+0.4%) sectors. Unit labour costs decreased by 0.1%, the first drop after 12 quarters of increases. Annually, labour productivity fell by 1.8% in 2023, with goods-producing sectors down 3.4% and service sectors down 0.8%, reflecting a 0.6% rise in real GDP and a 2.5% increase in hours worked.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Labour Productivity Q4
+    <ul>
+      <li>+0.4% (first gain since Q1 2022)</li>
+    </ul>
+  </li>
+  <li>Real GDP of Businesses Q4
+    <ul>
+      <li>+0.4% (after -0.4% in the previous quarter)</li>
+    </ul>
+  </li>
+  <li>Hours Worked Q4
+    <ul>
+      <li>0.0% (stable)</li>
+    </ul>
+  </li>
+  <li>Number of Jobs Q4
+    <ul>
+      <li>-0.1%</li>
+    </ul>
+  </li>
+  <li>Average Hours Worked Q4
+    <ul>
+      <li>+0.1%</li>
+    </ul>
+  </li>
+  <li>Goods-Producing Businesses Productivity Q4
+    <ul>
+      <li>+0.1% (after four quarters of decline)</li>
+    </ul>
+  </li>
+  <li>Service-Producing Businesses Productivity Q4
+    <ul>
+      <li>+0.4% (first increase in six quarters)</li>
+    </ul>
+  </li>
+  <li>Unit Labour Costs Q4
+    <ul>
+      <li>-0.1% (first decline in 13 quarters)</li>
+    </ul>
+  </li>
+  <li>Annual Labour Productivity 2023
+    <ul>
+      <li>-1.8% (third consecutive annual decline)</li>
+    </ul>
+  </li>
+  <li>Real GDP of Businesses 2023
+    <ul>
+      <li>+0.6%</li>
+    </ul>
+  </li>
+  <li>Hours Worked 2023
+    <ul>
+      <li>+2.5%</li>
+    </ul>
+  </li>
+  <li>Goods-Producing Businesses Productivity 2023
+    <ul>
+      <li>-3.4% (third consecutive annual decline)</li>
+    </ul>
+  </li>
+  <li>Service-Producing Businesses Productivity 2023
+    <ul>
+      <li>-0.8% (following zero growth in the previous year)</li>
+    </ul>
+  </li>
+</ul>
+```","[""'Labour productivity of Canadian businesses rose 0.4% in the fourth quarter, after falling 0.5% in the third quarter"", 'This was the first gain since the first quarter of 2022', 'Service-producing businesses saw their productivity rise by 0.4% in the fourth quarter', 'For goods-producing businesses, productivity edged up after four quarters of decline', 'Since growth in hourly compensation was slower than productivity growth, the unit labour costs edged down 0.1% in the fourth quarter', ""On average, over 2023, labour productivity of Canadian businesses fell 1.8%, a third consecutive annual decline'""]",Statistics Canada,"Innovation, Science and Industry",Small Business Recovery and Growth,E. Harper,E. Harper,False
+06/03/2024,Immigrant-owned businesses on average received a higher dollar value of government support programs than Canadian-born owned businesses during the COVID-19 pandemic,https://www150.statcan.gc.ca/daily-quotidien/240306/dq240306c-eng.htm,15/03/2024,"```html
+<h3>Summary</h3>
+<p>Immigrant-owned businesses in Canada were more affected by the COVID-19 pandemic, leading to higher usage of government support programs compared to those owned by Canadian-born individuals. They received 33% of CEBA loans, 37% of CECE aid, but only 14% of CEWS subsidies. When adjusting for business characteristics, immigrant-majority-owned businesses were more likely to receive CEBA and CECE support but less likely to benefit from CEWS. The total support value for these businesses was 6% higher on average than for Canadian-born owned businesses.</p>
+
+<h3>Facts</h3>
+<ul>
+  <li>Ownership by immigrants
+    <ul>
+      <li>25% (One in four businesses)</li>
+    </ul>
+  </li>
+  <li>CEBA loans
+    <ul>
+      <li>33% (One-third of total loan)</li>
+    </ul>
+  </li>
+  <li>CECE aid
+    <ul>
+      <li>37%</li>
+    </ul>
+  </li>
+  <li>CEWS subsidies
+    <ul>
+      <li>14% (Over one-tenth)</li>
+    </ul>
+  </li>
+  <li>Total support value
+    <ul>
+      <li>6% higher for immigrant-majority-owned businesses</li>
+    </ul>
+  </li>
+</ul>
+```","['""Use of Government COVID-19 Liquidity Support Programs by Immigrant-owned Businesses and Those Owned by Canadian-born Individuals""']",Statistics Canada,"Immigration, Refugees and Citizenship","Innovation, Science and Industry",Y. Zhu,E. Harper,False
 01/03/2024,"Energy statistics, December 2023",https://www150.statcan.gc.ca/daily-quotidien/240301/dq240301a-eng.htm,01/03/2024,"```html
 <h3>Summary</h3>
 <p>In December, primary energy production increased by 3.2%, led by an 8.1% rise in crude oil production. Secondary energy production grew by 2.9%, with refined petroleum products up 3.1%. Crude oil reached a high of 26.4 million cubic metres, with oil sands extraction up 10.7%. Natural gas production hit a series high at 695.5 million gigajoules, despite a 5.9% drop in deliveries to Canadian consumers. Electricity generation fell 8.5%, with hydroelectric down 17.3%. Electricity exports to the US decreased by 36.2%, while imports surged 169.3%.</p>

@@ -7,7 +7,6 @@ from monitoring import statscan_mon, boc_mon
 import pandas as pd
 from gmail import send_email
 import tabula
-import json
 import pprint
 import datetime
 from storage import load_storage
@@ -141,9 +140,14 @@ file_advisors = {
 def file_allocation(list_files:list):
     for x in range(len(list_files)):
         release_files[x].append(list_files[x].lstrip().rstrip())
+        inclusion = False
         for key, value in file_advisors.items():
             if list_files[x].lstrip().rstrip() in value:
                 advisors[x].append(key)
+                inclusion = True
+        if not inclusion:
+            aq = input(f"This is the heading, who is the corresponding advisor for this heading: {list_files[x]}?\n[C. MacDonald, D. Hall, D. Murray, E. Harper, E. Hopper, M. Emes, S. Phelan, Y. Zhu] \n")
+            advisors[x].append(aq)
         
 
 def print_lists():
@@ -180,7 +184,7 @@ if __name__ == '__main__':
 
     #load temporary database
     load_storage.load_storage()
-    all_files_copy = pd.read_csv("final.csv")
+    all_files_copy = pd.read_csv("storage/final_loaded.csv")
     #bool to turn on/off the console control
     stay_on = True
 
@@ -203,8 +207,8 @@ if __name__ == '__main__':
     - info is added into corresponding lists that are zipped at the end of commands and added to the temp database
     """
     while stay_on:
-        manual = input("Do you wish to manually input a release? [yes, no, exit] \n")
-        if manual == 'yes':
+        manual = input("What do you wish to do? [manual, automatic, email, exit] \n")
+        if manual == 'manual':
             release_type = input("Is it a StatsCan, BoC, PBO, RBC or other? [type answer as written in the question] \n")
             if release_type == "StatsCan":
                 url = input("What is the url? \n")
@@ -384,7 +388,7 @@ if __name__ == '__main__':
                         print_lists()
                 else:
                     print('This release already exists in the database.\n')
-        elif manual == 'no':
+        elif manual == 'automatic':
             scrape_type = input('Which source do you want to scrape? \n[StatsCan, BoC] \n')
             if scrape_type == 'StatsCan':
                 temp_titles, temp_release_dates, temp_urls, temp_dates_retrieved, temp_summary, temp_files, temp_institution, temp_quotes = statscan_mon.statcan_monitor(all_files_copy, driver)
@@ -410,24 +414,32 @@ if __name__ == '__main__':
                 for x in temp_files:
                     file_allocation(x)
                 institutions.extend(temp_institution)
-        elif manual =='exit':
-            email = True
-            if summaries:
-                while email:
-                    email_question = input("Do you wish to send an email summary regarding one of the reports? [yes, no] \n")
-                    if email_question == 'yes':
-                        for x in range(len(summaries)):
-                            print(f"[{x}] - {titles[x]} \n")
-                        number = input('Type the number of the corresponding report to email.\n')
-                        send_email.send_email(summaries[int(number)], titles[int(number)], institutions[int(number)])
-                        print("Email sent.\n")
-                    elif email_question == 'no':
-                        print('Thank you. Have a great rest of your day!')
-                        email = False
-                        stay_on = False
-            else:
-                print('Thank you. Have a great rest of your day!')
-                stay_on = False
+        elif manual =='email':
+            s_a_email = input("Do you wish to send an email only to you or to all advisor? [you, all]\n")
+            if s_a_email == 'you':
+                email = True
+                if summaries:
+                    while email:
+                        email_question = input("Do you wish to send an email summary regarding one of the reports? [yes, no] \n")
+                        if email_question == 'yes':
+                            for x in range(len(summaries)):
+                                print(f"[{x}] - {titles[x]} \n")
+                            number = input('Type the number of the corresponding report to email.\n')
+                            send_email.send_email(summaries[int(number)], titles[int(number)], institutions[int(number)], quotes[int(number)])
+                            print("Email sent.\n")
+                        elif email_question == 'no':
+                            print('Thank you. Have a great rest of your day!')
+                            email = False
+            elif s_a_email == 'all':
+                today_releases = pd.DataFrame(
+                    zip(release_dates, titles, urls, dates_retrieved, summaries, quotes, institutions,
+                        release_files[0], release_files[1], advisors[0], advisors[1], news),
+                    columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'quotes', 'institution',
+                            "file_1", "file_2", "file_advisor_1", "file_advisor_2", "news_bool"]
+                )
+                send_email.advisor_send(today_releases)
+        elif manual == 'exit':
+            stay_on = False
     
     print_lists()
     #TODO: issue is in the zip

@@ -55,58 +55,59 @@ summary_prompt = """You are a policy analyst tasked with summarising reports
 """
 
 classifying_prompt = """You are given a title of a report and you must classify them into 2 of the most corresponding policy files.
-    Return just the file names, with no dashes, seperated by ";".
-    Here are the possible files:
-    - Digital Government
-    - Agriculture, Agri-Food and Food Security
-    - Canadian Heritage
-    - Crown-indigenous Relations
-    - Finance and Middle Class Prosperity
-    - Employment, Future Workforce Development and Disability Inclusion
-    - Environment and Climate Change
-    - Families, Children and Social Development
-    - Federal Economic Development Agency for Eastern, Central and Southern Ontario
-    - Fisheries, Oceans and the Canadian Coast Guard
-    - Foreign Affairs
-    - Health
-    - Housing and Diversity and Inclusion
-    - Immigration, Refugees and Citizenship
-    - Federal Economic Development Agency for Northern Ontario
-    - Innovation, Science and Industry 
-    - International Development 
-    - International Trade
-    - Supply Chain Issues
-    - Small Business Recovery and Growth 
-    - Red Tape Reduction
-    - Justice and Attorney General of Canada 
-    - Mental Health and Suicide Prevention 
-    - Addictions
-    - Northern Affairs and Artic Sovereignty; Canadian Northern Economic Development Agency
-    - Prairie Economic Development (Advisor to the Leader, Economy)
-    - Pacific Economic Development 
-    - Sport, Economic Development Agency of Canada for the Regions of Quebec
-    - National Defence 
-    - National Revenue 
-    - Natural Resources 
-    - Official Languages 
-    - Atlantic Canada Opportunities Agency 
-    - Public Safety 
-    - Public Services and Procurement 
-    - Emergency Preparedness 
-    - Rural Economic Development & Connectivity
-    - Seniors
-    - Tourism
-    - Transport
-    - Treasury Board 
-    - Veterans Affairs
-    - Women and Gender Equality and Youth 
-    - Ethics and Accountable Government
-    - Infrastructure and Communities 
-    - Labour
-    - Indigenous Services 
-    - Pan-Canadian Trade and Competition
-    - Hunting, Fishing and Conservation
-    - Democratic Reform
+    Here are the all the files to choose from:
+    - "Digital Government"
+    - "Agriculture, Agri-Food and Food Security"
+    - "Canadian Heritage"
+    - "Crown-indigenous Relations"
+    - "Finance and Middle Class Prosperity"
+    - "Employment, Future Workforce Development and Disability Inclusion"
+    - "Environment and Climate Change"
+    - "Families, Children and Social Development"
+    - "Federal Economic Development Agency for Eastern, Central and Southern Ontario"
+    - "Fisheries, Oceans and the Canadian Coast Guard"
+    - "Foreign Affairs"
+    - "Health"
+    - "Housing and Diversity and Inclusion"
+    - "Immigration, Refugees and Citizenship"
+    - "Federal Economic Development Agency for Northern Ontario"
+    - "Innovation, Science and Industry "
+    - "International Development "
+    - "International Trade"
+    - "Supply Chain Issues"
+    - "Small Business Recovery and Growth "
+    - "Red Tape Reduction"
+    - "Justice and Attorney General of Canada "
+    - "Mental Health and Suicide Prevention "
+    - "Addictions"
+    - "Northern Affairs and Artic Sovereignty; Canadian Northern Economic Development Agency"
+    - "Prairie Economic Development (Advisor to the Leader, Economy)"
+    - "Pacific Economic Development "
+    - "Sport, Economic Development Agency of Canada for the Regions of Quebec"
+    - "National Defence "
+    - "National Revenue "
+    - "Natural Resources "
+    - "Official Languages "
+    - "Atlantic Canada Opportunities Agency "
+    - "Public Safety "
+    - "Public Services and Procurement "
+    - "Emergency Preparedness "
+    - "Rural Economic Development & Connectivity"
+    - "Seniors"
+    - "Tourism"
+    - "Transport"
+    - "Treasury Board "
+    - "Veterans Affairs"
+    - "Women and Gender Equality and Youth "
+    - "Ethics and Accountable Government"
+    - "Infrastructure and Communities "
+    - "Labour"
+    - "Indigenous Services "
+    - "Pan-Canadian Trade and Competition"
+    - "Hunting, Fishing and Conservation"
+    - "Democratic Reform"
+    Return the file names as presented inside the quotations, seperated by ";", with spaces between words.
+    It is mandatory you provide 2 file names.
     """
 
 def print_result(output) -> str:
@@ -165,8 +166,11 @@ def classify_file(title) -> str:
         ]
     )
     reply = response.choices[0].message.content
-    reply = re.sub('\n', '', reply)
+    reply = re.sub('"', '', reply)
     reply = reply.split(';')
+    if len(reply) == 2:
+        reply[0] = reply[0].lstrip().rstrip()
+        reply[1] = reply[1].lstrip().rstrip()
     return reply
 
 def summary_processing(output, manual):
