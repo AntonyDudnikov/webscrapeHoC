@@ -431,13 +431,7 @@ if __name__ == '__main__':
                             print('Thank you. Have a great rest of your day!')
                             email = False
             elif s_a_email == 'all':
-                today_releases = pd.DataFrame(
-                    zip(release_dates, titles, urls, dates_retrieved, summaries, quotes, institutions,
-                        release_files[0], release_files[1], advisors[0], advisors[1], news),
-                    columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'quotes', 'institution',
-                            "file_1", "file_2", "file_advisor_1", "file_advisor_2", "news_bool"]
-                )
-                send_email.advisor_send(today_releases)
+                send_email.advisor_send(all_files_copy)
         elif manual == 'exit':
             stay_on = False
     

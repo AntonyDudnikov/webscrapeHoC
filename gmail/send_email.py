@@ -55,14 +55,13 @@ def _extract_summary(html)->str:
     pattern = re.compile(r'<p>(.*?)</p>', re.DOTALL)
     match = re.search(pattern, html)
     if match:
-        print(match.group(1))
         return match.group(1)
     
 
 def _email_creation(todays_df, advisor):
     #get all releases that relate to the advisor
     current_advisor_df = todays_df[(todays_df['file_advisor_1'] == advisor_details[advisor]['formal']) | (todays_df['file_advisor_2'] == advisor_details[advisor]['formal'])].reset_index()
-    if len(current_advisor_df): #check if empty
+    if len(current_advisor_df) > 0: #check if empty
         email_content = f"""<p>GOOD MORNING {advisor}!</p><p>Today these reports, articles and news releases related to your files were included into the database:</p><h3>Releases related to your files</h3><ul>
         """
         for x in range(len(current_advisor_df)): #add releases and hyperlink
@@ -121,9 +120,13 @@ def advisor_send(files):
     #get today's releases from dataframe
     todays_df = files[files["date_retrieved"] == datetime.date.today().strftime("%d/%m/%Y")]
 
-    #loop through advisors
-    for key in advisor_details:
-         _email_creation(todays_df, key)
+    if len(todays_df) > 0:
+        #loop through advisors
+        for key in advisor_details:
+            if key == 'Mark':
+                _email_creation(todays_df, key)
+    else:
+        print("Nothing to send!")
            
 
 
