@@ -72,6 +72,7 @@ file_advisors = {
         "Agriculture, Agri-Food and Food Security",
         "Crown-indigenous Relations",
         "Environment and Climate Change",
+        "Fisheries, Oceans and the Canadian Coast Guard",
         "Health",
         "Mental Health and Suicide Prevention",
         "Addictions",
@@ -108,8 +109,7 @@ file_advisors = {
         "Ethics and Accountable Government"
     ],
     "M. Emes":[
-        "Families, Children and Social Development", 
-        "Fisheries, Oceans and the Canadian Coast Guard", 
+        "Families, Children and Social Development",  
         "Supply Chain Issues",
         "Seniors",
         "Transport",
@@ -184,9 +184,19 @@ if __name__ == '__main__':
 
     #load temporary database
     load_storage.load_storage()
-    all_files_copy = pd.read_csv("storage/final_loaded.csv")
+    all_files_copy = pd.read_json("storage/final_loaded.json")
     #bool to turn on/off the console control
     stay_on = True
+    """INCLUDE
+    url: https://www.theglobeandmail.com/politics/article-high-price-tag-of-equipment-driving-delays-in-defence-policy-update/
+    quotes:"The Defence Department submitted various options to the cabinet but the government keeps delaying publication because of the “sticker shock” for new equipment, the official said" - "However, Canada’s military is considered about 16,000 members below full strength and its branches are operating below readiness thresholds half the time." - "While Ottawa agreed to this target, the government has not set out a road map to reach it."
+
+    url:https://www.theglobeandmail.com/investing/personal-finance/household-finances/article-cra-tax-filings-bare-trusts-uht/
+    quotes: "New tax-filing obligations around trusts and real estate investments are forcing many Canadians to spend hundreds – if not thousands – of dollars in accounting and legal fees" - "The rules are also complex, forcing many people to seek professional help to complete the paperwork or verify whether they are legally required to file."
+    
+    url:https://www.theglobeandmail.com/business/article-bank-of-canada-warns-of-low-productivity-emergency-making-it-harder-to/
+    quotes:"The Bank of Canada is warning that weak productivity and low business investment has become a national “emergency,” making it harder to control inflation and risking the erosion of living standards." - "She pointed to weak business investment, meager competition and a failure to properly integrate skilled immigrants into the Canadian workforce." - "Over this same period of time, Canada also fell behind our G7 peers, with only Italy seeing a larger decline in productivity relative to the United States." - "Here she pointed to weak competition in Canada and regulatory uncertainty as potential culprits." - "But if productivity lags, rising labour costs tend to show up in higher prices."
+    """
 
     release_dates = []
     titles = []
@@ -206,6 +216,7 @@ if __name__ == '__main__':
     - if its not scraped, then it's just manually added with no scraping
     - info is added into corresponding lists that are zipped at the end of commands and added to the temp database
     """
+
     while stay_on:
         manual = input("What do you wish to do? [manual, automatic, email, exit] \n")
         if manual == 'manual':

@@ -123,8 +123,7 @@ def advisor_send(files):
     if len(todays_df) > 0:
         #loop through advisors
         for key in advisor_details:
-            if key == 'Mark':
-                _email_creation(todays_df, key)
+            _email_creation(todays_df, key)
     else:
         print("Nothing to send!")
            
