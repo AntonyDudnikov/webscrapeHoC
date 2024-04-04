@@ -59,7 +59,7 @@ class Rbc(Source):
         section[2]: title block with possible date
         section[3]: body of the publication 
         """
-        #------publication type------
+        #------publication type------/html/body/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/a/img
         image = sections[1].find_element(By.TAG_NAME, 'img')
         test = [i for i in publication_type if publication_type[i] == image.get_attribute('src')]
         if test:

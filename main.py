@@ -187,16 +187,7 @@ if __name__ == '__main__':
     all_files_copy = pd.read_json("storage/final_loaded.json")
     #bool to turn on/off the console control
     stay_on = True
-    """INCLUDE
-    url: https://www.theglobeandmail.com/politics/article-high-price-tag-of-equipment-driving-delays-in-defence-policy-update/
-    quotes:"The Defence Department submitted various options to the cabinet but the government keeps delaying publication because of the “sticker shock” for new equipment, the official said" - "However, Canada’s military is considered about 16,000 members below full strength and its branches are operating below readiness thresholds half the time." - "While Ottawa agreed to this target, the government has not set out a road map to reach it."
-
-    url:https://www.theglobeandmail.com/investing/personal-finance/household-finances/article-cra-tax-filings-bare-trusts-uht/
-    quotes: "New tax-filing obligations around trusts and real estate investments are forcing many Canadians to spend hundreds – if not thousands – of dollars in accounting and legal fees" - "The rules are also complex, forcing many people to seek professional help to complete the paperwork or verify whether they are legally required to file."
-    
-    url:https://www.theglobeandmail.com/business/article-bank-of-canada-warns-of-low-productivity-emergency-making-it-harder-to/
-    quotes:"The Bank of Canada is warning that weak productivity and low business investment has become a national “emergency,” making it harder to control inflation and risking the erosion of living standards." - "She pointed to weak business investment, meager competition and a failure to properly integrate skilled immigrants into the Canadian workforce." - "Over this same period of time, Canada also fell behind our G7 peers, with only Italy seeing a larger decline in productivity relative to the United States." - "Here she pointed to weak competition in Canada and regulatory uncertainty as potential culprits." - "But if productivity lags, rising labour costs tend to show up in higher prices."
-    """
+  
 
     release_dates = []
     titles = []
@@ -209,6 +200,7 @@ if __name__ == '__main__':
     institutions = []
     news = []
     quotes = []
+
 
     """
     How it works:
@@ -447,20 +439,18 @@ if __name__ == '__main__':
             stay_on = False
     
     print_lists()
-    #TODO: issue is in the zip
     df_extended = pd.DataFrame(
         zip(release_dates, titles, urls, dates_retrieved, summaries, quotes, institutions,
             release_files[0], release_files[1], advisors[0], advisors[1], news),
         columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'quotes', 'institution',
                  "file_1", "file_2", "file_advisor_1", "file_advisor_2", "news_bool"]
     )
-
-    #TODO: revert all changes (remove gpt_processing comments)
+    df_extended['policy_rev'] = False
     
     print(f"loaded dataframe: {df_extended.shape}")
     print(f"data lake pre entry: {all_files_copy.shape}")
     all_files_copy = pd.concat([df_extended, all_files_copy], ignore_index=True)   
-    print(f"concatenated: {all_files_copy.shape}")     
+    print(f"concatenated: {all_files_copy.shape}") 
     all_files_copy.to_csv('storage/final_loaded.csv', encoding='utf-8', index=False)
     all_files_copy.to_json('storage/final_loaded.json', 'records', indent=2)
     load_storage.upload_storage()

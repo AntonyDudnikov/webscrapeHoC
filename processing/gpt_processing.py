@@ -199,7 +199,7 @@ def summary_processing(output, manual):
 PROMPT ENGINEERING:
 
 - be explicit and detailed in what you want
-- povide exmaples of what u are looking for : 
+- provide exmaples of what u are looking for : 
         system(instructions) ->user(ex input)-> assistant(required output) -> user (Q)
 - breakdown the task in steps (GPT 4 might be better suited to incorporate more aspects of complex instructions,
         GPT3.5 might just do 1 of the tasks rather than all)
