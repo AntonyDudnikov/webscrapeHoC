@@ -187,7 +187,6 @@ if __name__ == '__main__':
     all_files_copy = pd.read_json("storage/final_loaded.json")
     #bool to turn on/off the console control
     stay_on = True
-  
 
     release_dates = []
     titles = []
@@ -445,7 +444,8 @@ if __name__ == '__main__':
         columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'quotes', 'institution',
                  "file_1", "file_2", "file_advisor_1", "file_advisor_2", "news_bool"]
     )
-    df_extended['policy_rev'] = False
+    df_extended['policy_rev'] = 0.0
+    df_extended['comments'] = ""
     
     print(f"loaded dataframe: {df_extended.shape}")
     print(f"data lake pre entry: {all_files_copy.shape}")
