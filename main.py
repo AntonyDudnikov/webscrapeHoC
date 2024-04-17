@@ -2,7 +2,7 @@
 from selenium.webdriver.chrome.service import Service
 from processing import gpt_processing
 from selenium import webdriver
-from classes import statcan, rbc, pbo, boc, source
+from classes import statcan, rbc, pbo, boc, source, globe_mail
 from monitoring import statscan_mon, boc_mon
 import pandas as pd
 from gmail import send_email
@@ -10,6 +10,8 @@ import tabula
 import pprint
 import datetime
 from storage import load_storage
+import os
+from dotenv import load_dotenv
 
 #TODO: check if this block is really necessary
 """
@@ -179,11 +181,12 @@ if __name__ == '__main__':
     #service = Service(executable_path="C:\Program Files (x86)\chrome")
     service = Service(executable_path="C:\Program Files (x86)\chromedriver.exe")
     options= webdriver.ChromeOptions()
-    options.add_argument('headless')
+    #options.add_argument('headless')
     driver = webdriver.Chrome(service=service, options=options)
 
     #load temporary database
-    load_storage.load_storage()
+    #TODO remove this comment
+    #load_storage.load_storage()
     all_files_copy = pd.read_json("storage/final_loaded.json")
     #bool to turn on/off the console control
     stay_on = True
@@ -199,6 +202,7 @@ if __name__ == '__main__':
     institutions = []
     news = []
     quotes = []
+    inputs = []
 
 
     """
@@ -207,6 +211,9 @@ if __name__ == '__main__':
     - if its not scraped, then it's just manually added with no scraping
     - info is added into corresponding lists that are zipped at the end of commands and added to the temp database
     """
+    #driver.get("https://www.theglobeandmail.com/")
+    test = globe_mail.GlobeMail("https://www.theglobeandmail.com/investing/personal-finance/household-finances/article-seven-ways-the-2024-federal-budget-affects-your-finances-from-selling/", "17/04/2024", driver)
+    test.globe_scrape()
 
     while stay_on:
         manual = input("What do you wish to do? [manual, automatic, email, exit] \n")
@@ -227,6 +234,7 @@ if __name__ == '__main__':
                         dates_retrieved.append(statcan_report.output['date_retrieved'])
                         institutions.append('Statistics Canada')
                         summaries.append(gpt_processing.summary_processing(statcan_report.output, False))
+                        inputs.append(gpt_processing.print_result(statcan_report.output))
                         file_allocation(gpt_processing.classify_file(statcan_report.output['title']))
                         news.append(False)
                         quotes.append(gpt_processing.quote_identifier(statcan_report.output, False))
@@ -241,12 +249,14 @@ if __name__ == '__main__':
                         summary_q = input("Do you want an automatic summary? [yes, no] \n")
                         if (summary_q == 'yes' or summary_q == 'no') and summary_q == 'yes':
                             summaries.append(gpt_processing.summary_processing(statcan_report.output, False))
+                            inputs.append(gpt_processing.print_result(statcan_report.output))
                             pass
                         elif (summary_q == 'yes' or summary_q == 'no') and summary_q == 'no':
                             test = input('Do you want a section specific summary? [yes, no] \n')
                             if (test == 'yes' or test == 'no') and test == 'yes':
                                 input = input("Please insert the section of text that you want summarised. \n")
                                 summaries.append(gpt_processing.summary_processing(input, manual=True))
+                                inputs.append(input)
                             elif (test == 'yes' or test == 'no') and test == 'no':
                                 summaries.append("NO SUMMARY")
                                 pass
@@ -271,6 +281,7 @@ if __name__ == '__main__':
                     dates_retrieved.append(pbo_report.output['date_retrieved'])
                     institutions.append('Parliamentary Budget Office')
                     summaries.append(pbo_report.output['highlights'] if report_type == 'report' else gpt_processing.summary_processing(pbo_report.output, manual=False))
+                    inputs.append(pbo_report.output["highlights"] if report_type == 'report' else gpt_processing.print_result(pbo_report.output))
                     file_allocation(gpt_processing.classify_file(pbo_report.output['title']))
                     news.append(False)
                     quotes.append('No Quotes')
@@ -296,6 +307,7 @@ if __name__ == '__main__':
                         dates_retrieved.append(rbc_report.output['date_retrieved'])
                         institutions.append('RBC')
                         summaries.append(gpt_processing.summary_processing(rbc_report.output, False))
+                        inputs.append(gpt_processing.print_result(rbc_report.output))
                         quotes.append(gpt_processing.quote_identifier(rbc_report.output, False))
                         file_allocation(gpt_processing.classify_file(rbc_report.output['title']))
                         news.append(False)
@@ -307,6 +319,7 @@ if __name__ == '__main__':
                         dates_retrieved.append(rbc_report.output['date_retrieved'])
                         institutions.append('RBC')
                         summaries.append(gpt_processing.summary_processing(rbc_report.output, False))
+                        inputs.append(gpt_processing.print_result(rbc_report.output))
                         quotes.append(gpt_processing.quote_identifier(rbc_report.output, False))
                         file_allocation(gpt_processing.classify_file(rbc_report.output['title']))
                         news.append(False)
@@ -326,6 +339,7 @@ if __name__ == '__main__':
                     dates_retrieved.append(boc_report.output['date_retrieved'])
                     institutions.append('Bank of Canada')
                     summaries.append(gpt_processing.summary_processing(boc_report.output, False))
+                    inputs.append(gpt_processing.print_result(boc_report.output))
                     quotes.append(gpt_processing.quote_identifier(boc_report.output, False))
                     file_allocation(gpt_processing.classify_file(boc_report.output['title']))
                     news.append(False)
@@ -341,6 +355,7 @@ if __name__ == '__main__':
                         dates_retrieved.append(datetime.date.today().strftime("%d/%m/%Y"))
                         institutions.append('Bank of Canada')
                         summaries.append(gpt_processing.summary_processing(content, True))
+                        inputs.append(content)
                         quotes.append(input("Are there any 'headline' quotes in this release? \n *place each quote in quotations and seperated by a dash, or just say 'No quotes'*"))
                         file_allocation(gpt_processing.classify_file(title))
                         news.append(False)
@@ -374,6 +389,7 @@ if __name__ == '__main__':
                         institutions.append(institution)
                         quotes.append(input("Are there any 'headline' quotes in this release? \n *place each quote in quotations and seperated by a dash, or just say 'No quotes'*"))
                         summaries.append(gpt_processing.summary_processing(content, True))
+                        inputs.append(content)
                         file_allocation(gpt_processing.classify_file(title))
                         news.append(news_q == "yes")
                         print_lists()
@@ -384,6 +400,7 @@ if __name__ == '__main__':
                         dates_retrieved.append(datetime.date.today().strftime("%d/%m/%Y"))
                         institutions.append(institution)
                         summaries.append('NO SUMMARY')
+                        inputs.append("No content provided")
                         quotes.append(input("Are there any 'headline' quotes in this release? \n *place each quote in quotations and seperated by a dash, or just say 'No quotes'* \n"))
                         file_allocation(gpt_processing.classify_file(title))
                         news.append(news == "yes")
@@ -393,12 +410,13 @@ if __name__ == '__main__':
         elif manual == 'automatic':
             scrape_type = input('Which source do you want to scrape? \n[StatsCan, BoC] \n')
             if scrape_type == 'StatsCan':
-                temp_titles, temp_release_dates, temp_urls, temp_dates_retrieved, temp_summary, temp_files, temp_institution, temp_quotes = statscan_mon.statcan_monitor(all_files_copy, driver)
+                temp_titles, temp_release_dates, temp_urls, temp_dates_retrieved, temp_summary, temp_files, temp_institution, temp_quotes, temp_inputs = statscan_mon.statcan_monitor(all_files_copy, driver)
                 titles.extend(temp_titles)
                 release_dates.extend(temp_release_dates)
                 urls.extend(temp_urls)
                 dates_retrieved.extend(temp_dates_retrieved)
                 quotes.extend(temp_quotes)
+                inputs.extend(temp_inputs)
                 for x in range(len(temp_urls)):
                     news.append(False)
                 summaries.extend(temp_summary)
@@ -440,12 +458,13 @@ if __name__ == '__main__':
     print_lists()
     df_extended = pd.DataFrame(
         zip(release_dates, titles, urls, dates_retrieved, summaries, quotes, institutions,
-            release_files[0], release_files[1], advisors[0], advisors[1], news),
+            release_files[0], release_files[1], advisors[0], advisors[1], news, inputs),
         columns=["release_date", 'title', 'url', 'date_retrieved', 'summary', 'quotes', 'institution',
-                 "file_1", "file_2", "file_advisor_1", "file_advisor_2", "news_bool"]
+                 "file_1", "file_2", "file_advisor_1", "file_advisor_2", "news_bool", "input"]
     )
     df_extended['policy_rev'] = 0.0
     df_extended['comments'] = ""
+    df_extended['email_summary'] = False
     
     print(f"loaded dataframe: {df_extended.shape}")
     print(f"data lake pre entry: {all_files_copy.shape}")
@@ -453,7 +472,8 @@ if __name__ == '__main__':
     print(f"concatenated: {all_files_copy.shape}") 
     all_files_copy.to_csv('storage/final_loaded.csv', encoding='utf-8', index=False)
     all_files_copy.to_json('storage/final_loaded.json', 'records', indent=2)
-    load_storage.upload_storage()
+    #load_storage.upload_storage()
+    #TODO remove this comment
     driver.quit()
 
 """

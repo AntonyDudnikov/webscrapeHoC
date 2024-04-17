@@ -26,7 +26,7 @@ supplied with the triple quotation delimiter.
 
 system_prompt2 = """You are a policy analyst tasked with summarising Statistics Canada reports
     supplied with the triple quotation delimiter. Follow these instructions:
-    1. Include a 100 word max summary headed by 'Summary'
+    1. Include a 150 word max summary headed by 'Summary'
     2. For each heading including the introduction, output the heading and
         list each variable mentioned in that section.
     3. Under each variable mentioned, further indent, and list the changes and values of 

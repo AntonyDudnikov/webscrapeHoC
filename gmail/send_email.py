@@ -2,6 +2,7 @@ from email.mime.multipart import MIMEMultipart
 from email.message import EmailMessage
 from email.mime.text import MIMEText
 from dotenv import load_dotenv
+import dotenv
 import pandas as pd
 import datetime
 import smtplib
@@ -119,6 +120,8 @@ def advisor_send(files):
     """
     #get today's releases from dataframe
     todays_df = files[files["date_retrieved"] == datetime.date.today().strftime("%d/%m/%Y")]
+    if len(todays_df) == 0:
+        todays_df = files[files["date_retrieved"] == datetime.date.today().strftime("%Y-%m-%d")]
 
     if len(todays_df) > 0:
         #loop through advisors
@@ -133,6 +136,8 @@ def advisor_send(files):
 if __name__ == "__main__":
     all_files_copy = pd.read_csv("storage/final_loaded.csv")
     advisor_send(all_files_copy)
+
+
     
 
                 
