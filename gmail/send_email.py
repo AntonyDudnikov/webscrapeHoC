@@ -70,7 +70,7 @@ def _email_creation(todays_df, advisor):
         email_content += '</ul><h3>Summaries of releases</h3><ul>'
         for x in range(len(current_advisor_df)): #add release summaries
             email_content += f"""<li><span style="text-decoration: underline;">{current_advisor_df['title'][x]}</span><ul><li>{_extract_summary(current_advisor_df['summary'][x])}</li></ul></li>"""
-        email_content += """</ul><p>Send a request to antony.dudnikov@parl.gc.ca for a summary regarding any of these releases.</p> <p>Have a great day!</p>"""
+        email_content += """</ul><p>Please refer to the database application to read more about these releases.</p> <p>Have a great day!</p>"""
         message = MIMEMultipart('alternative')
         message['Subject'] = f"Summary: Recent inclusions to database related to your file"
         message['From'] = EMAIL
@@ -127,6 +127,29 @@ def advisor_send(files):
         #loop through advisors
         for key in advisor_details:
             _email_creation(todays_df, key)
+
+        #DAVID specific email send
+        email_content = f"""<p>Good Morning David!</p><p>Today these reports, articles and news releases were included into the database:</p><h3>Releases</h3><ul>
+        """
+        for x in range(len(todays_df)): #add releases and hyperlink
+            email_content += f"<li>{todays_df['institution'][x]} - <strong><a href={todays_df['url'][x]}>{todays_df['title'][x]}</a></strong></li>"
+        email_content += '</ul><h3>Summaries of releases</h3><ul>'
+        for x in range(len(todays_df)): #add release summaries
+            email_content += f"""<li><strong>{todays_df['title'][x]}</strong><ul><li>{_extract_summary(todays_df['summary'][x])}</li></ul></li>"""
+        email_content += """</ul><p>Please refer to the database application to read more about these releases.</p> <p>Have a great day!</p>"""
+        message = MIMEMultipart('alternative')
+        message['Subject'] = f"Summary: Recent inclusions to database related to your file"
+        message['From'] = EMAIL
+        #change to receiver 
+        #message["To"] = advisor_details["David"]['email']
+        message["To"] = advisor_details["David"]['email']
+        part2 = MIMEText(email_content, 'html')
+        message.attach(part2)
+        context = ssl.create_default_context()
+        #send email
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context= context) as smtp:
+            smtp.login(EMAIL, PASSWORD)
+            smtp.sendmail(EMAIL, advisor_details["David"]['email'], message.as_string())
     else:
         print("Nothing to send!")
            

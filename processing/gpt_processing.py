@@ -80,7 +80,7 @@ classifying_prompt = """You are given a title of a report and you must classify 
     - "Justice and Attorney General of Canada"
     - "Mental Health and Suicide Prevention"
     - "Addictions"
-    - "Northern Affairs and Artic Sovereignty; Canadian Northern Economic Development Agency"
+    - "Northern Affairs and Artic Sovereignty, Canadian Northern Economic Development Agency"
     - "Prairie Economic Development (Advisor to the Leader, Economy)"
     - "Pacific Economic Development"
     - "Sport, Economic Development Agency of Canada for the Regions of Quebec"

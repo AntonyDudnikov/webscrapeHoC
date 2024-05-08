@@ -140,6 +140,7 @@ file_advisors = {
 }
 
 def file_allocation(list_files:list):
+    print(list_files)
     for x in range(len(list_files)):
         release_files[x].append(list_files[x].lstrip().rstrip())
         inclusion = False
@@ -181,12 +182,12 @@ if __name__ == '__main__':
     #service = Service(executable_path="C:\Program Files (x86)\chrome")
     service = Service(executable_path="C:\Program Files (x86)\chromedriver.exe")
     options= webdriver.ChromeOptions()
-    #options.add_argument('headless')
+    options.add_argument('headless')
     driver = webdriver.Chrome(service=service, options=options)
 
     #load temporary database
     #TODO remove this comment
-    #load_storage.load_storage()
+    load_storage.load_storage()
     all_files_copy = pd.read_json("storage/final_loaded.json")
     #bool to turn on/off the console control
     stay_on = True
@@ -196,13 +197,21 @@ if __name__ == '__main__':
     urls = []
     dates_retrieved = []
     summaries = []
-    gpt_outputs = []
     release_files = [[], []]
     advisors = [[],[]]
     institutions = []
     news = []
     quotes = []
     inputs = []
+
+    #print(all_files_copy.shape)
+    #all_files_copy = all_files_copy[all_files_copy['title'] != "Cash-strapped consumers show signs of thawing out in Q1"]
+    #print(all_files_copy.shape)
+    #subscribers only
+    #test_globe = globe_mail.GlobeMail("https://www.theglobeandmail.com/business/article-can-floating-nuclear-power-plants-help-solve-northern-canadas-energy/", "01/05/2024", driver, True)
+    #test_globe.globe_scrape()
+    #test_globe2 = globe_mail.GlobeMail("https://www.theglobeandmail.com/canada/article-toronto-school-cellphone-pledge/", "01/05/2024", driver, False)
+    #test_globe2.globe_scrape()
 
 
     """
@@ -211,14 +220,11 @@ if __name__ == '__main__':
     - if its not scraped, then it's just manually added with no scraping
     - info is added into corresponding lists that are zipped at the end of commands and added to the temp database
     """
-    #driver.get("https://www.theglobeandmail.com/")
-    test = globe_mail.GlobeMail("https://www.theglobeandmail.com/investing/personal-finance/household-finances/article-seven-ways-the-2024-federal-budget-affects-your-finances-from-selling/", "17/04/2024", driver)
-    test.globe_scrape()
 
     while stay_on:
         manual = input("What do you wish to do? [manual, automatic, email, exit] \n")
         if manual == 'manual':
-            release_type = input("Is it a StatsCan, BoC, PBO, RBC or other? [type answer as written in the question] \n")
+            release_type = input("Is it:\n- StatsCan\n- BoC\n- PBO\n- RBC\n- The Globe\n- other?\n- [type answer as written in the question] \n")
             if release_type == "StatsCan":
                 url = input("What is the url? \n")
                 url = url.replace('/n1', '')
@@ -234,7 +240,7 @@ if __name__ == '__main__':
                         dates_retrieved.append(statcan_report.output['date_retrieved'])
                         institutions.append('Statistics Canada')
                         summaries.append(gpt_processing.summary_processing(statcan_report.output, False))
-                        inputs.append(gpt_processing.print_result(statcan_report.output))
+                        inputs.append("Please click on the image to be redirected to the source.")
                         file_allocation(gpt_processing.classify_file(statcan_report.output['title']))
                         news.append(False)
                         quotes.append(gpt_processing.quote_identifier(statcan_report.output, False))
@@ -249,14 +255,14 @@ if __name__ == '__main__':
                         summary_q = input("Do you want an automatic summary? [yes, no] \n")
                         if (summary_q == 'yes' or summary_q == 'no') and summary_q == 'yes':
                             summaries.append(gpt_processing.summary_processing(statcan_report.output, False))
-                            inputs.append(gpt_processing.print_result(statcan_report.output))
+                            inputs.append("Please click on the image to be redirected to the source.")
                             pass
                         elif (summary_q == 'yes' or summary_q == 'no') and summary_q == 'no':
                             test = input('Do you want a section specific summary? [yes, no] \n')
                             if (test == 'yes' or test == 'no') and test == 'yes':
                                 input = input("Please insert the section of text that you want summarised. \n")
                                 summaries.append(gpt_processing.summary_processing(input, manual=True))
-                                inputs.append(input)
+                                inputs.append("Please click on the image to be redirected to the source.")
                             elif (test == 'yes' or test == 'no') and test == 'no':
                                 summaries.append("NO SUMMARY")
                                 pass
@@ -279,9 +285,9 @@ if __name__ == '__main__':
                     titles.append(title_report)
                     urls.append(url)
                     dates_retrieved.append(pbo_report.output['date_retrieved'])
-                    institutions.append('Parliamentary Budget Office')
-                    summaries.append(pbo_report.output['highlights'] if report_type == 'report' else gpt_processing.summary_processing(pbo_report.output, manual=False))
-                    inputs.append(pbo_report.output["highlights"] if report_type == 'report' else gpt_processing.print_result(pbo_report.output))
+                    institutions.append('PBO')
+                    summaries.append(pbo_report.output['content'] if report_type == 'report' else gpt_processing.summary_processing(pbo_report.output, manual=False))
+                    inputs.append(pbo_report.output["content"] if report_type == 'report' else gpt_processing.print_result(pbo_report.output))
                     file_allocation(gpt_processing.classify_file(pbo_report.output['title']))
                     news.append(False)
                     quotes.append('No Quotes')
@@ -295,7 +301,7 @@ if __name__ == '__main__':
             elif release_type == 'RBC':
                 url = input("What is the url? \n")
                 title_q = input("What is the title? \n")
-                if url not in all_files_copy['url'].values and title_q not in all_files_copy['title'].values:
+                if url not in all_files_copy['url'].values or title_q not in all_files_copy['title'].values:
                     release_date = input("What is the release date? Write in this format, dd/mm/YYYY \n")
                     email = input('What format is this RBC release? [email, website] \n')
                     rbc_report = rbc.Rbc(url=url, email= email, release_date=release_date, driver=driver)
@@ -329,7 +335,7 @@ if __name__ == '__main__':
             elif release_type == 'BoC':
                 report_type = input("What BoC type of release is this? [Summary of deliberations, Quarterly Financial Report, other] \n")
                 url = input("What is the url? \n")
-                release_date = input("What is the release date? Write in this format, dd/mm/YYYY \n")
+                release_date = input("c")
                 if url not in all_files_copy['url'].values and (report_type == 'Summary of deliberations' or report_type == 'Quarterly Financial Report'):
                     boc_report = boc.Boc(url, report_type, release_date, driver)
                     boc_report.boc_scrape()
@@ -362,12 +368,32 @@ if __name__ == '__main__':
                         print_lists()
                     else:
                         print('This release already exists in the database.\n')
+            elif release_type == "The Globe":
+                url = input('What is the url?\n')
+                if url not in all_files_copy['url'].values:
+                    release_date = input("What is the release date? Write in this format, dd/mm/YYYY \n")
+                    globe = globe_mail.GlobeMail(url, release_date, driver, "The Globe and Mail" in institutions) 
+                    #to validate if its the first submission so as to not run the login procedure again
+                    globe.globe_scrape()
+                    titles.append(globe.output['title'])
+                    release_dates.append(release_date)
+                    urls.append(url)
+                    dates_retrieved.append(globe.output['date_retrieved'])
+                    summaries.append(gpt_processing.summary_processing(globe.output['content'],True))
+                    file_allocation(gpt_processing.classify_file(globe.output['title']))
+                    news.append(True)
+                    quotes.append(gpt_processing.quote_identifier(globe.output['content'], True))
+                    inputs.append(globe.output['content'])
+                    institutions.append("The Globe and Mail")
+                    print_lists()
+                else:
+                    print("Already inputted.\n")
 
             elif release_type == 'other':
                 url = input('What is the url of the release? \n')
                 news_q = input("Is this a news article? [yes, no]\n")
-                if url not in all_files_copy['url'].values and (news_q == 'yes' or news_q == 'no'):
-                    title = input('What is the title of the release? \n')
+                title_q = input('What is the title of the release? \n')
+                if url not in all_files_copy['url'].values and (news_q == 'yes' or news_q == 'no') or title_q not in all_files_copy['title'].values:
                     release_date = input("What is the release date? Write in this format, dd/mm/YYYY \n")
                     institution = input('What is the institution name? \n')
                     content_bool = input("Do you wish to include a summary of the release? [yes, no] \n")
@@ -383,26 +409,26 @@ if __name__ == '__main__':
                                 print('Please try again.')
                                 content_grab = True
                         release_dates.append(release_date)
-                        titles.append(title)
+                        titles.append(title_q)
                         urls.append(url)
                         dates_retrieved.append(datetime.date.today().strftime("%d/%m/%Y"))
                         institutions.append(institution)
                         quotes.append(input("Are there any 'headline' quotes in this release? \n *place each quote in quotations and seperated by a dash, or just say 'No quotes'*"))
                         summaries.append(gpt_processing.summary_processing(content, True))
                         inputs.append(content)
-                        file_allocation(gpt_processing.classify_file(title))
+                        file_allocation(gpt_processing.classify_file(title_q))
                         news.append(news_q == "yes")
                         print_lists()
                     elif content_bool == 'no':
                         release_dates.append(release_date)
-                        titles.append(title)
+                        titles.append(title_q)
                         urls.append(url)
                         dates_retrieved.append(datetime.date.today().strftime("%d/%m/%Y"))
                         institutions.append(institution)
                         summaries.append('NO SUMMARY')
                         inputs.append("No content provided")
                         quotes.append(input("Are there any 'headline' quotes in this release? \n *place each quote in quotations and seperated by a dash, or just say 'No quotes'* \n"))
-                        file_allocation(gpt_processing.classify_file(title))
+                        file_allocation(gpt_processing.classify_file(title_q))
                         news.append(news == "yes")
                         print_lists()
                 else:
@@ -465,6 +491,7 @@ if __name__ == '__main__':
     df_extended['policy_rev'] = 0.0
     df_extended['comments'] = ""
     df_extended['email_summary'] = False
+    df_extended['brief'] = False
     
     print(f"loaded dataframe: {df_extended.shape}")
     print(f"data lake pre entry: {all_files_copy.shape}")
@@ -472,7 +499,7 @@ if __name__ == '__main__':
     print(f"concatenated: {all_files_copy.shape}") 
     all_files_copy.to_csv('storage/final_loaded.csv', encoding='utf-8', index=False)
     all_files_copy.to_json('storage/final_loaded.json', 'records', indent=2)
-    #load_storage.upload_storage()
+    load_storage.upload_storage()
     #TODO remove this comment
     driver.quit()
 
