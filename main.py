@@ -204,15 +204,6 @@ if __name__ == '__main__':
     quotes = []
     inputs = []
 
-    #print(all_files_copy.shape)
-    #all_files_copy = all_files_copy[all_files_copy['title'] != "Cash-strapped consumers show signs of thawing out in Q1"]
-    #print(all_files_copy.shape)
-    #subscribers only
-    #test_globe = globe_mail.GlobeMail("https://www.theglobeandmail.com/business/article-can-floating-nuclear-power-plants-help-solve-northern-canadas-energy/", "01/05/2024", driver, True)
-    #test_globe.globe_scrape()
-    #test_globe2 = globe_mail.GlobeMail("https://www.theglobeandmail.com/canada/article-toronto-school-cellphone-pledge/", "01/05/2024", driver, False)
-    #test_globe2.globe_scrape()
-
 
     """
     How it works:
@@ -240,7 +231,7 @@ if __name__ == '__main__':
                         dates_retrieved.append(statcan_report.output['date_retrieved'])
                         institutions.append('Statistics Canada')
                         summaries.append(gpt_processing.summary_processing(statcan_report.output, False))
-                        inputs.append("Please click on the image to be redirected to the source.")
+                        inputs.append("Please click the image to be redirected to the source.")
                         file_allocation(gpt_processing.classify_file(statcan_report.output['title']))
                         news.append(False)
                         quotes.append(gpt_processing.quote_identifier(statcan_report.output, False))
@@ -501,6 +492,8 @@ if __name__ == '__main__':
     all_files_copy.to_json('storage/final_loaded.json', 'records', indent=2)
     load_storage.upload_storage()
     #TODO remove this comment
+
+
     driver.quit()
 
 """

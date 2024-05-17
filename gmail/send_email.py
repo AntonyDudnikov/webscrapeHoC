@@ -6,6 +6,7 @@ import dotenv
 import pandas as pd
 import datetime
 import smtplib
+import random
 import ssl
 import os
 import re
@@ -16,6 +17,28 @@ EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv('APP_PASSWORD')
 email_receiver = 'antony.dudnikov@parl.gc.ca'
 
+poilievre_quotes = ["Society is not a zero-sum game. One person's gain does not have to come at the expense of another's loss.", 
+                    "Success is not about how much money you make, but about how many lives you touch positively.",
+                    "Change is the law of life. Those who only look to the past or present are certain to miss the future.",
+                    "A true leader is not afraid to take risks and make tough decisions.",
+                    "Don't be afraid of failure. It is through failures that we learn and grow.",
+                    "Strong individuals build strong communities.",
+                    "Education is the most powerful weapon we can use to change the world.",
+                    "The measure of a society is how it treats its most vulnerable members.",
+                    "Great opportunities are often disguised as challenging situations.",
+                    "Persistence and hard work are the foundation of success.",
+                    "Focus on your strengths, not your weaknesses. Capitalize on what you're good at.",
+                    "Leadership is not about power, but about influencing others to create positive change.",
+                    "The pursuit of knowledge should be a lifelong journey.",
+                    "The root cause of terrorism is terrorists.",
+                    "Any politician promising not to raise your taxes is like a vampire promising to become a vegetarian.",
+                    "The tax on capital gains in Canada is twice as high as in communist China and we wonder why our ideas are being held back.",
+                    "We believe that the real child-care experts are mom and dad. That's why we brought in the universal child care benefit way back in 2006.",
+                    "It's clear Justin Trudeau has something to hide.",
+                    "My dreams of NHL glory were never fulfilled so I had to settle for politics instead.",
+                    "wacko policy... wacko prime minister"]
+
+full_email_recipients = {'David' : "david.murray@parl.gc.ca", "Jwane": "jwane.izzetpanah@parl.gc.ca"}
 
 advisor_details = {
     'Connor':{
@@ -53,10 +76,13 @@ advisor_details = {
 }
 
 def _extract_summary(html)->str:
-    pattern = re.compile(r'<p>(.*?)</p>', re.DOTALL)
-    match = re.search(pattern, html)
-    if match:
-        return match.group(1)
+    try:
+        pattern = re.compile(r'<p>(.*?)</p>', re.DOTALL)
+        match = re.search(pattern, html)
+        if match:
+            return match.group(1)
+    except TypeError:
+        return "Error extracting summary, visit the app to read more about this release. "
     
 
 def _email_creation(todays_df, advisor):
@@ -70,7 +96,7 @@ def _email_creation(todays_df, advisor):
         email_content += '</ul><h3>Summaries of releases</h3><ul>'
         for x in range(len(current_advisor_df)): #add release summaries
             email_content += f"""<li><span style="text-decoration: underline;">{current_advisor_df['title'][x]}</span><ul><li>{_extract_summary(current_advisor_df['summary'][x])}</li></ul></li>"""
-        email_content += """</ul><p>Please refer to the database application to read more about these releases.</p> <p>Have a great day!</p>"""
+        email_content += f"""</ul><p>Please refer to the database application to read more about these releases.</p><p>Here is your Pierre quote of the day: "{random.choice(poilievre_quotes)}"<br><p>Have a great day!</p>"""
         message = MIMEMultipart('alternative')
         message['Subject'] = f"Summary: Recent inclusions to database related to your file"
         message['From'] = EMAIL
@@ -126,30 +152,35 @@ def advisor_send(files):
     if len(todays_df) > 0:
         #loop through advisors
         for key in advisor_details:
-            _email_creation(todays_df, key)
+            if key != "David":
+                _email_creation(todays_df, key)
 
         #DAVID specific email send
-        email_content = f"""<p>Good Morning David!</p><p>Today these reports, articles and news releases were included into the database:</p><h3>Releases</h3><ul>
-        """
-        for x in range(len(todays_df)): #add releases and hyperlink
-            email_content += f"<li>{todays_df['institution'][x]} - <strong><a href={todays_df['url'][x]}>{todays_df['title'][x]}</a></strong></li>"
-        email_content += '</ul><h3>Summaries of releases</h3><ul>'
-        for x in range(len(todays_df)): #add release summaries
-            email_content += f"""<li><strong>{todays_df['title'][x]}</strong><ul><li>{_extract_summary(todays_df['summary'][x])}</li></ul></li>"""
-        email_content += """</ul><p>Please refer to the database application to read more about these releases.</p> <p>Have a great day!</p>"""
-        message = MIMEMultipart('alternative')
-        message['Subject'] = f"Summary: Recent inclusions to database related to your file"
-        message['From'] = EMAIL
-        #change to receiver 
-        #message["To"] = advisor_details["David"]['email']
-        message["To"] = advisor_details["David"]['email']
-        part2 = MIMEText(email_content, 'html')
-        message.attach(part2)
-        context = ssl.create_default_context()
-        #send email
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context= context) as smtp:
-            smtp.login(EMAIL, PASSWORD)
-            smtp.sendmail(EMAIL, advisor_details["David"]['email'], message.as_string())
+        for key in full_email_recipients:
+
+            email_content = f"""<p>Good Morning {key}!</p><p>Today these reports, articles and news releases were included into the database:</p><h3>Releases</h3><ul>
+            """
+            for x in range(len(todays_df)): #add releases and hyperlink
+                email_content += f"<li>{todays_df['institution'][x]} - <strong><a href={todays_df['url'][x]}>{todays_df['title'][x]}</a></strong></li>"
+            email_content += '</ul><h3>Summaries of releases</h3><ul>'
+            for x in range(len(todays_df)): #add release summaries
+                email_content += f"""<li><strong>{todays_df['title'][x]}</strong><ul><li>{_extract_summary(todays_df['summary'][x])}</li></ul></li>"""
+            email_content += f"""</ul> <p>Please refer to the database application to read more about these releases.</p> <p>Here is your Pierre quote of the day: "{random.choice(poilievre_quotes)}"<br></p> <p>Have a great day!</p>"""
+            message = MIMEMultipart('alternative')
+            message['Subject'] = f"Summary: Recent inclusions to database"
+            message['From'] = EMAIL
+            #change to receiver 
+            #message["To"] = "antony.dudnikov@parl.gc.ca"
+            message["To"] = full_email_recipients[key]
+            part2 = MIMEText(email_content, 'html')
+            message.attach(part2)
+            context = ssl.create_default_context()
+            #send email
+            with smtplib.SMTP_SSL('smtp.gmail.com', 465, context= context) as smtp:
+                smtp.login(EMAIL, PASSWORD)
+                smtp.sendmail(EMAIL, full_email_recipients[key], message.as_string())
+                #smtp.sendmail(EMAIL, "antony.dudnikov@parl.gc.ca", message.as_string())
+            print(f"FULL EMAIL SENT TO {key}")
     else:
         print("Nothing to send!")
            
