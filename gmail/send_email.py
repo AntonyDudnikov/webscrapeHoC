@@ -38,7 +38,12 @@ poilievre_quotes = ["Society is not a zero-sum game. One person's gain does not 
                     "My dreams of NHL glory were never fulfilled so I had to settle for politics instead.",
                     "wacko policy... wacko prime minister"]
 
-full_email_recipients = {'David' : "david.murray@parl.gc.ca", "Jwane": "jwane.izzetpanah@parl.gc.ca"}
+full_email_recipients = {'David' : "david.murray@parl.gc.ca", 
+                         "Jwane": "jwane.izzetpanah@parl.gc.ca", 
+                         "Micah": "micah.green@parl.gc.ca", 
+                         "Roman": "Roman.Chelyuk@parl.gc.ca",
+                         "Ben": "Ben.Woodfinden@parl.gc.ca",
+                         "Brian": "Brian.Bateson@parl.gc.ca"}
 
 advisor_details = {
     'Connor':{
@@ -145,9 +150,9 @@ def advisor_send(files):
         4. send email
     """
     #get today's releases from dataframe
-    todays_df = files[files["date_retrieved"] == datetime.date.today().strftime("%d/%m/%Y")]
-    if len(todays_df) == 0:
-        todays_df = files[files["date_retrieved"] == datetime.date.today().strftime("%Y-%m-%d")]
+    todays_df = files[files["date_retrieved"] == datetime.date.today().strftime("%d/%m/%Y")].reset_index(drop=True)
+    todays_df_extended = files[files["date_retrieved"] == datetime.date.today().strftime("%Y-%m-%d")].reset_index(drop=True)
+    todays_df = pd.concat([todays_df, todays_df_extended], ignore_index=True)   
 
     if len(todays_df) > 0:
         #loop through advisors
@@ -188,8 +193,12 @@ def advisor_send(files):
 
 
 if __name__ == "__main__":
-    all_files_copy = pd.read_csv("storage/final_loaded.csv")
-    advisor_send(all_files_copy)
+    all_files_copy = pd.read_json("storage/final_loaded.json")
+    #all_files_copy = pd.read_csv("storage/final_loaded.csv")
+    todays_df = all_files_copy[all_files_copy["date_retrieved"] == datetime.date.today().strftime("%d/%m/%Y")].reset_index(drop=True)
+    todays_df_extended = all_files_copy[all_files_copy["date_retrieved"] == datetime.date.today().strftime("%Y-%m-%d")].reset_index(drop=True)
+    todays_df = pd.concat([todays_df, todays_df_extended], ignore_index=True)
+    print(todays_df)
 
 
     

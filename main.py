@@ -182,7 +182,7 @@ if __name__ == '__main__':
     #service = Service(executable_path="C:\Program Files (x86)\chrome")
     service = Service(executable_path="C:\Program Files (x86)\chromedriver.exe")
     options= webdriver.ChromeOptions()
-    options.add_argument('headless')
+    #options.add_argument('headless')
     driver = webdriver.Chrome(service=service, options=options)
 
     #load temporary database

@@ -13,6 +13,7 @@ import time
 import re
 import os
 
+
 class GlobeMail(Source):
 
     def __init__(self, url: str, release_date: str, driver: webdriver, first:bool) -> None:
@@ -52,86 +53,33 @@ class GlobeMail(Source):
     def globe_scrape(self):
         self.driver.get(self.output['url'])
 
-        # if self.first:
-        #     login = WebDriverWait(self.driver, 30).until(
-        #         EC.presence_of_element_located((By.XPATH, "//div[@id='flashsale-paywall']/div/p[3]/a"))
-        #     )
-        #     login = self.driver.find_element(By.XPATH, "//div[@id='flashsale-paywall']/div/p[3]/a")
-        #     login.click()
-        #     load_dotenv()
-        #     email = WebDriverWait(self.driver, 5).until(
-        #         EC.presence_of_element_located((By.XPATH, "//input[@id='inputEmail']"))
-        #     )
-        #     email = self.driver.find_element(By.XPATH, "//input[@id='inputEmail']")
-        #     email.send_keys(os.getenv('GLOBE_EMAIL'))
-        #     #self.driver.find_element(By.XPATH, "//input[@id='inputEmail']").send_keys(os.getenv('GLOBE_EMAIL'))
-        #     self.driver.find_element(By.XPATH, "//input[@id='inputPassword']").send_keys(os.getenv("GLOBE_PASSWORD"))
-        #     self.driver.find_element(By.XPATH, "//*[@id='app']/div[2]/div/div/span/form/button").click()
-
-        """
-        //*[@id="main-content"]/div[1]/div
-        //*[@id='skip-link-target']/h1
-
-        use a try-except function to get access to the content, if it except, then login and continue
-        """
-        time.sleep(2)
-        try:
+        if self.first:
+            self.driver.get("https://sec.theglobeandmail.com/user/login?intcmp=site-header")
+            WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located((By.XPATH, "//input[@id='inputEmail']"))
+            )
+            self.driver.find_element(By.XPATH, "//input[@id='inputEmail']").send_keys(os.getenv('GLOBE_EMAIL'))
+            self.driver.find_element(By.XPATH, "//input[@id='inputPassword']").send_keys(os.getenv("GLOBE_PASSWORD"))
+            self.driver.find_element(By.XPATH, "//*[@id='app']/div/div/div/span/form/button").click()
+            # WebDriverWait(self.driver, 10).until(
+            #     EC.presence_of_element_located((By.XPATH, "//*[@id='skip-link-target']/h1"))
+            # )
+            time.sleep(5)
             self._grab_content()
-        except NoSuchElementException:
-            try:
-                login = WebDriverWait(self.driver, 5).until(
-                    EC.presence_of_element_located((By.XPATH, "//*[@id='primary-paywall']/div[3]/p[3]/a"))
-                )
-                login = self.driver.find_element(By.XPATH, "//*[@id='primary-paywall']/div[3]/p[3]/a")
-                login.click()
-                load_dotenv()
-                email = WebDriverWait(self.driver, 5).until(
-                    EC.presence_of_element_located((By.XPATH, "//input[@id='inputEmail']"))
-                )
-                email = self.driver.find_element(By.XPATH, "//input[@id='inputEmail']")
-                email.send_keys(os.getenv('GLOBE_EMAIL'))
-                #self.driver.find_element(By.XPATH, "//input[@id='inputEmail']").send_keys(os.getenv('GLOBE_EMAIL'))
-                self.driver.find_element(By.XPATH, "//input[@id='inputPassword']").send_keys(os.getenv("GLOBE_PASSWORD"))
-                self.driver.find_element(By.XPATH, "//*[@id='app']/div[2]/div/div/span/form/button").click()
-                time.sleep(40)
-                self._grab_content()
-            except TimeoutException or NoSuchElementException:
-                time.sleep(30)
-                login_button = self.driver.find_element(By.XPATH, "//*[@id='app']/div/div/div[2]/section/div/div[2]/p/a").click()
-                time.sleep(2)
-                self.driver.find_element(By.XPATH, "//*[@id='inputEmail']").send_keys(os.getenv('GLOBE_EMAIL'))
-                self.driver.find_element(By.XPATH, "//*[@id='inputPassword']").send_keys(os.getenv("GLOBE_PASSWORD"))
-                self.driver.find_element(By.XPATH, "//*[@id='app']/div/div/div/span/form/button").click()
-                self._grab_content()
-            """
-            //*[@id="app"]/div/div/div[2]/section/div/div[2]/p/a
-                //*[@id="inputEmail"]
-                //*[@id="inputPassword"]
-                //*[@id="app"]/div/div/div/span/form/button
-            """
+        else:
+            self._grab_content()
 
-
-            
-        """
-        title: //*[@id="skip-link-target"]/h1
-        content: //*[@id="content-gate"]/*
-        """
-        """
-        self.output['title'] = self.driver.find_element(By.XPATH, "//div[@class='l-article-title']/header/div/h1").text
-        content = self.driver.find_elements(By.XPATH, "//*[@id='content-gate']/*")
-        acceptable = ['h1', 'h2', 'h3', 'h4', 'ul', 'p']
-        for section in content:
-            if section.tag_name == acceptable[4]: #ul
-                self.output['content']+=f"{section.text}:"
-                for item in section.find_elements(By.XPATH, './li'):
-                    self.output['content']+=f"- {item.text}"
-                self.output['content']+="\n"
-            elif section.tag_name in acceptable[:4]: #<h>
-                self.output['content']+= "\n"+f"heading: {section.text}"+"\n"
-
-            elif section.tag_name == acceptable[-1]: #<p>
-                self.output['content']+= section.text
-        """
         print(f"CONTENT - {self.output['content']}")
         print(f"DONE - {self.output['title']}")
+    
+if __name__ == "__main__":
+    service = Service(executable_path="C:\Program Files (x86)\chromedriver.exe")
+    options= webdriver.ChromeOptions()
+    #options.add_argument('headless')
+    driver = webdriver.Chrome(service=service, options=options)
+    globe = GlobeMail("https://www.theglobeandmail.com/world/article-former-tennis-pro-roger-federer-tells-students-that-effortless-is-a/", "12/06/2024", driver, True) 
+    globe.globe_scrape()
+    print(globe.output['content'])
         
+#//*[@id="site-header"]/header/div[1]/div/div[3]/div/a Log in button
+#/html/body/div[1]/div[1]/div[1]/header/div[1]/div/div[3]/div/a
