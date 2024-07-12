@@ -43,7 +43,10 @@ full_email_recipients = {'David' : "david.murray@parl.gc.ca",
                          "Micah": "micah.green@parl.gc.ca", 
                          "Roman": "Roman.Chelyuk@parl.gc.ca",
                          "Ben": "Ben.Woodfinden@parl.gc.ca",
-                         "Brian": "Brian.Bateson@parl.gc.ca"}
+                         "Brian": "Brian.Bateson@parl.gc.ca",
+                         "Bryce": "Bryce.McRae@parl.gc.ca",
+                         "Elan" : "Elan.Harper@parl.gc.ca",
+                         "Vincent": "Vincent.Desmarais@parl.gc.ca"}
 
 advisor_details = {
     'Connor':{
@@ -92,18 +95,21 @@ def _extract_summary(html)->str:
 
 def _email_creation(todays_df, advisor):
     #get all releases that relate to the advisor
-    current_advisor_df = todays_df[(todays_df['file_advisor_1'] == advisor_details[advisor]['formal']) | (todays_df['file_advisor_2'] == advisor_details[advisor]['formal'])].reset_index()
-    if len(current_advisor_df) > 0: #check if empty
-        email_content = f"""<p>GOOD MORNING {advisor}!</p><p>Today these reports, articles and news releases related to your files were included into the database:</p><h3>Releases related to your files</h3><ul>
+    #current_advisor_df = todays_df[(todays_df['file_advisor_1'] == advisor_details[advisor]['formal']) | (todays_df['file_advisor_2'] == advisor_details[advisor]['formal'])].reset_index()
+    if len(todays_df) > 0: #check if empty
+        email_content = f"""<p>Good Morning {advisor},</p><p>Today these reports, articles and news releases are of relevance to the policy team. For the details of the releases, please visit the <a href={'https://apps.powerapps.com/play/e/e7bc39a3-597f-eef2-9432-480d5c4cdcf6/a/d61a65df-0007-4736-8e6b-fd21d1f79180?tenantId=d35fe7ad-abdf-4422-8ef9-8234b4c7a904&source=AppSharedV3&sourcetime=1712175867781'}>{'PowerApps Application'}</a>.</p><h3>Releases: (Bolded are related to your files)</h3><ul>
         """
-        for x in range(len(current_advisor_df)): #add releases and hyperlink
-            email_content += f"<li>{current_advisor_df['institution'][x]} - <a href={current_advisor_df['url'][x]}>{current_advisor_df['title'][x]}</a></li>"
+        for x in range(len(todays_df)): #add releases and hyperlink
+            if todays_df['file_advisor_1'][x] == advisor_details[advisor]['formal'] or todays_df['file_advisor_2'][x] == advisor_details[advisor]['formal']:
+                email_content += f"<li>{todays_df['institution'][x]} - <strong><a href={todays_df['url'][x]}>{todays_df['title'][x]}</a></strong></li>"
+            else:
+                email_content += f"<li>{todays_df['institution'][x]} - <a href={todays_df['url'][x]}>{todays_df['title'][x]}</a></li>"
         email_content += '</ul><h3>Summaries of releases</h3><ul>'
-        for x in range(len(current_advisor_df)): #add release summaries
-            email_content += f"""<li><span style="text-decoration: underline;">{current_advisor_df['title'][x]}</span><ul><li>{_extract_summary(current_advisor_df['summary'][x])}</li></ul></li>"""
-        email_content += f"""</ul><p>Please refer to the database application to read more about these releases.</p><p>Here is your Pierre quote of the day: "{random.choice(poilievre_quotes)}"<br><p>Have a great day!</p>"""
+        for x in range(len(todays_df)): #add release summaries
+            email_content += f"""<li><span style="text-decoration: underline;">{todays_df['title'][x]}</span><ul><li>{_extract_summary(todays_df['summary'][x])}</li></ul></li>"""
+        email_content += f"""</ul><p>Here is your Pierre quote of the day: "{random.choice(poilievre_quotes)}"<br><p>Have a great day!</p>"""
         message = MIMEMultipart('alternative')
-        message['Subject'] = f"Summary: Recent inclusions to database related to your file"
+        message['Subject'] = f"Database Update: Recent inclusions related to your file"
         message['From'] = EMAIL
         #change to receiver 
         message["To"] = advisor_details[advisor]['email']
@@ -120,24 +126,29 @@ def _email_creation(todays_df, advisor):
         print(f"NOTHING TO SEND TO {advisor}")
 
 #my personal email send that 
-def send_email(text, title, institution, quotes):
-    text = re.sub("```html", f"Today {institution} released: {title}", text)
-    text += f"""<h3> Quotes</h3><p>{quotes}</p>"""
-    #html gpt output
+def send_email():
+    email_content = f"""<p>Good Morning Antony,</p><p>Today these reports, articles and news releases are of relevance to the policy team. For the details of the releases, please visit the <a href={'https://apps.powerapps.com/play/e/e7bc39a3-597f-eef2-9432-480d5c4cdcf6/a/d61a65df-0007-4736-8e6b-fd21d1f79180?tenantId=d35fe7ad-abdf-4422-8ef9-8234b4c7a904&source=AppSharedV3&sourcetime=1712175867781'}>{'PowerApps Application'}</a>.</p><h3>Releases: (Bolded are related to your files)</h3><ul>
+        """
+    for x in range(len(todays_df)): #add releases and hyperlink
+        email_content += f"<li>{todays_df['institution'][x]} - <a href={todays_df['url'][x]}>{todays_df['title'][x]}</a></li>"
+    email_content += '</ul><h3>Summaries of releases</h3><ul>'
+    for x in range(len(todays_df)): #add release summaries
+        email_content += f"""<li><span style="text-decoration: underline;">{todays_df['title'][x]}</span><ul><li>{_extract_summary(todays_df['summary'][x])}</li></ul></li>"""
+    email_content += f"""</ul><p>Here is your Pierre quote of the day: "{random.choice(poilievre_quotes)}"<br><p>Have a great day!</p>"""
     message = MIMEMultipart('alternative')
-    message['Subject'] = f"Summary: {title}"
+    message['Subject'] = f"Database Update: Recent inclusions related to your file"
     message['From'] = EMAIL
-    message["To"] = email_receiver
-    #part1 = MIMEText(text, "plain")
-    part2 = MIMEText(text, 'html')
-    #message.attach(part1)
+    #change to receiver 
+    message["To"] = "antony.dudnikov@parl.gc.ca"
+    part2 = MIMEText(email_content, 'html')
     message.attach(part2)
-
     context = ssl.create_default_context()
+    #send email
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context= context) as smtp:
         smtp.login(EMAIL, PASSWORD)
-        smtp.sendmail(EMAIL, email_receiver, message.as_string())
+        smtp.sendmail(EMAIL, "antony.dudnikov@parl.gc.ca", message.as_string())
     pass
+    print(f"EMAIL SENT TO Antony")
 
 def advisor_send(files):
     """
@@ -156,6 +167,7 @@ def advisor_send(files):
 
     if len(todays_df) > 0:
         #loop through advisors
+
         for key in advisor_details:
             if key != "David":
                 _email_creation(todays_df, key)
@@ -163,7 +175,7 @@ def advisor_send(files):
         #DAVID specific email send
         for key in full_email_recipients:
 
-            email_content = f"""<p>Good Morning {key}!</p><p>Today these reports, articles and news releases were included into the database:</p><h3>Releases</h3><ul>
+            email_content = f"""<p>GOOD MORNING {key}!</p><p>Today these reports, articles and news releases related to your files were included into the database. For the full list of releases, please visit the <a href={'https://apps.powerapps.com/play/e/e7bc39a3-597f-eef2-9432-480d5c4cdcf6/a/d61a65df-0007-4736-8e6b-fd21d1f79180?tenantId=d35fe7ad-abdf-4422-8ef9-8234b4c7a904&source=AppSharedV3&sourcetime=1712175867781'}>{'PowerApps Application'}</a>.</p><h3>Releases related to your files</h3><ul>
             """
             for x in range(len(todays_df)): #add releases and hyperlink
                 email_content += f"<li>{todays_df['institution'][x]} - <strong><a href={todays_df['url'][x]}>{todays_df['title'][x]}</a></strong></li>"
@@ -172,7 +184,7 @@ def advisor_send(files):
                 email_content += f"""<li><strong>{todays_df['title'][x]}</strong><ul><li>{_extract_summary(todays_df['summary'][x])}</li></ul></li>"""
             email_content += f"""</ul> <p>Please refer to the database application to read more about these releases.</p> <p>Here is your Pierre quote of the day: "{random.choice(poilievre_quotes)}"<br></p> <p>Have a great day!</p>"""
             message = MIMEMultipart('alternative')
-            message['Subject'] = f"Summary: Recent inclusions to database"
+            message['Subject'] = f"Database update: Recent inclusions"
             message['From'] = EMAIL
             #change to receiver 
             #message["To"] = "antony.dudnikov@parl.gc.ca"
@@ -186,6 +198,7 @@ def advisor_send(files):
                 smtp.sendmail(EMAIL, full_email_recipients[key], message.as_string())
                 #smtp.sendmail(EMAIL, "antony.dudnikov@parl.gc.ca", message.as_string())
             print(f"FULL EMAIL SENT TO {key}")
+           
     else:
         print("Nothing to send!")
            
@@ -199,6 +212,31 @@ if __name__ == "__main__":
     todays_df_extended = all_files_copy[all_files_copy["date_retrieved"] == datetime.date.today().strftime("%Y-%m-%d")].reset_index(drop=True)
     todays_df = pd.concat([todays_df, todays_df_extended], ignore_index=True)
     print(todays_df)
+    email_content = f"""<p>Good Morning Antony,</p><p>Today these reports, articles and news releases are of relevance to the policy team. For the details of the releases, please visit the <a href={'https://apps.powerapps.com/play/e/e7bc39a3-597f-eef2-9432-480d5c4cdcf6/a/d61a65df-0007-4736-8e6b-fd21d1f79180?tenantId=d35fe7ad-abdf-4422-8ef9-8234b4c7a904&source=AppSharedV3&sourcetime=1712175867781'}>{'PowerApps Application'}</a>.</p><h3>Releases: (Bolded are related to your files)</h3><ul>
+        """
+    for x in range(len(todays_df)): #add releases and hyperlink
+        if todays_df['file_advisor_1'][x] == "D. Hall" or todays_df['file_advisor_2'][x] == "D. Hall":
+            email_content += f"<li>{todays_df['institution'][x]} - <strong><a href={todays_df['url'][x]}>{todays_df['title'][x]}</a></strong></li>"
+        else:
+            email_content += f"<li>{todays_df['institution'][x]} - <a href={todays_df['url'][x]}>{todays_df['title'][x]}</a></li>"
+    email_content += '</ul><h3>Summaries of releases</h3><ul>'
+    for x in range(len(todays_df)): #add release summaries
+        email_content += f"""<li><span style="text-decoration: underline;">{todays_df['title'][x]}</span><ul><li>{_extract_summary(todays_df['summary'][x])}</li></ul></li>"""
+    email_content += f"""</ul><p>Here is your Pierre quote of the day: "{random.choice(poilievre_quotes)}"<br><p>Have a great day!</p>"""
+    message = MIMEMultipart('alternative')
+    message['Subject'] = f"Database Update: Recent inclusions related to your file"
+    message['From'] = EMAIL
+    #change to receiver 
+    message["To"] = "antony.dudnikov@parl.gc.ca"
+    part2 = MIMEText(email_content, 'html')
+    message.attach(part2)
+    context = ssl.create_default_context()
+    #send email
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context= context) as smtp:
+        smtp.login(EMAIL, PASSWORD)
+        smtp.sendmail(EMAIL, "antony.dudnikov@parl.gc.ca", message.as_string())
+    pass
+    print(f"EMAIL SENT TO Antony")
 
 
     

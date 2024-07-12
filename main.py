@@ -363,7 +363,7 @@ if __name__ == '__main__':
                 url = input('What is the url?\n')
                 if url not in all_files_copy['url'].values:
                     release_date = input("What is the release date? Write in this format, dd/mm/YYYY \n")
-                    globe = globe_mail.GlobeMail(url, release_date, driver, "The Globe and Mail" in institutions) 
+                    globe = globe_mail.GlobeMail(url, release_date, driver, "The Globe and Mail" not in institutions) 
                     #to validate if its the first submission so as to not run the login procedure again
                     globe.globe_scrape()
                     titles.append(globe.output['title'])
@@ -462,7 +462,7 @@ if __name__ == '__main__':
                             for x in range(len(summaries)):
                                 print(f"[{x}] - {titles[x]} \n")
                             number = input('Type the number of the corresponding report to email.\n')
-                            send_email.send_email(summaries[int(number)], titles[int(number)], institutions[int(number)], quotes[int(number)])
+                            send_email.send_email()
                             print("Email sent.\n")
                         elif email_question == 'no':
                             print('Thank you. Have a great rest of your day!')

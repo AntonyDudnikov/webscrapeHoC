@@ -40,7 +40,7 @@ system_prompt2 = """You are a policy analyst tasked with summarising Statistics 
 system_prompt_final = """You are a policy analyst tasked with summarising and providing key facts of the content 
     supplied with the triple quotation delimiter. Follow these instructions:
     1. Include a 100 word max summary headed by 'Summary', that highlights the main statistics and points.
-    2. Under a 'Facts' heading, list the most important variables
+    2. Under a 'Key Points' heading, list the most important variables
     3. Under each variable mentioned, further indent, and list the changes and values of 
         the variable without extra words. Place the percentage first and the amount changed in parenthesis afterwards. 
 
