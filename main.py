@@ -70,19 +70,7 @@ files = {
 """
 
 file_advisors = {
-    "C. MacDonald":[
-        "Agriculture, Agri-Food and Food Security",
-        "Crown-indigenous Relations",
-        "Environment and Climate Change",
-        "Fisheries, Oceans and the Canadian Coast Guard",
-        "Health",
-        "Mental Health and Suicide Prevention",
-        "Addictions",
-        "Natural Resources",
-        "Indigenous Services"
-    ],
     "D. Hall":[
-        "Digital Government",
         "Federal Economic Development Agency for Eastern, Central and Southern Ontario",
         "Housing and Diversity and Inclusion",
         "Federal Economic Development Agency for Northern Ontario",
@@ -92,11 +80,7 @@ file_advisors = {
         "Pacific Economic Development",
         "Atlantic Canada Opportunities Agency",
         "Rural Economic Development & Connectivity",
-        "Tourism",
-
-    ],
-    "D. Murray":[
-        "Hunting, Fishing and Conservation"
+        "Infrastructure and Communities" 
     ],
     "E. Harper":[
         "Finance and Middle Class Prosperity",
@@ -105,18 +89,23 @@ file_advisors = {
         "Small Business Recovery and Growth",
         "National Revenue",
         "Treasury Board", 
-        "Pan-Canadian Trade and Competition"
+        "Pan-Canadian Trade and Competition",
+        "Environment and Climate Change",
+        "Natural Resources"
     ],
-    "E. Hopper":[
+    "C. Hilimoniuk":[
         "Ethics and Accountable Government"
     ],
     "M. Emes":[
         "Families, Children and Social Development",  
         "Supply Chain Issues",
-        "Seniors",
         "Transport",
-        "Women and Gender Equality and Youth", 
-        "Infrastructure and Communities" 
+        "Women and Gender Equality and Youth",
+        "Agriculture, Agri-Food and Food Security",
+        "Crown-indigenous Relations",
+        "Fisheries, Oceans and the Canadian Coast Guard",
+        "Hunting, Fishing and Conservation",
+        "Indigenous Services"
     ],
     "S. Phelan": [
         "Foreign Affairs", 
@@ -135,7 +124,15 @@ file_advisors = {
         "Official Languages", 
         "Public Safety", 
         "Emergency Preparedness", 
-        "Labour"
+        "Labour",
+        "Health",
+        "Mental Health and Suicide Prevention",
+        "Addictions"
+    ],
+    "A. Dudnikov":[
+        "Digital Government",
+        "Tourism",
+        "Seniors"
     ]
 }
 

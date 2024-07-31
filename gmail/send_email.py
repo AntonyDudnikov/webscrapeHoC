@@ -38,21 +38,29 @@ poilievre_quotes = ["Society is not a zero-sum game. One person's gain does not 
                     "My dreams of NHL glory were never fulfilled so I had to settle for politics instead.",
                     "wacko policy... wacko prime minister"]
 
-full_email_recipients = {'David' : "david.murray@parl.gc.ca", 
-                         "Jwane": "jwane.izzetpanah@parl.gc.ca", 
+full_email_recipients = {"Jwane": "jwane.izzetpanah@parl.gc.ca", 
                          "Micah": "micah.green@parl.gc.ca", 
                          "Roman": "Roman.Chelyuk@parl.gc.ca",
                          "Ben": "Ben.Woodfinden@parl.gc.ca",
                          "Brian": "Brian.Bateson@parl.gc.ca",
                          "Bryce": "Bryce.McRae@parl.gc.ca",
-                         "Elan" : "Elan.Harper@parl.gc.ca",
-                         "Vincent": "Vincent.Desmarais@parl.gc.ca"}
+                         "Vincent": "Vincent.Desmarais@parl.gc.ca",
+                         "Aaron": "Aaron.Wudrick@parl.gc.ca",
+                         "Antony": "Antony.Dudnikov@parl.gc.ca"}
 
 advisor_details = {
-    'Connor':{
-        'formal': 'C. MacDonald',
-        'email':"connor.macdonald@parl.gc.ca"
+    'Antony':{
+        'formal': 'A. Dudnikov',
+        'email': 'antony.dudnikov@parl.gc.ca'
     },
+    'Craig':{
+        'formal': 'C. Hilimonuik',
+        'email': "craig.hilimonuik@parl.gc.ca"
+    },
+    # 'Connor':{
+    #     'formal': 'C. MacDonald',
+    #     'email':"connor.macdonald@parl.gc.ca"
+    # },
     'Sean':{
         'formal': 'S. Phelan',
         'email': "sean.phelan@parl.gc.ca"
@@ -169,13 +177,12 @@ def advisor_send(files):
         #loop through advisors
 
         for key in advisor_details:
-            if key != "David":
-                _email_creation(todays_df, key)
+            _email_creation(todays_df, key)
 
         #DAVID specific email send
         for key in full_email_recipients:
 
-            email_content = f"""<p>GOOD MORNING {key}!</p><p>Today these reports, articles and news releases related to your files were included into the database. For the full list of releases, please visit the <a href={'https://apps.powerapps.com/play/e/e7bc39a3-597f-eef2-9432-480d5c4cdcf6/a/d61a65df-0007-4736-8e6b-fd21d1f79180?tenantId=d35fe7ad-abdf-4422-8ef9-8234b4c7a904&source=AppSharedV3&sourcetime=1712175867781'}>{'PowerApps Application'}</a>.</p><h3>Releases related to your files</h3><ul>
+            email_content = f"""<p>Good morning {key},</p><p>Today these reports, articles and news releases related to our policy shop files were included into the database. For the full list of releases, please visit the <a href={'https://apps.powerapps.com/play/e/e7bc39a3-597f-eef2-9432-480d5c4cdcf6/a/d61a65df-0007-4736-8e6b-fd21d1f79180?tenantId=d35fe7ad-abdf-4422-8ef9-8234b4c7a904&source=AppSharedV3&sourcetime=1712175867781'}>{'PowerApps Application'}</a>.</p><h3>Releases related to your files</h3><ul>
             """
             for x in range(len(todays_df)): #add releases and hyperlink
                 email_content += f"<li>{todays_df['institution'][x]} - <strong><a href={todays_df['url'][x]}>{todays_df['title'][x]}</a></strong></li>"
@@ -184,7 +191,7 @@ def advisor_send(files):
                 email_content += f"""<li><strong>{todays_df['title'][x]}</strong><ul><li>{_extract_summary(todays_df['summary'][x])}</li></ul></li>"""
             email_content += f"""</ul> <p>Please refer to the database application to read more about these releases.</p> <p>Here is your Pierre quote of the day: "{random.choice(poilievre_quotes)}"<br></p> <p>Have a great day!</p>"""
             message = MIMEMultipart('alternative')
-            message['Subject'] = f"Database update: Recent inclusions"
+            message['Subject'] = f"Today's News Scan"
             message['From'] = EMAIL
             #change to receiver 
             #message["To"] = "antony.dudnikov@parl.gc.ca"
