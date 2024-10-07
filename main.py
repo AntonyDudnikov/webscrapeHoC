@@ -117,7 +117,7 @@ file_advisors = {
         "Veterans Affairs",
         "Democratic Reform",
     ],
-    "Y. Zhu":[
+    "A. Evans":[
         "Canadian Heritage", 
         "Immigration, Refugees and Citizenship", 
         "Sport, Economic Development Agency of Canada for the Regions of Quebec",
@@ -146,7 +146,7 @@ def file_allocation(list_files:list):
                 advisors[x].append(key)
                 inclusion = True
         if not inclusion:
-            aq = input(f"This is the heading, who is the corresponding advisor for this heading: {list_files[x]}?\n[C. MacDonald, D. Hall, D. Murray, E. Harper, E. Hopper, M. Emes, S. Phelan, Y. Zhu] \n")
+            aq = input(f"This is the heading, who is the corresponding advisor for this heading: {list_files[x]}?\n[A. Dudnikov, D. Hall, E. Harper, E. Hopper, M. Emes, S. Phelan, Y. Zhu] \n")
             advisors[x].append(aq)
         
 
@@ -200,8 +200,6 @@ if __name__ == '__main__':
     news = []
     quotes = []
     inputs = []
-
-
     """
     How it works:
     - through a series of input functions, the corresponding scrape is done
@@ -223,7 +221,7 @@ if __name__ == '__main__':
                     if type == 'The Daily':
                         statcan_report.statcan_daily_scrape()
                         release_dates.append(statcan_report.output['release_date'])
-                        titles.append(statcan_report.output['title'])
+                        titles.append(statcan_report.output['title']) 
                         urls.append(statcan_report.output['url'])
                         dates_retrieved.append(statcan_report.output['date_retrieved'])
                         institutions.append('Statistics Canada')

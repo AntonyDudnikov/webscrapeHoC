@@ -135,7 +135,7 @@ def print_result(output) -> str:
 
 def quote_identifier(output, manual:bool) -> str:
     response = client.chat.completions.create(
-        model = 'gpt-4-1106-preview',
+        model = 'gpt-4o',
         #model="gpt-3.5-turbo-1106",
         temperature=0.5,
         stream=False,
@@ -158,7 +158,7 @@ def classify_file(title) -> str:
     """
     response = client.chat.completions.create(
         #model = 'gpt-4-1106-preview',
-        model="gpt-3.5-turbo-1106",
+        model="gpt-4o",
         temperature=0.0,
         stream=False,
         messages=[
@@ -181,7 +181,7 @@ def summary_processing(output, manual):
     Output: string content of GPT LLM output
     """
     response = client.chat.completions.create(
-        model = 'gpt-4-1106-preview',
+        model = 'gpt-4o',
         #model="gpt-3.5-turbo-1106",
         temperature=0.3,
         stream=False,
