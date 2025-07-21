@@ -146,7 +146,7 @@ def file_allocation(list_files:list):
                 advisors[x].append(key)
                 inclusion = True
         if not inclusion:
-            aq = input(f"This is the heading, who is the corresponding advisor for this heading: {list_files[x]}?\n[A. Dudnikov, D. Hall, E. Harper, E. Hopper, M. Emes, S. Phelan, Y. Zhu] \n")
+            aq = input(f"This is the heading, who is the corresponding advisor for this heading: {list_files[x]}?\n[A. Dudnikov, D. Hall, E. Harper, E. Hopper, M. Emes, S. Phelan, A. Evans] \n")
             advisors[x].append(aq)
         
 
@@ -487,8 +487,7 @@ if __name__ == '__main__':
     all_files_copy.to_json('storage/final_loaded.json', 'records', indent=2)
     load_storage.upload_storage()
     #TODO remove this comment
-
-
+    print('ummm what?!?!')
     driver.quit()
 
 """

@@ -26,6 +26,7 @@ class GlobeMail(Source):
         self.output['content'] = ''
     
     def _grab_content(self):
+
         self.output['title'] = self.driver.find_element(By.XPATH, "//*[@id='skip-link-target']/h1").text
         # content = WebDriverWait(self.driver, 5).until(
         #         EC.presence_of_element_located((By.XPATH, "//*[@id='content-gate']/*"))
@@ -77,7 +78,7 @@ if __name__ == "__main__":
     options= webdriver.ChromeOptions()
     #options.add_argument('headless')
     driver = webdriver.Chrome(service=service, options=options)
-    globe = GlobeMail("https://www.theglobeandmail.com/world/article-former-tennis-pro-roger-federer-tells-students-that-effortless-is-a/", "12/06/2024", driver, True) 
+    globe = GlobeMail("https://www.theglobeandmail.com/canada/article-ontario-presses-ottawa-for-more-child-care-money-as-some-for-profit/", driver, True) 
     globe.globe_scrape()
     print(globe.output['content'])
         

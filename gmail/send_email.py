@@ -40,14 +40,14 @@ poilievre_quotes = ["Society is not a zero-sum game. One person's gain does not 
 
 full_email_recipients = {"Jwane": "jwane.izzetpanah@parl.gc.ca", 
                          "Micah": "micah.green@parl.gc.ca", 
-                         "Roman": "Roman.Chelyuk@parl.gc.ca",
                          "Ben": "Ben.Woodfinden@parl.gc.ca",
                          "Brian": "Brian.Bateson@parl.gc.ca",
                          "Bryce": "Bryce.McRae@parl.gc.ca",
                          "Vincent": "Vincent.Desmarais@parl.gc.ca",
                          "Aaron": "Aaron.Wudrick@parl.gc.ca",
                          "Antony": "Antony.Dudnikov@parl.gc.ca",
-                         "Jared": "Jared.Borgersen@parl.gc.ca"}
+                         "Jared": "Jared.Borgersen@parl.gc.ca",
+                         "Luhan": "Luhan.Yao@parl.gc.ca"}
 
 advisor_details = {
     'Antony':{
@@ -56,8 +56,8 @@ advisor_details = {
     },
     'Craig':{
         'formal': 'C. Hilimonuik',
-        'email': "craig.hilimonuik@parl.gc.ca"
-    },
+        'email': "craig.hilimoniuk@parl.gc.ca"
+    }, 
     # 'Connor':{
     #     'formal': 'C. MacDonald',
     #     'email':"connor.macdonald@parl.gc.ca"
@@ -98,10 +98,12 @@ advisor_details = {
 
 def _extract_summary(html)->str:
     try:
-        pattern = re.compile(r'<p>(.*?)</p>', re.DOTALL)
+        pattern = re.compile(r'<h3>Summary</h3>(.*?)<h3>Key Points</h3>', re.DOTALL)
         match = re.search(pattern, html)
         if match:
-            return match.group(1)
+            #  print(f" the extracted: {match.group(1)} \n")
+            temp = match.group(1).replace("<p>", "").replace("</p>", "").replace("\n", "")
+            return temp
     except TypeError:
         return "Error extracting summary, visit the app to read more about this release. "
     
@@ -224,8 +226,8 @@ if __name__ == "__main__":
     todays_df_extended = all_files_copy[all_files_copy["date_retrieved"] == datetime.date.today().strftime("%Y-%m-%d")].reset_index(drop=True)
     todays_df = pd.concat([todays_df, todays_df_extended], ignore_index=True)
     print(todays_df)
-    _email_creation(todays_df, "Antony")
-    print("Email sent to Andrew")
+    _email_creation(todays_df, "Antony") 
+    print("Email sent to Antony")
 
 
     
